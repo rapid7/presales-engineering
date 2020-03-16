@@ -1,0 +1,12 @@
+version: '2'
+services:
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - /opt/docker/postgres/pgsql/pgdata:/postgres/pgsql/pgdata
+    environment:
+      - PGDATA=/postgres/pgsql/pgdata
+      - POSTGRES_USER=nxadmin
+      - POSTGRES_PASSWORD=nxpassword

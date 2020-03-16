@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Vulnerability id="docker-available-images-check" published="2016-09-22" added="2016-09-22" modified="2016-09-22" version="2.0">
+  <name>Docker Image(s) Found</name>
+  <severity>8</severity>
+  <Tags>
+     <tag>Docker</tag>
+     <tag>Container</tag>
+     <tag>Image</tag>
+     <tag>PSO</tag>
+  </Tags>
+  <cvss>(AV:N/AC:L/Au:N/C:P/I:N/A:N)</cvss>
+  <Description>
+     <p>The Docker Runtime was identified on the system along with available Docker images.
+     Use of unknown Docker images could have an impact on environment security.</p>
+  </Description>
+  <Solutions>
+     <SolutionRef id="docker-available-images-check"/>
+  </Solutions>
+</Vulnerability>

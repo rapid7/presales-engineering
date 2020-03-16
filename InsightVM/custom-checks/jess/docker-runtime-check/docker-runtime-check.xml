@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Vulnerability id="docker-runtime-check" published="2016-09-22" added="2016-09-22" modified="2016-09-22" version="2.0">
+  <name>Docker Runtime Installed</name>
+  <severity>8</severity>
+  <Tags>
+     <tag>Docker</tag>
+     <tag>Container</tag>
+     <tag>PSO</tag>
+  </Tags>
+  <cvss>(AV:N/AC:L/Au:N/C:P/I:N/A:N)</cvss>
+  <Description>
+     <p>The Docker Runtime was identified on the system and could potentially have running containers.
+     Unknow use of Docker containers could have an unknown impact on environment security. When in use,
+     ensure the Docker daemon is kept up to date.</p>
+  </Description>
+  <Solutions>
+     <SolutionRef id="docker-runtime-check"/>
+  </Solutions>
+</Vulnerability>

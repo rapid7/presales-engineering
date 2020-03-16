@@ -1,0 +1,10 @@
+<VulnerabilityCheck id="windows-ir_agent-start-state-esc" scope="node">
+   <System>
+      <OS minCertainty="1.0" vendor="Microsoft" family="Windows"></OS>
+   </System>
+   <WindowsRegistry>
+      <registryKey name="HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ir_agent" mustNotBePresent="1">
+         <registryValue name="Start"><regex>^[01345]$</regex></registryValue>
+      </registryKey>
+   </WindowsRegistry>
+</VulnerabilityCheck>

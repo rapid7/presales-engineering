@@ -1,0 +1,9 @@
+<VulnerabilityCheck id="windows-ir_agent-not-running-esc" scope="node" version="1.0">
+  <System>
+    <OS minCertainty="0.85" vendor="Microsoft" family="Windows"></OS>
+  </System>
+  <WMIQueryLanguage>
+    <WQLRequest namespace="root\cimv2">SELECT Name FROM Win32_Service WHERE Name = 'ir_agent' AND State <> 'Running'</WQLRequest>
+    <WQLResponse><regex>.*</regex></WQLResponse>
+  </WMIQueryLanguage>
+</VulnerabilityCheck>

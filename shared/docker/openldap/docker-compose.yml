@@ -1,0 +1,12 @@
+version: '2'
+services:
+  openldap:
+    image: dinkel/openldap
+    ports:
+      - "389:389"
+      - "636:636"
+    environment:
+      - SLAPD_PASSWORD=password
+      - SLAPD_DOMAIN=rapid7.com
+    volumes:
+      - ./ldif/prepopulate:/etc/ldap.dist/prepopulate

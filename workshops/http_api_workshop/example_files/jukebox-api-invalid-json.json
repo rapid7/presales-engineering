@@ -1,0 +1,508 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Jukebox API",
+    "version": "v1"
+  },
+  "host": "jukebox.api.com",
+  "schemes": : [
+    "http"
+  ],
+  "definitions": {
+    "song": {
+      "type": "string"
+    },
+    "artist": {
+      "type": "string"
+    },
+    "album": {
+      "type": "string"
+    }
+  },
+  "parameters": {
+    "trait:orderable:order": {
+      "default": "desc",
+      "description": "Order",
+      "enum": [
+        "desc",
+        "asc"
+      ],
+      "type": "string",
+      "in": "query",
+      "name": "order"
+    },
+    "trait:pageable:offset": {
+      "default": 0,
+      "description": "Skip over a number of elements by specifying an offset value for the query",
+      "type": "integer",
+      "in": "query",
+      "name": "offset"
+    },
+    "trait:pageable:limit": {
+      "default": 10,
+      "description": "Limit the number of elements on the response",
+      "type": "integer",
+      "in": "query",
+      "name": "limit"
+    }
+  },
+  "paths": {
+    "/songs": {
+      "get": {
+        "description": "Get a list of songs.",
+        "operationId": "GET_songs",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": "Can not resolve jukebox-include-songs.sample\n"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "JSON array [{\"field1\",\"value1\",\"operator1\"},{\"field2\",\"value2\",\"operator2\"},...,{\"fieldN\",\"valueN\",\"operatorN\"}] with valid searchable fields: songTitle\n",
+            "type": "string",
+            "in": "query",
+            "name": "query",
+            "required": true
+          },
+          {
+            "description": "Order by field: songTitle\n",
+            "type": "string",
+            "in": "query",
+            "name": "orderBy"
+          },
+          {
+            "$ref": "#/parameters/trait:orderable:order"
+          },
+          {
+            "$ref": "#/parameters/trait:pageable:offset"
+          },
+          {
+            "$ref": "#/parameters/trait:pageable:limit"
+          }
+        ]
+      },
+      "post": {
+        "description": "Add a new song to Jukebox.\n",
+        "operationId": "POST_songs",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": {
+                "message": "The song has been properly entered"
+              }
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "example": "Can not resolve jukebox-include-song-new.sample\n",
+              "$ref": "#/definitions/song"
+            },
+            "in": "body",
+            "name": "body"
+          },
+          {
+            "required": true,
+            "description": "The access token provided by the authentication application",
+            "type": "string",
+            "in": "query",
+            "name": "access_token"
+          }
+        ]
+      }
+    },
+    "/songs/{songId}": {
+      "get": {
+        "description": "Get the song\nwith songId =\n{songId}\n",
+        "operationId": "GET_songs-songId",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": "Can not resolve jukebox-include-song-retrieve.sample\n"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "example": {
+                "message": "song not found"
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "in": "path",
+          "name": "songId",
+          "required": true
+        }
+      ]
+    },
+    "/songs/{songId}/file-content": {
+      "get": {
+        "description": "Get the file content",
+        "operationId": "GET_songs-songId-file-content",
+        "produces": [
+          "binary/octet-stream"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": "Can not resolve heybulldog.mp3"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Enters the file content for an existing song entity.\n\nThe song needs to be created for the `/songs/{songId}/file-content` to exist.\nYou can use this second resource to get and post the file to reproduce.\n\nUse the \"binary/octet-stream\" content type to specify the content from any consumer (excepting web-browsers).\nUse the \"multipart-form/data\" content type to upload a file which content will become the file-content\n",
+        "operationId": "POST_songs-songId-file-content",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "consumes": [
+          "binary/octet-stream"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "body",
+            "name": "body"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "in": "path",
+          "name": "songId",
+          "required": true
+        }
+      ]
+    },
+    "/artists": {
+      "get": {
+        "description": "Get a list of artists.",
+        "operationId": "GET_artists",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": "Can not resolve jukebox-include-artists.sample\n"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "JSON array [{\"field1\",\"value1\",\"operator1\"},{\"field2\",\"value2\",\"operator2\"},...,{\"fieldN\",\"valueN\",\"operatorN\"}] with valid searchable fields: countryCode\n",
+            "type": "string",
+            "in": "query",
+            "name": "query",
+            "required": true
+          },
+          {
+            "description": "Order by field: artistName, nationality\n",
+            "type": "string",
+            "in": "query",
+            "name": "orderBy"
+          },
+          {
+            "$ref": "#/parameters/trait:orderable:order"
+          },
+          {
+            "$ref": "#/parameters/trait:pageable:offset"
+          },
+          {
+            "$ref": "#/parameters/trait:pageable:limit"
+          }
+        ]
+      },
+      "post": {
+        "description": "Add a new artist to Jukebox.\n",
+        "operationId": "POST_artists",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": {
+                "message": "The artist has been properly entered"
+              }
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "example": "Can not resolve jukebox-include-artist-new.sample\n",
+              "$ref": "#/definitions/artist"
+            },
+            "in": "body",
+            "name": "body"
+          },
+          {
+            "required": true,
+            "description": "The access token provided by the authentication application",
+            "type": "string",
+            "in": "query",
+            "name": "access_token"
+          }
+        ]
+      }
+    },
+    "/artists/{artistId}": {
+      "get": {
+        "description": "Get the artist\nwith artistId =\n{artistId}\n",
+        "operationId": "GET_artists-artistId",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": "Can not resolve jukebox-include-artist-retrieve.sample\n"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "example": {
+                "message": "artist not found"
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "in": "path",
+          "name": "artistId",
+          "required": true
+        }
+      ]
+    },
+    "/artists/{artistId}/albums": {
+      "get": {
+        "description": "Get a specific artist's albums list",
+        "operationId": "GET_artists-artistId-albums",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": "Can not resolve jukebox-include-artist-albums.sample\n"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "Order by field: albumName\n",
+            "type": "string",
+            "in": "query",
+            "name": "orderBy"
+          },
+          {
+            "$ref": "#/parameters/trait:orderable:order"
+          },
+          {
+            "$ref": "#/parameters/trait:pageable:offset"
+          },
+          {
+            "$ref": "#/parameters/trait:pageable:limit"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "in": "path",
+          "name": "artistId",
+          "required": true
+        }
+      ]
+    },
+    "/albums": {
+      "get": {
+        "description": "Get a list of albums.",
+        "operationId": "GET_albums",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": "Can not resolve jukebox-include-albums.sample\n"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "JSON array [{\"field1\",\"value1\",\"operator1\"},{\"field2\",\"value2\",\"operator2\"},...,{\"fieldN\",\"valueN\",\"operatorN\"}] with valid searchable fields: genreCode\n",
+            "type": "string",
+            "in": "query",
+            "name": "query",
+            "required": true
+          },
+          {
+            "description": "Order by field: albumName, genre\n",
+            "type": "string",
+            "in": "query",
+            "name": "orderBy"
+          },
+          {
+            "$ref": "#/parameters/trait:orderable:order"
+          },
+          {
+            "$ref": "#/parameters/trait:pageable:offset"
+          },
+          {
+            "$ref": "#/parameters/trait:pageable:limit"
+          }
+        ]
+      },
+      "post": {
+        "description": "Add a new album to Jukebox.\n",
+        "operationId": "POST_albums",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": {
+                "message": "The album has been properly entered"
+              }
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "example": "Can not resolve jukebox-include-album-new.sample\n",
+              "$ref": "#/definitions/album"
+            },
+            "in": "body",
+            "name": "body"
+          },
+          {
+            "required": true,
+            "description": "The access token provided by the authentication application",
+            "type": "string",
+            "in": "query",
+            "name": "access_token"
+          }
+        ]
+      }
+    },
+    "/albums/{albumId}": {
+      "get": {
+        "description": "Get the album\nwith albumId =\n{albumId}\n",
+        "operationId": "GET_albums-albumId",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": "Can not resolve jukebox-include-album-retrieve.sample\n"
+            }
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "example": {
+                "message": "album not found"
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "in": "path",
+          "name": "albumId",
+          "required": true
+        }
+      ]
+    },
+    "/albums/{albumId}/songs": {
+      "get": {
+        "description": "Get the list of songs for the album with `albumId = {albumId}`",
+        "operationId": "GET_albums-albumId-songs",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "example": "Can not resolve jukebox-include-album-songs.sample\n"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "description": "Order by field: songTitle\n",
+            "type": "string",
+            "in": "query",
+            "name": "orderBy"
+          },
+          {
+            "$ref": "#/parameters/trait:orderable:order"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "type": "string",
+          "in": "path",
+          "name": "albumId",
+          "required": true
+        }
+      ]
+    }
+  }
+}

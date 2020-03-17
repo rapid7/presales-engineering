@@ -1,0 +1,99 @@
+<VulnerabilityCheck id="docker-runtime-check" version="1.0" scope="node" framework="55">
+   <JessRule>
+      <query>
+         (EndpointService
+            (endpoint ?j_endpoint)
+            (service ?j_service)
+            (serviceTypes ?serviceTypes&amp;:(neq (bit-and ?serviceTypes (IService.SERVICE_TYPE_REMOTE_EXEC)) 0))
+         )
+
+         (exists (SystemFingerprint
+            (networkNode ?j_node&amp;:(eq ?j_node (call ?j_endpoint getNetworkNode)))
+            (fingerprint ?j_fingerprint&amp;:(and
+                                    (is-os-type-unix-variant ?j_fingerprint)
+                                    (&gt; (call ?j_fingerprint getCertainty) .50)))
+         ))
+      </query>
+      <body>
+         (try
+            (bind ?j_result (call ?j_service executeCommand "sudo -n -u root bash -c \"docker version | grep -i -A1 '^server' | grep -i 'version:'\"" 240000))
+            (try
+               (if
+                  (call ?j_result hasStdOutput)
+               then
+                  (bind ?j_stdout (call ?j_result getStdOutput))
+                  (bind ?j_lineInput (new com.rapid7.io.LineInputStream ?j_stdout))
+                  (bind ?j_line (call ?j_lineInput readLine))
+                  (bind ?lineNum 0)
+                  (bind ?j_para (new com.rapid7.doc.Paragraph))
+                  (call ?j_para addChild (new com.rapid7.doc.Text "Docker daemon found:"))
+                  (bind ?j_list (new com.rapid7.doc.UnorderedList))
+                  (while
+                     (and
+                        (neq ?j_line nil)
+                        (&lt; ?lineNum 50)
+                     )
+                  do
+                     (if
+                        (call ?j_line startsWith " Version:")
+                     then
+                        (bind ?j_listItem (new com.rapid7.doc.ListItem))
+                        (call ?j_listItem addChild (new com.rapid7.doc.Text ?j_line))
+                        (call ?j_list addChild ?j_listItem)
+                     )
+
+                     (bind ?lineNum (+ ?lineNum 1))
+                     (bind ?j_line (call ?j_lineInput readLine))
+                  )
+
+                  (if
+                     (&gt; ?lineNum 0)
+                  then
+                     (if
+                        (eq ?lineNum 49)
+                     then
+                        (call ?j_para addChild (new com.rapid7.doc.Text " The list is limited to 50 images, although there may be more."))
+                     )
+
+                     (call ?j_para addChild ?j_list)
+                     (vulnerability-test-exploited ?j_vulnCkRes ?j_para)
+                  else
+                     (vulnerability-test-not-vulnerable ?j_vulnCkRes "Did not find any available Docker images")
+                  )
+               elif
+                  (eq (call ?j_result getReturnCode) 0)
+               then
+                  (vulnerability-test-not-vulnerable ?j_vulnCkRes "Did not find any available Docker images")
+               elif
+                  (call ?j_result hasStdError)
+               then
+               ; read STDERR one line at a time, appending each line to a string buffer, separating
+               ; each line by CRLF
+               (bind ?j_errStream (new com.rapid7.io.LineInputStream (call ?j_result getStdError) FALSE))
+               (bind ?j_errBuff (new java.lang.StringBuffer))
+               (bind ?j_currentErrorLine (call ?j_errStream readLine))
+               (while
+                  (neq ?j_currentErrorLine nil)
+               do
+                  ; append the current line
+                  (call ?j_errBuff append ?j_currentErrorLine)
+                  ; read the next line
+                  (bind ?j_currentErrorLine (call ?j_errStream readLine))
+                  (if (neq ?j_currentErrorLine nil) then
+                     ; make the output pretty -- append CRLF if there are more lines
+                     (append-crlf ?j_errBuff)
+                  )
+               )
+               (vulnerability-test-failed ?j_vulnCkRes (str-cat "Returned standard error output: " (call ?j_errBuff toString)))
+               else
+                  (vulnerability-test-failed ?j_vulnCkRes (str-cat "Could not get output: returned error code " (call ?j_result getReturnCode)))
+               )
+            finally
+               (call ?j_result close)
+            )
+         catch
+            (vulnerability-test-failed ?j_vulnCkRes ?ERROR)
+         )
+      </body>
+   </JessRule>
+</VulnerabilityCheck>

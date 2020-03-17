@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<MacroEventList>
+<MacroEvent>
+   <DbId>90B74D307E8E4A778099A6976C943AE2</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Navigate</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[http://vulnwebapps.REDACTED.com:8008/login]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>6431</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>00DF8A8695E14A2B9BB57DE78643CEDF</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>6457</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>A4C0D97925554E5193E0B5685A3A3317</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>OnClick</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[xpath=//INPUT[@name="uid"]]]></ElementPath>
+   <Duration>6460</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>635645C116094A9290F0776616A7BA75</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>6396</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>039A87CDB26E4DA6BC71BC5C3E1743CA</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>SetControlData</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[test]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[xpath=//INPUT[@name="uid"]]]></ElementPath>
+   <Duration>7048</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>55D8C638A2DD435091F3FE450E989E67</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>7016</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>E5C3C4782B204E599494241FC8DB6B92</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>OnClick</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[xpath=//INPUT[@name="pw"]]]></ElementPath>
+   <Duration>5283</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>77580182A44F4E3597928C5E35E54FB4</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>5328</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>02729F68078B44A9BEFCD2D21AE197E4</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>SetControlData</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[test]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[xpath=//INPUT[@name="pw"]]]></ElementPath>
+   <Duration>4303</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>96A637CFEA474DAF977927C214FC7370</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>4292</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>7DD9EB5431FC4D9EA4899BBF93C154CC</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>OnClick</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[Login]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[xpath=/HTML/BODY/DIV[2]/FORM/TABLE/TBODY/TR[2]/TD[1]/INPUT]]></ElementPath>
+   <Duration>5710</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>95CC854E65DC4F0CB509177222ACFFE0</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>5660</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+</MacroEventList>

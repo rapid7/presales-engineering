@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Vulnerability id="windows-ir_agent-not-installed-esc" published="2017-04-17" added="2017-04-17" modified="2017-04-17" version="1.0">
+  <name>Rapid7 Endpoint Agent Installation</name>
+  <severity>0</severity>
+  <Tags>
+     <tag>Agent</tag>
+     <tag>Enterprise Security Consulting</tag>
+     <tag>Custom</tag>
+  </Tags>
+  <cvss>(AV:N/AC:L/Au:N/C:N/I:N/A:N)</cvss>
+  <Description>
+     <p>Rapid7 Endpoint Agents automatically collect data from your endpoints and seamless integrates it into the insight platform so your data is always populated with real time data without the need to hit refresh or rescan</p>
+  </Description>
+  <Solutions>
+    <SolutionRef id="windows-ir_agent-not-installed-esc"/>
+  </Solutions>
+</Vulnerability>

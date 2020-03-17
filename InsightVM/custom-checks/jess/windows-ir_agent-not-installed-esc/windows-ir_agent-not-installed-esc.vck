@@ -1,0 +1,32 @@
+<VulnerabilityCheck id="windows-ir_agent-not-installed-esc" scope="node" framework="70">
+   <JessRule>
+      <query>
+         (SystemFingerprint
+               (networkNode ?j_networkNode)
+               (fingerprint ?j_fingerprint&amp;:(and
+                           (is-os-type-windows-variant ?j_fingerprint)
+                           (> (call ?j_fingerprint getCertainty) .50)))
+         )
+         (EndpointService
+            (endpoint ?j_endpoint)
+            (service ?j_service)
+            (serviceTypes ?serviceTypes&amp;:(neq (bit-long-and ?serviceTypes (IService.SERVICE_TYPE_WINREG)) 0L))
+         )
+      </query>
+      <body>
+         (try
+            (bind ?jk_key (winreg-new-key "HKEY_LOCAL_MACHINE\\SOFTWARE\\Rapid7\\Endpoint Agent"))
+            (if (winreg-does-key-exist ?j_service ?jk_key) then
+               (vulnerability-test-not-vulnerable ?j_vulnCkRes
+                  "Found no evidence of the Rapid7 Endpoint Agent having been installed.")
+            else
+               (bind ?j_para (new com.rapid7.doc.Paragraph))
+               (call ?j_para addChild (new com.rapid7.doc.Text "Rapid7 Endpoint Agent is not installed"))
+               (vulnerability-test-exploited ?j_vulnCkRes ?j_para)
+	         )
+	      catch
+		      (vulnerability-test-failed ?j_vulnCkRes ?ERROR)
+	      )
+      </body>
+   </JessRule>
+</VulnerabilityCheck>

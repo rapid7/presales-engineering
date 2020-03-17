@@ -1,0 +1,35 @@
+dn: ou=groups,dc=rapid7,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: groups
+
+dn: cn=nx-user,ou=groups,dc=rapid7,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: nx-user
+member: uid=bpapi,ou=users,dc=rapid7,dc=com
+member: uid=hsolo,ou=users,dc=rapid7,dc=com
+
+dn: cn=nx-admin,ou=groups,dc=rapid7,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: nx-admin
+member: uid=sprefontaine,ou=users,dc=rapid7,dc=com
+member: uid=djeter,ou=users,dc=rapid7,dc=com
+member: uid=swilliams,ou=users,dc=rapid7,dc=com
+member: uid=nxuser1,ou=users,dc=rapid7,dc=com
+member: uid=nxuser2,ou=users,dc=rapid7,dc=com
+member: uid=nxuser3,ou=users,dc=rapid7,dc=com
+
+dn: cn=nx-sec-manager,ou=groups,dc=rapid7,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: nx-sec-manager
+member: uid=sprefontaine,ou=users,dc=rapid7,dc=com
+
+dn: cn=nx-site-owner,ou=groups,dc=rapid7,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: nx-site-owner
+member: uid=hsolo,ou=users,dc=rapid7,dc=com
+

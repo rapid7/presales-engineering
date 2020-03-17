@@ -1,0 +1,1511 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "",
+    "version" : "1.0.0",
+    "title" : "Healhcare Payment API",
+    "contact" : { }
+  }, "host" : "https://healthcarewebsite.com/apis/payments/claims",
+
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/token": {
+      "post": {
+        "summary": "Authentication Token - POST",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "application/x-www-form-urlencoded"
+          },
+          {
+            "name": "client_id",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Username"
+          },
+          {
+            "name": "client_secret",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Password"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Status 200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "accessToken": {
+                  "type": "string",
+                  "description": "JWT value"
+                },
+                "userName": {
+                  "type": "string",
+                  "description": "Client id value"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/claims": {
+      "post": {
+        "summary": "Claim - POST",
+        "consumes": [],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization token with \"Bearer \" prefix",
+            "x-example": "Bearer eyJraWQiOiJc"
+          },
+          {
+            "name": "X-CHC-TraceId",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "description": "A unique identifier for the request",
+            "x-example": "2b8a1098-990a-49c1-9d96-7a3b6e2080df"
+          },
+          {
+            "name": "accept-version",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "description": "Semvar representation of the version",
+            "x-example": "2.0.0"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Claim"
+            },
+            "x-examples": {
+              "application/json": "{\n  \"payerCustomerGuid\": \"a88d44fa-d999-44a0-9c1c-19a45678a40a\",\n  \"provider\": {\n    \"providerType\": \"Hospital\",\n    \"name\": \"Stanford Hospital\",\n    \"npi\": \"1245319599\",\n    \"taxId\": \"02-3421234\",\n    \"addresses\": [{\n        \"addressType\": \"Billing Address\",\n        \"addressLine1\": \"123 Main St\",\n        \"addressLine2\": \"Apt. 456\",\n        \"city\": \"Hartford\",\n        \"state\": \"CT\",\n        \"zip\": \"94256\",\n        \"country\": \"USA\",\n        \"primary\": true\n      }, {\n        \"addressType\": \"Mailing Address\",\n        \"addressLine1\": \"123 Main St\",\n        \"addressLine2\": \"Apt. 456\",\n        \"city\": \"Hartford\",\n        \"state\": \"CT\",\n        \"zip\": \"94256\",\n        \"country\": \"USA\",\n        \"primary\": false\n      }\n    ],\n    \"contacts\": [{\n        \"name\": \"John Doe\",\n        \"primary\": true,\n        \"contactType\": \"Fax\",\n        \"contactValue\": \"123-456-7890\"\n      }\n    ]\n  },\n  \"policyHolder\": {\n    \"firstName\": \"John\",\n    \"midInitial\": \"Q\",\n    \"lastName\": \"Doe\",\n    \"dateOfBirth\": \"01/01/1970\",\n    \"address\": {\n      \"addressType\": \"Mailing Address\",\n      \"addressLine1\": \"123 Main St\",\n      \"addressLine2\": \"Apt. 456\",\n      \"city\": \"Hartford\",\n      \"state\": \"CT\",\n      \"zip\": \"94256\",\n      \"primary\": true,\n      \"country\": \"US\"\n    },\n    \"payerAccounts\": [{\n        \"memberId\": \"M98765\",\n        \"groupNumber\": \"G123456\"\n      }\n\n    ],\n    \"thirdPartyAccounts\": [{\n        \"key\": \"proxyId\",\n        \"value\": \"P9876\"\n      }\n    ]\n  },\n  \"patient\": {\n    \"firstName\": \"John\",\n    \"midInitial\": \"Q\",\n    \"lastName\": \"Doe\",\n    \"dateOfBirth\": \"01/01/1970\",\n    \"address\": {\n      \"addressType\": \"Mailing Address\",\n      \"addressLine1\": \"123 Main St\",\n      \"addressLine2\": \"Apt. 456\",\n      \"city\": \"Hartford\",\n      \"state\": \"CT\",\n      \"zip\": \"94256\",\n      \"primary\": true,\n      \"country\": \"US\"\n    },\n    \"payerAccounts\": [{\n        \"memberId\": \"M98765\",\n        \"groupNumber\": \"G123456\"\n      }\n    ],\n    \"providerAccounts\": [{\n        \"accountNumber\": \"A12345\",\n        \"medicalRecordNumber\": \"MRN123456\"\n      }\n    ],\n    \"thirdPartyAccounts\": [{\n        \"key\": \"proxyId\",\n        \"value\": \"P9876\"\n      }\n    ]\n  },\n  \"claimType\": \"Medical\",\n  \"claimNumber\": \"P1JKS3JX6\",\n  \"claimNumberSource\": \"ACS\",\n  \"serviceToDate\": \"10/25/2017\",\n  \"serviceFromDate\": \"10/21/2017\",\n  \"originalClaimAmount\": 5000,\n  \"adjustmentAmount\": 1000,\n  \"payerPaymentAmount\": 3000,\n  \"patientObligation\": 1000\n}"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Status 201",
+            "schema": {
+              "required": [
+                "obligationGuid",
+                "patientCustomerGuid",
+                "payerCustomerGuid",
+                "policyHolderCustomerGuid",
+                "providerCustomerGuid",
+                "providerStatus"
+              ],
+              "type": "object",
+              "properties": {
+                "payerCustomerGuid": {
+                  "type": "string"
+                },
+                "providerCustomerGuid": {
+                  "type": "string"
+                },
+                "policyHolderCustomerGuid": {
+                  "type": "string"
+                },
+                "patientCustomerGuid": {
+                  "type": "string"
+                },
+                "obligationGuid": {
+                  "type": "string"
+                },
+                "providerStatus": {
+                  "type": "string",
+                  "description": "The status of the provider",
+                  "enum": [
+                    "ELIGIBLE",
+                    "BLOCKED"
+                  ]
+                },
+                "providerBlockedReason": {
+                  "type": "string",
+                  "description": "The reason that the provider is blocked. Only present when providerStatus is BLOCKED."
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Status 401"
+          },
+          "409": {
+            "description": "Status 409",
+            "schema": {
+              "required": [
+                "obligationGuid",
+                "patientCustomerGuid",
+                "payerCustomerGuid",
+                "policyHolderCustomerGuid",
+                "providerCustomerGuid",
+                "providerStatus"
+              ],
+              "type": "object",
+              "properties": {
+                "payerCustomerGuid": {
+                  "type": "string"
+                },
+                "providerCustomerGuid": {
+                  "type": "string"
+                },
+                "policyHolderCustomerGuid": {
+                  "type": "string"
+                },
+                "patientCustomerGuid": {
+                  "type": "string"
+                },
+                "obligationGuid": {
+                  "type": "string"
+                },
+                "providerStatus": {
+                  "type": "string",
+                  "description": "The status of the provider",
+                  "enum": [
+                    "ELIGIBLE",
+                    "BLOCKED"
+                  ]
+                },
+                "providerBlockedReason": {
+                  "type": "string",
+                  "description": "The reason that the provider is blocked. Only present when providerStatus is BLOCKED."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Status 422",
+            "schema": {
+              "required": [
+                "code",
+                "message"
+              ],
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "The error code. The format of the error code is CLM-####, where #### is a four digit code representing the type of error.  1024 is the code for a JSON schema validation error, and the schemaValidationErrors property will be populated."
+                },
+                "message": {
+                  "type": "string",
+                  "description": "The error message"
+                },
+                "schemaValidationErrors": {
+                  "type": "array",
+                  "description": "Optional array of objects that contain the fields that have JSON schema validation errors and what the failure is.",
+                  "items": {
+                    "required": [
+                      "field"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "field": {
+                        "type": "string",
+                        "description": "The field with the JSON schema error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "The JSON schema error"
+                      }
+                    }
+                  },
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Status 500",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/memberPaymentStatus": {
+      "get": {
+        "summary": "Member Payment Status - GET",
+        "parameters": [
+          {
+            "name": "payerCustomerGuid",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "The payer customer GUID",
+            "minLength": 36,
+            "maxLength": 36,
+            "x-example": "a88d69fa-d656-44a0-7c1c-19a87777a40a"
+          },
+          {
+            "name": "memberId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "The member ID. Required if claimGUID is not passed",
+            "maxLength": 15,
+            "x-example": "87654565890"
+          },
+          {
+            "name": "fromDate",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "The from date in MM/DD/YYYY format. Required if claimGUID is not passed.",
+            "x-example": "06/06/2016"
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "The to date in MM/DD/YYYY format. Required if claimGUID is not passed.",
+            "x-example": "01/01/2018"
+          },
+          {
+            "name": "claimNumber",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "The claim number. Required if memberId is not passed.",
+            "x-example": "AFARM00006"
+          },
+          {
+            "name": "claimNumberSource",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "The claim number source.  Required if memberId is not passed",
+            "x-example": "ACS"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization token with \"Bearer\" prefix",
+            "x-example": "Bearer eyJraWQiOiJc"
+          },
+          {
+            "name": "X-CHC-TraceId",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "description": "A unique identifier for the request",
+            "x-example": "2b8a1098-990a-49c1-9d96-7a3b6e2080df"
+          },
+          {
+            "name": "accept-version",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "description": "Semvar representation of the version",
+            "x-example": "1.2.1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Status 200",
+            "schema": {
+              "type": "array",
+              "items": {
+                "required": [
+                  "claimGuid",
+                  "claimNumber",
+                  "claimNumberSource",
+                  "remainingBalance"
+                ],
+                "type": "object",
+                "properties": {
+                  "claimGuid": {
+                    "type": "string",
+                    "description": "The claim GUID",
+                    "minLength": 36,
+                    "maxLength": 36
+                  },
+                  "claimNumber": {
+                    "type": "string",
+                    "description": "The claim number"
+                  },
+                  "claimNumberSource": {
+                    "type": "string",
+                    "description": "The claim number source"
+                  },
+                  "remainingBalance": {
+                    "type": "number",
+                    "description": "Remaining balance in cents"
+                  },
+                  "lastPaymentAmount": {
+                    "type": "number",
+                    "description": "The last payment amount in cents"
+                  },
+                  "lastPaymentDate": {
+                    "type": "string",
+                    "description": "The last payment date in MM/DD/YYYY format"
+                  },
+                  "lastPaymentStatus": {
+                    "type": "string",
+                    "description": "The last payment status"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Status 401"
+          },
+          "422": {
+            "description": "Status 422",
+            "schema": {
+              "required": [
+                "code",
+                "message"
+              ],
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "The error code. The format of the error code is MPS-####, where #### is a four digit code representing the type of error. 1024 is the code for a JSON schema validation error, and the schemaValidationErrors property will be populated."
+                },
+                "message": {
+                  "type": "string",
+                  "description": "The error message"
+                },
+                "schemaValidationErrors": {
+                  "type": "array",
+                  "description": "Optional array of objects that contain the fields that have JSON schema validation errors and what the failure is.",
+                  "items": {
+                    "required": [
+                      "field",
+                      "message"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "field": {
+                        "type": "string",
+                        "description": "The field with the JSON schema error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "The JSON schema error"
+                      }
+                    }
+                  },
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Status 500",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/paymentRequest": {
+      "post": {
+        "summary": "Payment Request - POST",
+        "consumes": [],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization token with \"Bearer \" prefix",
+            "x-example": "Bearer eyJraWQiOiJc"
+          },
+          {
+            "name": "X-CHC-TraceId",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "description": "A unique identifier for the request",
+            "x-example": "2b8a1111-990a-49c1-9d11-7a3b6e2011df"
+          },
+          {
+            "name": "accept-version",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "description": "Semvar representation of the version",
+            "x-example": "1.2.1"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PaymentRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Status 201",
+            "schema": {
+              "required": [
+                "receiptId"
+              ],
+              "type": "object",
+              "properties": {
+                "receiptId": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Status 401"
+          },
+          "422": {
+            "description": "Status 422",
+            "schema": {
+              "required": [
+                "code",
+                "message"
+              ],
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "The error code. The format of the error code is PRQ-####, where #### is a four digit code representing the type of error. 1024 is the code for a JSON schema validation error, and the schemaValidationErrors property will be populated."
+                },
+                "message": {
+                  "type": "string",
+                  "description": "The error message"
+                },
+                "schemaValidationErrors": {
+                  "type": "array",
+                  "description": "Optional array of objects that contain the fields that have JSON schema validation errors and what the failure is.",
+                  "items": {
+                    "required": [
+                      "field",
+                      "message"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "field": {
+                        "type": "string",
+                        "description": "The field with the JSON schema error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "The JSON schema error"
+                      }
+                    }
+                  },
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Status 500",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions": {
+      "get": {
+        "summary": "Transactions - GET",
+        "parameters": [
+          {
+            "name": "obligationType",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "claim",
+              "statement"
+            ]
+          },
+          {
+            "name": "payerCustomerGuid",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "The payer customer GUID. Required if obligationType is claim.",
+            "minLength": 36,
+            "maxLength": 36,
+            "x-example": "a77d69fa-d618-64a0-9c1c-19a87553a40a"
+          },
+          {
+            "name": "claimNumber",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "The claim number. Required if obligationType is claim"
+          },
+          {
+            "name": "claimNumberSource",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "The claim number source. Required if obligationType is claim"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization token with \"Bearer\" prefix",
+            "x-example": "Bearer eyJraWQiOiJc"
+          },
+          {
+            "name": "accept-version",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "description": "Semvar representation of the version",
+            "x-example": "1.2.1"
+          },
+          {
+            "name": "X-CHC-TraceId",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "description": "A unique identifier for the request",
+            "x-example": "2b8a1098-990a-49c1-9d96-7a3b6e2080df"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Status 200",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Transaction"
+              }
+            }
+          },
+          "401": {
+            "description": "Status 401 / Bad Request"
+          },
+          "422": {
+            "description": "Status 422",
+            "schema": {
+              "required": [
+                "code",
+                "message"
+              ],
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "The error code. The format of the error code is TRN-####, where #### is a four digit code representing the type of error. 1024 is the code for a JSON schema validation error, and the schemaValidationErrors property will be populated."
+                },
+                "message": {
+                  "type": "string",
+                  "description": "The error message"
+                },
+                "schemaValidationErrors": {
+                  "type": "array",
+                  "description": "Optional array of objects that contain the fields that have JSON schema validation errors and what the failure is.",
+                  "items": {
+                    "required": [
+                      "field",
+                      "message"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "field": {
+                        "type": "string",
+                        "description": "The field with the JSON schema error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "The JSON schema error"
+                      }
+                    }
+                  },
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Status 500",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vault": {
+      "post": {
+        "summary": "Vault - POST",
+        "consumes": [],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "Authorization token with \"Bearer \" prefix",
+            "x-example": "Bearer eyJraWQiOiJc"
+          },
+          {
+            "name": "X-CHC-TraceId",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "description": "A unique identifier for the request",
+            "x-example": "2b8a1098-990a-49c1-9d96-7a3b6e2080df"
+          },
+          {
+            "name": "accept-version",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "description": "Semvar representation of the version",
+            "x-example": "1.2.1"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PaymentToken"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Status 201",
+            "schema": {
+              "required": [
+                "token"
+              ],
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "description": "A token representing the tender in the payment token request"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Status 400"
+          },
+          "422": {
+            "description": "Status 422",
+            "schema": {
+              "required": [
+                "code",
+                "message"
+              ],
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "The error code. The format of the error code is VLT-####, where #### is a four digit code representing the type of error. 1024 is the code for a JSON schema validation error, and the schemaValidationErrors property will be populated."
+                },
+                "message": {
+                  "type": "string",
+                  "description": "The error message"
+                },
+                "schemaValidationErrors": {
+                  "type": "array",
+                  "description": "Optional array of objects that contain the fields that have JSON schema validation errors and what the failure is.",
+                  "items": {
+                    "required": [
+                      "field",
+                      "message"
+                    ],
+                    "type": "object",
+                    "properties": {
+                      "field": {
+                        "type": "string",
+                        "description": "The field with the JSON schema error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "description": "The JSON schema error"
+                      }
+                    }
+                  },
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Status 500",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Address": {
+      "type": "object",
+      "required": [
+        "addressLine1",
+        "addressType",
+        "city",
+        "country",
+        "primary",
+        "state",
+        "zip"
+      ],
+      "properties": {
+        "addressType": {
+          "type": "string",
+          "description": "Address Type",
+          "enum": [
+            "Mailing",
+            "Billing",
+            "Home",
+            "Shipping",
+            "Servicing"
+          ]
+        },
+        "addressLine1": {
+          "type": "string",
+          "description": "Second address line",
+          "maxLength": 50
+        },
+        "addressLine2": {
+          "type": "string",
+          "description": "Third address line",
+          "maxLength": 50
+        },
+        "addressLine3": {
+          "type": "string",
+          "description": "Third address line"
+        },
+        "addressLine4": {
+          "type": "string",
+          "description": "Fourth address line"
+        },
+        "addressLine5": {
+          "type": "string",
+          "description": "Fifth address line"
+        },
+        "city": {
+          "type": "string",
+          "description": "City",
+          "maxLength": 60,
+          "example": "Hartford"
+        },
+        "state": {
+          "type": "string",
+          "description": "Two letter state abbreviation",
+          "minLength": 2,
+          "maxLength": 2,
+          "example": "CT"
+        },
+        "zip": {
+          "type": "string",
+          "description": "Zip Code",
+          "minLength": 5,
+          "maxLength": 10,
+          "example": "94256"
+        },
+        "country": {
+          "type": "string",
+          "description": "The country"
+        },
+        "primary": {
+          "type": "boolean",
+          "description": "Whether or not this is the primary address"
+        }
+      },
+      "example": "{\n  \"addressType\": \"Mailing Address\",\n  \"addressLine1\": \"123 Main St\",\n  \"addressLine2\": \"Apt. 456\",\n  \"city\": \"Hartford\",\n  \"state\": \"CT\",\n  \"zip\": \"94256\",\n  \"country\": \"United States\",\n  \"primary\": false\n}"
+    },
+    "Claim": {
+      "type": "object",
+      "required": [
+        "claimNumber",
+        "claimNumberSource",
+        "claimType",
+        "patientObligation",
+        "serviceFromDate",
+        "serviceToDate"
+      ],
+      "properties": {
+        "payerCustomerGuid": {
+          "type": "string",
+          "description": "The customer GUID representing the payer for the claim. Required if payer is not passed"
+        },
+        "payer": {
+          "$ref": "#/definitions/Payer"
+        },
+        "providerCustomerGuid": {
+          "type": "string",
+          "description": "The customer GUID representing the provider for the claim. Required if the provider is not passed"
+        },
+        "provider": {
+          "$ref": "#/definitions/Provider"
+        },
+        "policyHolderCustomerGuid": {
+          "type": "string",
+          "description": "The insurance policy holder customer GUID for the claim. Required if policyHolder is not passed"
+        },
+        "policyHolder": {
+          "$ref": "#/definitions/Consumer"
+        },
+        "patientCustomerGuid": {
+          "type": "string",
+          "description": "The patient customer GUID for the claim. Required if patient is not passed."
+        },
+        "patient": {
+          "$ref": "#/definitions/Consumer"
+        },
+        "claimType": {
+          "type": "string",
+          "enum": [
+            "Medical",
+            "Dental",
+            "Pharmacy",
+            "Vision"
+          ]
+        },
+        "claimNumber": {
+          "type": "string",
+          "description": "Claim number",
+          "example": "P1JKS3JX6"
+        },
+        "claimNumberSource": {
+          "type": "string",
+          "description": "Claim number source",
+          "example": "ACS"
+        },
+        "serviceToDate": {
+          "type": "string",
+          "description": "The date service was started in MM/DD/YYYY format.",
+          "example": "05/12/2017"
+        },
+        "serviceFromDate": {
+          "type": "string",
+          "description": "The date service was completed in MM/DD/YYYY format.",
+          "example": "05/13/2017"
+        },
+        "originalClaimAmount": {
+          "type": "number",
+          "description": "The original claim amount in cents",
+          "example": 5000
+        },
+        "adjustmentAmount": {
+          "type": "number",
+          "description": "The adjustment amount in cents",
+          "example": 1000
+        },
+        "payerPaymentAmount": {
+          "type": "number",
+          "description": "The amount in cents that the payer paid on the claim",
+          "example": 3000
+        },
+        "patientObligation": {
+          "type": "integer",
+          "description": "Patient responsibility to the provider in cents.  No decimals or other currency indicators are allowed (e.g., 100 cents to charge $1.00)",
+          "example": 1000
+        }
+      },
+      "example": "{\n  \"payerCustomerGuid\": \"a66d69fa-d618-44a0-9c1c-19a87683a40a\",\n  \"provider\": {\n    \"providerType\": \"Hospital\",\n    \"name\": \"Stanford Hospital\",\n    \"npi\": \"1245319599\",\n    \"taxId\": \"02-3421234\",\n    \"addresses\": [{\n        \"addressType\": \"Billing\",\n        \"addressLine1\": \"123 Main St\",\n        \"addressLine2\": \"Apt. 456\",\n        \"city\": \"Hartford\",\n        \"state\": \"CT\",\n        \"zip\": \"94256\",\n        \"country\": \"United States\",\n        \"primary\": true\n      }, {\n        \"addressType\": \"Mailing\",\n        \"addressLine1\": \"123 Main St\",\n        \"addressLine2\": \"Apt. 456\",\n        \"city\": \"Hartford\",\n        \"state\": \"CT\",\n        \"zip\": \"94256\",\n        \"country\": \"United States\",\n        \"primary\": false\n      }\n    ],\n    \"contacts\": [{\n        \"name\": \"John Doe\",\n        \"primary\": true,\n        \"contactType\": \"Fax\",\n        \"contactValue\": \"123-456-7890\"\n      }\n    ]\n  },\n  \"policyHolder\": {\n    \"firstName\": \"John\",\n    \"midInitial\": \"Q\",\n    \"lastName\": \"Doe\",\n    \"dateOfBirth\": \"01/01/1970\",\n    \"address\": {\n      \"addressType\": \"Mailing\",\n      \"addressLine1\": \"123 Main St\",\n      \"addressLine2\": \"Apt. 456\",\n      \"city\": \"Hartford\",\n      \"state\": \"CT\",\n      \"zip\": \"94256\",\n      \"primary\": true\n    },\n    \"payerAccounts\": [{\n        \"memberId\": \"M98765\",\n        \"groupNumber\": \"G123456\"\n      }\n\n    ],\n    \"thirdPartyAccounts\": [{\n        \"key\": \"Proxy Id\",\n        \"value\": \"P9876\"\n      }\n    ]\n  },\n  \"patient\": {\n    \"firstName\": \"John\",\n    \"midInitial\": \"Q\",\n    \"lastName\": \"Doe\",\n    \"dateOfBirth\": \"01/01/1970\",\n    \"address\": {\n      \"addressType\": \"Mailing\",\n      \"addressLine1\": \"123 Main St\",\n      \"addressLine2\": \"Apt. 456\",\n      \"city\": \"Hartford\",\n      \"state\": \"CT\",\n      \"zip\": \"94256\",\n      \"primary\": true\n    },\n    \"payerAccounts\": [{\n        \"memberId\": \"M98765\",\n        \"groupNumber\": \"G123456\"\n      }\n    ],\n    \"providerAccounts\": [{\n        \"accountNumber\": \"A12345\",\n        \"medicalRecordNumber\": \"MRN123456\"\n      }\n    ],\n    \"thirdPartyAccounts\": [{\n        \"key\": \"Proxy Id\",\n        \"value\": \"P9876\"\n      }\n    ]\n  },\n  \"claimType\": \"Medical\",\n  \"claimNumber\": \"P1JKS3JX6\",\n  \"claimNumberSource\": \"ACS\",\n  \"serviceToDate\": \"10/20/2017\",\n  \"serviceFromDate\": \"10/21/2017\",\n  \"originalClaimAmount\": 5000,\n  \"adjustmentAmount\": 1000,\n  \"payerPaymentAmount\": 3000,\n  \"patientObligation\": 1000\n}\n"
+    },
+    "Consumer": {
+      "type": "object",
+      "required": [
+        "firstName",
+        "lastName",
+        "payerAccounts"
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "The first name",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "midInitial": {
+          "type": "string",
+          "description": "The middle initial",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The last name",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "description": "The date of birth in MM/DD/YYYY format"
+        },
+        "address": {
+          "$ref": "#/definitions/Address"
+        },
+        "payerAccounts": {
+          "type": "array",
+          "description": "The identifier in the payer's system",
+          "items": {
+            "$ref": "#/definitions/PayerAccount"
+          }
+        },
+        "providerAccounts": {
+          "type": "array",
+          "description": "Identifiers that identify the consumer in the provider's system. Required if the consumer is a patient",
+          "items": {
+            "$ref": "#/definitions/ProviderAccount"
+          }
+        },
+        "thirdPartyAccounts": {
+          "type": "array",
+          "description": "Array of key value pairs that further identify the consumer in the partner's system",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "example": "{\n  \"firstName\": \"John\",\n  \"midInitial\": \"Q\",\n  \"lastName\": \"Doe\",\n  \"dateOfBirth\": \"01/01/1970\",\n  \"address\": {\n    \"addressType\": \"Mailing Address\",\n    \"addressLine1\": \"123 Main St\",\n    \"addressLine2\": \"Apt. 456\",\n    \"city\": \"Hartford\",\n    \"state\": \"CT\",\n    \"zip\": \"94256\",\n    \"primary\": true\n  },\n  \"payerAccounts\": [{\n      \"memberId\": \"M98765\",\n      \"groupNumber\": \"G123456\"\n    }\n\n  ],\n  \"providerAccounts\": [{\n      \"accountNumber\": \"A12345\",\n      \"medicalRecordNumber\": \"MRN123456\"\n    }\n  ],\n  \"thirdPartyAccounts\": [{\n      \"key\": \"Proxy Id\",\n      \"value\": \"P9876\"\n    }\n  ]\n}\n"
+    },
+    "Contact": {
+      "type": "object",
+      "required": [
+        "contactType",
+        "contactValue",
+        "name",
+        "primary"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The contact name"
+        },
+        "primary": {
+          "type": "boolean",
+          "description": "Whether or not this contact is the primary contact"
+        },
+        "contactType": {
+          "type": "string",
+          "enum": [
+            "Cell Phone",
+            "Email Address",
+            "Home Phone",
+            "Work Phone",
+            "Fax"
+          ]
+        },
+        "contactValue": {
+          "type": "string",
+          "description": "The contact value",
+          "minLength": 1,
+          "maxLength": 50,
+          "example": "123-456-7890"
+        }
+      },
+      "example": "{\r\n  \"name\": \"John Doe\",\r\n  \"primary\": true,\r\n  \"contactType\": \"Fax\",\r\n  \"contactValue\": \"123-456-7890\"\r\n}\r\n"
+    },
+    "Provider": {
+      "type": "object",
+      "required": [
+        "addresses",
+        "name"
+      ],
+      "properties": {
+        "providerType": {
+          "type": "string",
+          "default": "Hospital",
+          "enum": [
+            "Hospital",
+            "Family Doctor",
+            "Dentist",
+            "Lab",
+            "Pharmacy",
+            "Optometry",
+            "Other"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "Provider name",
+          "example": "Stanford Hospital"
+        },
+        "npi": {
+          "type": "string",
+          "description": "Provider's NPI. Required when taxId is empty.",
+          "example": "1245319599"
+        },
+        "taxId": {
+          "type": "string",
+          "description": "Provider's TIN. Required when npi is empty.",
+          "example": "02-3421234"
+        },
+        "serviceNpi": {
+          "type": "string",
+          "description": "Service provider Npi"
+        },
+        "serviceTaxId": {
+          "type": "string",
+          "description": "Service provider tax id"
+        },
+        "contacts": {
+          "type": "array",
+          "description": "The provider's contacts information",
+          "items": {
+            "$ref": "#/definitions/Contact"
+          }
+        },
+        "addresses": {
+          "type": "array",
+          "description": "At least one address is required",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        }
+      },
+      "example": "{\n  \"providerType\": \"Hospital\",\n  \"name\": \"Stanford Hospital\",\n  \"npi\": \"1245319599\",\n  \"taxId\": \"02-3421234\",\n  \"serviceNpi\": \"9876543210\",\n  \"serviceTaxId\": \"01-2345678\",\n  \"addresses\": [{\n      \"addressType\": \"Billing Address\",\n      \"addressLine1\": \"123 Main St\",\n      \"addressLine2\": \"Apt. 456\",\n      \"city\": \"Hartford\",\n      \"state\": \"CT\",\n      \"zip\": \"94256\",\n      \"country\": \"United States\",\n      \"primary\": true\n    }, {\n      \"addressType\": \"Mailing Address\",\n      \"addressLine1\": \"123 Main St\",\n      \"addressLine2\": \"Apt. 456\",\n      \"city\": \"Hartford\",\n      \"state\": \"CT\",\n      \"zip\": \"94256\",\n      \"country\": \"United States\",\n      \"primary\": false\n    }\n  ],\n  \"contacts\": [{\n      \"name\": \"John Doe\",\n      \"primary\": true,\n      \"contactType\": \"Fax\",\n      \"contactValue\": \"123-456-7890\"\n    }\n  ]\n}\n"
+    },
+    "Payer": {
+      "type": "object",
+      "required": [
+        "addresses",
+        "contacts",
+        "naicId",
+        "name",
+        "taxId"
+      ],
+      "properties": {
+        "naicId": {
+          "type": "string",
+          "description": "Required if taxId is not passed."
+        },
+        "taxId": {
+          "type": "string",
+          "description": "Required if naicId is not passed."
+        },
+        "name": {
+          "type": "string"
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Contact"
+          }
+        }
+      },
+      "example": "{\n    \"naicId\": \"12345\",\n    \"taxId\": \"12-3456789\",\n    \"name\": \"PayerName\",\n    \"addresses\": [{\n      \"addressType\": \"BILLING\",\n      \"addressLine1\": \"123 Main St\",\n      \"addressLine2\": \"Apt. 456\",\n      \"city\": \"Hartford\",\n      \"state\": \"CT\",\n      \"zip\": \"94256\",\n      \"primary\": true\n    }],\n    \"contacts\": [{\n      \"name\": \"John Doe\",\n      \"primary\": true,\n      \"contactType\": \"Fax\",\n      \"contactValue\": \"123-456-7890\"\n    }]\n  }"
+    },
+    "PayerAccount": {
+      "type": "object",
+      "required": [
+        "memberId"
+      ],
+      "properties": {
+        "memberId": {
+          "type": "string"
+        },
+        "groupNumber": {
+          "type": "string"
+        }
+      },
+      "example": "{\n  \"memberId\": \"M98765\",\n  \"groupNumber\": \"G123456\"\n}"
+    },
+    "PaymentRequest": {
+      "type": "object",
+      "required": [
+        "amount",
+        "obligations",
+        "receiverCustomerGuid",
+        "submitterCustomerGuid",
+        "token"
+      ],
+      "properties": {
+        "serviceProviderCustomerGuid": {
+          "type": "string",
+          "description": "Required if the login passed in the authentication header does not correspond to a service provider or to override the service provider associated with the login"
+        },
+        "submitterCustomerGuid": {
+          "type": "string",
+          "description": "The customer GUID of the submitter of the payment."
+        },
+        "receiverCustomerGuid": {
+          "type": "string",
+          "description": "The customer GUID of the receiver of the payment"
+        },
+        "divisionCode": {
+          "type": "string",
+          "description": "Required if the service provider has more than one division code associated with it"
+        },
+        "token": {
+          "type": "string",
+          "description": "The token representing the payment card/account"
+        },
+        "amount": {
+          "type": "number",
+          "description": "The total amount in cents of the payment. Must equal the sum of the amounts from the obligations"
+        },
+        "obligations": {
+          "type": "array",
+          "items": {
+            "required": [
+              "amount",
+              "obligationGuid"
+            ],
+            "type": "object",
+            "properties": {
+              "obligationGuid": {
+                "type": "string",
+                "description": "The GUID representing the obligation (claim, statement, etc...)"
+              },
+              "amount": {
+                "type": "number",
+                "description": "The amount in cents of the payment for the oblication"
+              }
+            }
+          }
+        },
+        "billingAddress": {
+          "$ref": "#/definitions/Address"
+        },
+        "billingContact": {
+          "$ref": "#/definitions/Contact"
+        }
+      },
+      "example": "{\n  \"submitterCustomerGuid\": \"8db3fefe-466b-4edb-8188-cda04e377a27\",\n  \"receiverCustomerGuid\": \"93262faf-d5b1-4a76-a92f-73ca53437808\",\n  \"token\": \"fhjdfdaklfdaf.eewqreqiore.zcvzvczxcvzx\",\n  \"amount\": 100,\n  \"obligations\": [{\n      \"obligationGuid\": \"9cabe3ec-33d5-47a8-8d15-b6f30c03166f\",\n      \"amount\": 100\n    }\n  ]\n}\n"
+    },
+    "PaymentToken": {
+      "type": "object",
+      "required": [
+        "customerGuid",
+        "firstName",
+        "lastName"
+      ],
+      "properties": {
+        "customerGuid": {
+          "type": "string",
+          "description": "The customer GUID that the tender belongs to",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "firstName": {
+          "type": "string",
+          "description": "The first name of the account holder on the card or bank account.",
+          "minLength": 1,
+          "maxLength": 63
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The last name of the account holder on the card or bank account.",
+          "minLength": 1,
+          "maxLength": 63
+        },
+        "card": {
+          "required": [
+            "cvc",
+            "expMonth",
+            "expYear",
+            "number"
+          ],
+          "type": "object",
+          "description": "The credit card. Required if bankAccount not passed.",
+          "properties": {
+            "number": {
+              "type": "string",
+              "description": "The credit card number"
+            },
+            "expMonth": {
+              "type": "string",
+              "description": "The expiration month",
+              "minLength": 1,
+              "maxLength": 2,
+              "example": "01"
+            },
+            "expYear": {
+              "type": "integer",
+              "description": "The expiration year",
+              "minimum": 2018,
+              "maximum": 3000
+            },
+            "cvc": {
+              "type": "string",
+              "description": "The cvc number",
+              "example": "012"
+            }
+          }
+        },
+        "bankAccount": {
+          "required": [
+            "accountNumber",
+            "routingNumber"
+          ],
+          "type": "object",
+          "description": "The bank account. Required if card not passed",
+          "properties": {
+            "routingNumber": {
+              "type": "string",
+              "description": "The routing number",
+              "minLength": 1,
+              "maxLength": 50
+            },
+            "accountNumber": {
+              "type": "string",
+              "description": "The account number",
+              "minLength": 4,
+              "maxLength": 50
+            },
+            "accountType": {
+              "type": "string",
+              "default": "Checking",
+              "enum": [
+                "Checking",
+                "Savings"
+              ]
+            }
+          }
+        }
+      },
+      "example": "{\n  \"customerGuid\": \"a044ce33-f48c-4889-a7cd-286081100d58\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"card\": {\n    \"number\": \"4111111111111111\",\n    \"expMonth\": \"01\",\n    \"expYear\": 2020,\n    \"cvc\": \"012\"\n  }\n}\n"
+    },
+    "ProviderAccount": {
+      "type": "object",
+      "required": [
+        "accountNumber"
+      ],
+      "properties": {
+        "accountNumber": {
+          "type": "string",
+          "description": "Patient account number (aka Patient Control Number) within provider’s network (CLM01 in 837)"
+        },
+        "accountNumber2": {
+          "type": "string"
+        },
+        "medicalRecordNumber": {
+          "type": "string"
+        }
+      },
+      "example": "{\n  \"accountNumber\": \"A12345\",\n  \"medicalRecordNumber\": \"MRN123456\"\n}\n"
+    },
+    "Transaction": {
+      "type": "object",
+      "required": [
+        "accountHolderName",
+        "accountType",
+        "last4",
+        "paymentAmount",
+        "paymentTimestamp",
+        "processedBy",
+        "receiptId",
+        "status",
+        "statusHistory",
+        "subAccountType",
+        "transactionId",
+        "transactionType"
+      ],
+      "properties": {
+        "receiptId": {
+          "type": "string",
+          "description": "Critical for CHC to help debug customer issues.  This is the same as receiptId returned as last step of payment workflow.",
+          "example": "72486370"
+        },
+        "transactionId": {
+          "type": "string",
+          "description": "Critical for CHC to help debug customer issues.  Combination of transactionId + receiptId makes this unique to a transaction.",
+          "example": "BA0T1B7DF695"
+        },
+        "authCode": {
+          "type": "string",
+          "example": "386269"
+        },
+        "paymentAmount": {
+          "type": "number",
+          "description": "Amount of the payment in cents",
+          "example": 10000
+        },
+        "transactionType": {
+          "type": "string",
+          "description": "The type of transaction - SALE or REFUND.  VOID transactions will never show up - we will never have these returned from the API.",
+          "enum": [
+            "SALE",
+            "REFUND"
+          ],
+          "example": "SALE"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "PROCESSING",
+            "COMPLETED",
+            "REJECTED",
+            "REFUNDED",
+            "DISBURSED",
+            "DEPOSITED"
+          ]
+        },
+        "paymentTimestamp": {
+          "type": "string",
+          "description": "The timestamp of the payment execution",
+          "example": "2018-01-02T10:00:00Z"
+        },
+        "accountHolderName": {
+          "type": "string",
+          "description": "For credit card, name on the card, for bank account, bank account holder name.  This is the name provided at time of transaction.",
+          "example": "John Doe"
+        },
+        "accountType": {
+          "type": "string",
+          "description": "The account type",
+          "enum": [
+            "bankAccount",
+            "card"
+          ]
+        },
+        "subAccountType": {
+          "type": "string",
+          "description": "Specific form of payment for either a credit card or bank account payment.  Four types for credit card payment types, two types for bank account.  User displayable format returned.",
+          "enum": [
+            "Visa",
+            "Mastercard",
+            "Discover",
+            "American Express",
+            "Checking",
+            "Savings"
+          ],
+          "example": "American Express"
+        },
+        "last4": {
+          "type": "string",
+          "description": "Last four digits of credit card or bank account number",
+          "example": "2345"
+        },
+        "processedBy": {
+          "type": "string",
+          "enum": [
+            "CHC",
+            "CITI",
+            "PAYFLEX"
+          ]
+        },
+        "refundReasonCode": {
+          "type": "string",
+          "description": "The reason code for the refund"
+        },
+        "referenceTransactionId": {
+          "type": "string",
+          "description": "Transaction ID  of originating transaction"
+        },
+        "statusHistory": {
+          "type": "array",
+          "description": "A history of the statuses for this transaction",
+          "items": {
+            "required": [
+              "status",
+              "timestamp"
+            ],
+            "type": "object",
+            "properties": {
+              "timestamp": {
+                "type": "string",
+                "description": "The date and time that the status occurred for this transaction",
+                "example": "2018-01-02T10:00:00Z"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "PROCESSING",
+                  "COMPLETED",
+                  "REJECTED",
+                  "REFUNDED",
+                  "DISBURSED",
+                  "DEPOSITED"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

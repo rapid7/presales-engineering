@@ -1,11 +1,9 @@
 # Presales Engineering GitHub Repository
-The Presales Engineering repository has been created to further collaboration within Applied Engineering and Rapid7 by making 
-scripts, sql queries, etc available for use by fellow sales engineering and prospects in POC.
+The Presales Engineering repository has been created to further collaboration within Rapid7 presales engineering and prospects. This repository is not for use in production deployments, but contains common scripts used during Proof of Concepts.
 
 # Contributing to Repository
-All changes made to this repository should only be merged in using a pull request (PR) from a fork. Use of PRs allows
- for review of content changes and isolating to a personal fork keeps the repository cleaner with fewer branches.
- 
+Rapid7 employees are welcome to submit Pull Requests via branch or fork. Contact @thonker-r7 if you have any questions. Only R7 Platform Delivery can approve Pull Requests into master.
+
 Use of the Github Starter Guide may be helpful for those that are not familiar with git or GitHub.  It provides 
 details on using the web GUI, desktop GUI, and command-line for tracking files with git:
 https://wiki.corp.rapid7.com/display/DS/Github+Starter+Guide

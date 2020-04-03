@@ -5,4 +5,4 @@
 set -e
 #SOURCE_CODE_PATH=$(pwd)
 
-find ".." -type f -iname '*.sh' -not -path "*Lab_Builder*"  -exec shellcheck {} \;
+find ".." -type f -iname '*.sh'  -exec shellcheck --severity=error {} \;

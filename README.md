@@ -1,5 +1,12 @@
-# Presales Engineering GitHub Repository
-The Presales Engineering repository has been created to further collaboration within Rapid7 presales engineering and prospects. This repository is not for use in production deployments, but contains common scripts used during Proof of Concepts.
+# Rapid7 Presales Engineering PUBLIC GitHub Repository
+The Presales Engineering repository has been created to further collaboration within Rapid7 presales engineering and prospects. This repository is not for use in production deployments, but contains common scripts used during Proof of Concepts. This repo contains content like:
+* scripts for installing Rapid7 products quickly
+* scripts for preparing virtual machines for Rapid7 install or lab environments
+* custom scripts for POCs that may be reused by other POCs
+* scripts for quickly configuring POC servers with common post-install configurations (like creating very common Dynamic Asset Groups in InsightVM)
+* troubleshooting scripts for networking or product
+* common custom reports
+* public facing workshops and walk-throughs
 
 # Contributing to Repository
 Rapid7 employees are welcome to submit Pull Requests via branch or fork. Contact @thonker-r7 if you have any questions. Only R7 Platform Delivery can approve Pull Requests into master.

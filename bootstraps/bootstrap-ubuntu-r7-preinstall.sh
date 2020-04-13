@@ -403,7 +403,8 @@ log "Date and time updated"
 disable_and_stop_apt_updates
 
 # NETWORK SETTINGS
-configure_networking
+# commenting out since this causes problems when deploying the script at scale
+#configure_networking
 
 # update and upgrade anything missing right now.
 # TODO: migrate to separate function

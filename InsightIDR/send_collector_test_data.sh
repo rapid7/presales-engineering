@@ -28,10 +28,32 @@
 #	Another command to see which ports are open on collector, includes both TCP and UDP
 #	ss -tulwn
 #
+#	InsightIDR uses ISO 8601 extended for timestamps: yyyy-MM-ddTHH:mm:SS.SSSZ
+#
 #	TODO: convert file to local variable
+#
+#	References:
+#		https://insightidr.help.rapid7.com/docs/rapid7-universal-event-sources#section-time-validation
 
 # bomb out immediately if any error occur
 set -e
+
+
+################################################################################
+#		FUNCTION DEFINITIONS
+################################################################################
+
+date_iso8601 () {
+	# you should install homebrew before, designed for OS X
+	# OS X version of date doesn't offer a way to do milliseconds
+	# brew install coreutils
+	gdate -u +"%Y-%m-%dT%H:%M:%S.%3NZ"
+}
+
+
+################################################################################
+#		MAIN
+################################################################################
 
 # pull in Bash parameters, required and will fail if they aren't specified
 COLLECTOR_HOST="$1"
@@ -47,10 +69,15 @@ PUBLIC_IP=$(curl -sSf ifconfig.co)
 # loop through count of messages
 for i in $(seq 1 "$MESSAGE_COUNT")
 do
-	# store the message before transmission
-	echo "$(date)  message_number=$i/$MESSAGE_COUNT, TARGET HOST=$COLLECTOR_HOST, TARGET PORT=$COLLECTOR_PORT, PROTOCOL=$COLLECTOR_PROTOCOL, SOURCE PUBLIC IP=$PUBLIC_IP, SOURCE HOSTNAME=$HNAME" > "$MSG_DATA"
+	# plaintext format (old)
+	#echo "$(date_iso8601), message_number=$i/$MESSAGE_COUNT, TARGET_HOST=$COLLECTOR_HOST, TARGET_PORT=$COLLECTOR_PORT, PROTOCOL=$COLLECTOR_PROTOCOL, SOURCE_PUBLIC_IP=$PUBLIC_IP, SOURCE_HOSTNAME=$HNAME" > "$MSG_DATA"
 
-	# sleep for 1 second every 3 posts to ensure timestamp changes
+#	JSON format for InsightIDR
+	cat <<EOF > "$MSG_DATA"
+{"event_type":"TEST_EVENT","version":"v1","time":"$(date_iso8601)","message_number":"$i/$MESSAGE_COUNT","target_host":"$COLLECTOR_HOST","target_port":"$COLLECTOR_PORT","protocol":"$COLLECTOR_PROTOCOL","source_public_ip":"$PUBLIC_IP","source_hostname":"$HNAME"}
+EOF
+
+	# sleep for 1 second every 3 posts to ensure timestamps are easier to read, and avoid blasting the network
 	if ! ((i % 3)); then
 	    sleep 1
 	fi

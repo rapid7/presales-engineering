@@ -2,6 +2,7 @@ echo off
 color F0
 cls
 REM #!# This is version 2 and adds a deletion of the Sheriff license key from the registry
+REM #!# TODO: add check to see if running with admin permissions, bail if not
 echo.
 echo ##################################################################
 echo # We are going to delete the existing Insight AppSec Scan Engine!
@@ -43,5 +44,11 @@ echo #  The file restclient-platform.cfg was copied to the desktop.
 echo #  Find the previous AppSec engine API key in this file and use that value when installing the Insight AppSec engine.
 echo #  Then, go scan and discover.  So Say We All.
 echo ##################################################################
-echo.
+echo .
+echo ##################################################################
+echo # REBOOT THIS SYSTEM BEFORE INSTALLING THE INSIGHTAPPSEC SCAN ENGINE
+echo ##################################################################
+
+
+
 pause

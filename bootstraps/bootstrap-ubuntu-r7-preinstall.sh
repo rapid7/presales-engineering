@@ -400,7 +400,8 @@ fi
 setup_time_and_sync
 log "Date and time updated"
 
-disable_and_stop_apt_updates
+# Disabling this for security reasons by default
+#disable_and_stop_apt_updates
 
 # NETWORK SETTINGS
 # commenting out since this causes problems when deploying the script at scale
@@ -419,7 +420,7 @@ create_lab_user
 # disable firewall
 #TODO: check if UFW is installed and disable if so
 # TODO: migrate to separate function
-ufw disable
+#ufw disable
 
 # install a bunch of packages
 install_apt_tools

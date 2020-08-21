@@ -2,8 +2,9 @@
 # convert ZAP and IAS crawl maps and diff them, outputs a file named "diff.txt"
 # written by Tim H 2020
 
-ZAP_CRAWL_MAP_INPUT="./ZAP_comparison/ZAP_results/ZAP-webscantest-unauth-crawlmap.txt"
-IAS_CRAWL_MAP_INPUT="./ZAP_comparison/InsightAppSec _results/WebScanTest - InsightAppSec crawl map.json"
+ZAP_CRAWL_MAP_INPUT="./ZAP-webscantest-unauth-crawlmap.txt"
+IAS_CRAWL_MAP_INPUT="./WebScanTest - InsightAppSec crawl map.json"
+OUTPUT_FILE="diff.txt"
 
 ################################################################################
 #		FUNCTION DEFINITIONS
@@ -42,4 +43,5 @@ cleanup "$IAS_CRAWL_MAP_TMP" > "$IAS_CRAWL_MAP_OUTPUT"
 ################################################################################
 # final comparison
 ################################################################################
-diff --ignore-all-space --strip-trailing-cr --text --suppress-common-lines  --side-by-side "$ZAP_CRAWL_MAP_OUTPUT" "$IAS_CRAWL_MAP_OUTPUT" > diff.txt
+echo "$ZAP_CRAWL_MAP_INPUT                    $IAS_CRAWL_MAP_INPUT" > "$OUTPUT_FILE"
+diff --ignore-all-space --strip-trailing-cr --text --suppress-common-lines  --side-by-side "$ZAP_CRAWL_MAP_OUTPUT" "$IAS_CRAWL_MAP_OUTPUT" >> "$OUTPUT_FILE"

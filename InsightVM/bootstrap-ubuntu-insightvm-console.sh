@@ -41,3 +41,14 @@ systemctl start nexposeconsole.service
 
 # TODO: Automatically resize the disk if not using the whole thing:
 #resize2fs $(mount | grep "/ " | cut -f1 -d" " )
+
+# open firewall on CentOS 7 with firewalld
+#firewall-cmd --permanent --zone=public --add-port=3780/tcp
+#firewall-cmd --permanent --zone=public --add-service=https
+#systemctl restart firewalld
+
+#fstab
+## added by Tim
+#10.0.1.35:/volume1/nfs_insightvm /opt/rapid7/nexpose/nsc/backups      nfs auto,nofail,noexec,noatime,nolock,intr,tcp,actimeo=1800 0 0
+
+#* * * * * ntpdate pool.ntp.org

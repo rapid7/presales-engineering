@@ -27,7 +27,7 @@ cleanup () {
 ZAP_CRAWL_MAP_OUTPUT="$ZAP_CRAWL_MAP_INPUT-output.txt"
 
 cleanup "$ZAP_CRAWL_MAP_INPUT" > "$ZAP_CRAWL_MAP_OUTPUT"
-
+ZAP_CRAWL_COUNT=$(wc -l "$ZAP_CRAWL_MAP_OUTPUT")
 
 ################################################################################
 # going through the IAS output
@@ -38,6 +38,7 @@ IAS_CRAWL_MAP_OUTPUT="$IAS_CRAWL_MAP_INPUT-output.txt"
 # strip out the URLs from the JSON format before handing it off to the cleanup
 grep "url\": " "$IAS_CRAWL_MAP_INPUT" | sed 's/^ *//g' | cut -d \" -f4 > "$IAS_CRAWL_MAP_TMP"
 cleanup "$IAS_CRAWL_MAP_TMP" > "$IAS_CRAWL_MAP_OUTPUT"
+IAS_CRAWL_COUNT=$(wc -l "$IAS_CRAWL_MAP_OUTPUT")
 
 
 ################################################################################
@@ -45,3 +46,6 @@ cleanup "$IAS_CRAWL_MAP_TMP" > "$IAS_CRAWL_MAP_OUTPUT"
 ################################################################################
 echo "$ZAP_CRAWL_MAP_INPUT                    $IAS_CRAWL_MAP_INPUT" > "$OUTPUT_FILE"
 diff --ignore-all-space --strip-trailing-cr --text --suppress-common-lines  --side-by-side "$ZAP_CRAWL_MAP_OUTPUT" "$IAS_CRAWL_MAP_OUTPUT" >> "$OUTPUT_FILE"
+echo "Total unique URL crawl counts (not including parameters):
+$ZAP_CRAWL_COUNT
+$IAS_CRAWL_COUNT"

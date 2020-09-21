@@ -46,7 +46,7 @@ echo "Boot strap start: $(date)"
 #set -e 
 
 # Install web server, start it, have it autostart on future boots
-yum install httpd -q -y
+yum install httpd deltarpm -q -y
 service httpd start
 chkconfig httpd on
 

@@ -236,18 +236,21 @@ download_r7_installers () {
 	set -e
 
 	# need to cd into target directory before calling this function
-	# Download InsightVM installer and MD5 checksum file
+	# Download InsightVM installer and checksum file
 	wget --quiet https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin \
-		https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin.md5sum
+		http://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin.sha512sum
+
 	# check the integrity of the IVM installer delete it if it doesn't match
-	md5sum --check Rapid7Setup-Linux64.bin.md5sum || rm -f Rapid7Setup-Linux64.bin
+	sha512sum --check Rapid7Setup-Linux64.bin.sha512sum || rm -f Rapid7Setup-Linux64.bin
 	mv Rapid7Setup-Linux64.bin InsightVM_installer.bin
 
-	# No MD5 files for other installers
+	# No hashsum files for other installers
 	wget --quiet --output-document=Collector_installer.sh             https://s3.amazonaws.com/com.rapid7.razor.public/InsightSetup-Linux64.sh
 	wget --quiet https://us.downloads.connect.insight.rapid7.com/orchestrator/installers/r7-orchestrator-installer.sh
 	wget --quiet --output-document=Metasploit_Pro_installer.run       https://downloads.metasploit.com/data/releases/metasploit-latest-linux-x64-installer.run
 	wget --quiet --output-document=Metasploit_Framework_installer.run https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb
+	wget --quiet --output-document=sensor_installer.sh                https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/latest/linux/x86_64/sensor_installer_latest_x64.sh
+	wget --quiet --output-document=agent_installer.sh                 https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/1598479690/linux/x86/agent_control_1598479690.sh
 	chmod 500 ./*.bin ./*.sh ./*.run
 	log "Finished downloading Rapid7 installers..."
 }

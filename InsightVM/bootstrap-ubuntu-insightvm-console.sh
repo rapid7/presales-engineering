@@ -14,10 +14,10 @@ apt-get -y install wget
 
 # Download the installer for both InsightVM and Nexpose (same) and MD5 hashsum file
 # This makes sure you're getting the latest installer
-wget https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin.md5sum
+wget https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin.sha512sum
 
 # Check the integrity of the download
-md5sum --check Rapid7Setup-Linux64.bin.md5sum
+sha512sum --check Rapid7Setup-Linux64.bin.sha512sum
 
 # Mark installer as executable
 chmod u+x Rapid7Setup-Linux64.bin
@@ -25,8 +25,15 @@ chmod u+x Rapid7Setup-Linux64.bin
 # install InsightVM, but don't start the service yet
 ./Rapid7Setup-Linux64.bin -q -overwrite -Djava.net.useSystemProxies=false -Vfirstname='NAME' -Vlastname='NAME' -Vcompany='COMPANY' -Vusername='nxadmin' -Vpassword1='nxpassword' -Vpassword2='nxpassword' '-Vsys.component.typical$Boolean=true' '-Vsys.component.engine$Boolean=false' '-VcommunicationDirectionChoice$Integer=1' '-VinitService$Boolean=false'
 
+
+# follow documentation, here is where you'd enable FIPS mode if needed.
+# https://docs.rapid7.com/insightvm/enabling-fips-mode/#enabling-fips-mode
+
 # start it up, not started by default
-systemctl start nexposeconsole.service
+#systemctl start nexposeconsole.service
+
+###########################
+
 
 # wait until the service finishes starting
 # usually 30 minutes on very first boot after install, depending on hardware specs

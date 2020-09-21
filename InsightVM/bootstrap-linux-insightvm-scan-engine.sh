@@ -1,6 +1,11 @@
 #!/bin/bash
 # Tim H 2020
 # This script installs and configures an InsightVM scan engine and pairs it to an existing InsightVM console.
+#
+#  Requirements:
+#       * running as sudo or root
+#       * running on supported Linux distro for InsightVM: https://www.rapid7.com/products/insightvm/system-requirements/
+#       * wget is installed. You could also rewrite this using Curl if needed.
 
 # exit if anything fails, do not continue
 set -e

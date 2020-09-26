@@ -107,7 +107,8 @@ log "AT installed, about to start AT service"
 service atd start && chkconfig atd on
 log "AT service started, about to schedule the shutdown"
 
-echo "shutdown -h now" | at now +5 minutes
+echo "shutdown -h now" | at now +7 hours
+#echo "shutdown -h now" | at now +10 minutes
 
 log "shutdown scheduled but should not be initiated for a while."
 

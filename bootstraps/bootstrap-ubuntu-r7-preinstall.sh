@@ -177,7 +177,7 @@ create_lab_user () {
 	    useradd $NEW_USERNAME -s /bin/bash -m --home-dir /home/$NEW_USERNAME
 	    # set their password
 		echo -e "$NEW_USER_PASSWORD\n$NEW_USER_PASSWORD" | passwd $NEW_USERNAME
-		# make them a sudoer
+		# make them a sudoer, need to keep "sudo" in following line, do not find and replace.
 	    usermod -aG sudo $NEW_USERNAME
 	fi
 

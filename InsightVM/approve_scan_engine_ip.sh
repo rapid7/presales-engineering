@@ -7,6 +7,9 @@
 #	Example usage:
 #	./approve_scan_engine_ip.sh 1.2.3.4
 #
+#	Optional second parameter: path to the consoles.xml file (if it was not installed to the default location)
+#	./approve_scan_engine_ip.sh 1.2.3.4 /mnt/insightvm/nexpose/nse/conf/consoles.xml
+#
 #	TODO: add feedback or verify that it is enabled after sending command
 #
 #	References:
@@ -24,7 +27,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # verify that user provided the public IP of the engine
-if [ -z ${SCAN_ENGINE_IP} ]; then 
+if [ -z "${SCAN_ENGINE_IP}" ]; then 
 	echo "IP not defined."
 	exit 6
 fi

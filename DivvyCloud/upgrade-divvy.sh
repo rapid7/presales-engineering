@@ -1,9 +1,10 @@
 #!/bin/bash
+#  Tim H 2020
 #
 # Description:
 #   Script to upgrade DivvyCloud consoles since they can't do it on their own yet
 #
-# crontab for Sunday nights at 11pm, run as root
+# example crontab for Sunday nights at 11pm, run as root
 #0 23 * * 7 /root/upgrade-divvy.sh
 
 # bomb out if any errors occur
@@ -17,9 +18,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-cd /divvycloud/ || exit 1
+cd "/divvycloud/" || exit 1
 docker-compose down
 docker-compose pull
 docker-compose up -d
 
-echo "finished updating Divvy containers."
+echo "finished updating Divvy containers and restated them."

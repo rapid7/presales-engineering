@@ -1,6 +1,9 @@
 #!/bin/bash
 # Tim H 2020
 # This script installs and configures an InsightVM scan engine and pairs it to an existing InsightVM console.
+# Note that the installer for the InsightVM/Nexpose console is the same as the scan engine. The only difference is
+#   the supplied inputs. Normally the installer uses interactive prompts, but this script bypasses those with 
+#   command line parameters.
 #
 #  Requirements:
 #       * running as sudo or root
@@ -38,3 +41,5 @@ chmod u+x Rapid7Setup-Linux64.bin
     -VinitService\$Boolean=true \
     -VcommunicationDirectionChoice\$Integer=0 \
     -VconsoleAddress="$console" -VconsoleDetailPort='40815' -VsharedSecret="$secret"
+
+# this will automatically start the service too

@@ -1,17 +1,14 @@
 #!/bin/bash
+# Tim H 2018
+# Can't remember exact details of use case, this was for a very old POC
 
 export find_string="Asserting MAC address"
 export missing_IP_list="missing_Ips.txt"
-
-#echo "$missing_IP_list"
-#echo "$current_file"
-#echo "$find_string"
 
 if [ ! -f "$missing_IP_list" ]; then 
 	echo "$missing_IP_list cannot be found"
 	exit 1
 fi
-
 
 while IFS= read -r -d '' current_file; do
   #echo "$current_file"
@@ -35,6 +32,3 @@ while IFS= read -r -d '' current_file; do
 	done
   
 done < <(find . -type f -name "*.log" -print0)
-
-
-

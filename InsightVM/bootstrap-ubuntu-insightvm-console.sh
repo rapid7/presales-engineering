@@ -23,18 +23,26 @@ sha512sum --check Rapid7Setup-Linux64.bin.sha512sum
 chmod u+x Rapid7Setup-Linux64.bin
 
 # install InsightVM, but don't start the service yet
-./Rapid7Setup-Linux64.bin -q -overwrite -Djava.net.useSystemProxies=false -Vfirstname='NAME' -Vlastname='NAME' -Vcompany='COMPANY' -Vusername='nxadmin' -Vpassword1='nxpassword' -Vpassword2='nxpassword' '-Vsys.component.typical$Boolean=true' '-Vsys.component.engine$Boolean=false' '-VcommunicationDirectionChoice$Integer=1' '-VinitService$Boolean=false'
-
+./Rapid7Setup-Linux64.bin -q -overwrite -Djava.net.useSystemProxies=false \
+    -Vfirstname='NAME' \
+    -Vlastname='NAME' \
+    -Vcompany='COMPANY' \
+    -Vusername='nxadmin' \
+    -Vpassword1='nxpassword' \
+    -Vpassword2='nxpassword' \
+    "-Vsys.component.typical$Boolean=true" \
+    "-Vsys.component.engine$Boolean=false" \
+    "-VcommunicationDirectionChoice$Integer=1" \
+    "-VinitService$Boolean=false"
 
 # follow documentation, here is where you'd enable FIPS mode if needed.
 # https://docs.rapid7.com/insightvm/enabling-fips-mode/#enabling-fips-mode
 
 # start it up, not started by default
-#systemctl start nexposeconsole.service
+systemctl start nexposeconsole.service
 
 ###########################
-
-
+# Additional notes for firewalls and more
 # wait until the service finishes starting
 # usually 30 minutes on very first boot after install, depending on hardware specs
 
@@ -53,9 +61,3 @@ chmod u+x Rapid7Setup-Linux64.bin
 #firewall-cmd --permanent --zone=public --add-port=3780/tcp
 #firewall-cmd --permanent --zone=public --add-service=https
 #systemctl restart firewalld
-
-#fstab
-## added by Tim
-#10.0.1.35:/volume1/nfs_insightvm /opt/rapid7/nexpose/nsc/backups      nfs auto,nofail,noexec,noatime,nolock,intr,tcp,actimeo=1800 0 0
-
-#* * * * * ntpdate pool.ntp.org

@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+#	Tim H 2020
 #   runtime: ~4-9 minutes
 #   configures an Ubuntu 16.04 system for a lab
 #	doesn't 100% work for Ubuntu 18.04: no IP listed on login screen

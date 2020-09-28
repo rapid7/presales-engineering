@@ -1,5 +1,7 @@
 #!/bin/bash
+# Tim H 2019
 # Bootstrap script to disable unattended upgrades on Ubuntu systems
+# TODO: specify and check Ubuntu version(s)
 # Designed for checking for vulns, ensure accuracy of findings for base AMI, not a patched version
 # Stop the service ASAP
 service unattended-upgrades stop

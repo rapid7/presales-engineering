@@ -1,6 +1,7 @@
 #!/bin/bash
 # Tim H 2019
 # Bootstrap script from ACloudGuru for installing wordpress
+# Designed for CentOS 7, untested on 8
 # TODO: migrate to private repo
 yum update -y
 yum install httpd php php-mysql -y

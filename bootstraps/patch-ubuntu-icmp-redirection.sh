@@ -1,5 +1,7 @@
 #!/bin/bash
-# fix ICMP redirection
+# Tim H 2020
+# fix ICMP redirection flaw in Ubuntu
+# InsightVM finds this vuln on all default Ubuntu systems
 
 echo "
 ###########################################
@@ -12,4 +14,3 @@ net.ipv4.conf.default.secure_redirects=0
 " >> /etc/sysctl.conf
 
 echo "reboot now for changes to take effect"
-

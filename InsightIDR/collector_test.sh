@@ -1,5 +1,5 @@
 #!/bin/bash
-##
+# Tim H 2020
 #	Script that sends both TCP and UDP traffic to a test collector
 #	Example usage of send_collector_test_data.sh script
 #

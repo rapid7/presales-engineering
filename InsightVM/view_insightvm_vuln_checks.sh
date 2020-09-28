@@ -1,9 +1,13 @@
 #!/bin/bash
+#   Tim H 2019
 # Viewing the vuln checks on InsightVM scan engines or consoles:
+
+echo "this script is an example for copying and pasting, do not run this script directly"
+exit 1
 
 # install a tool that will give you the jar command to interact with JAR files
 sudo apt-get update
-sudo apt-get install fastjar
+sudo apt-get install -y fastjar
 
 # list all the checks for a particular service scanner - in this case Palo Alto:
 jar tf /opt/rapid7/nexpose/plugins/java/1/PaloAltoScanner/1/checks.jar
@@ -22,7 +26,7 @@ find /opt/rapid7/nexpose/plugins -type f -iname '*checks.jar' -exec  sh -c 'jar 
 # and the file is named:
 # centos_linux-cve-2014-6271-linuxrpm-cesa-2014-1293-bash-centos70-x86_64.vck
 
-cd /root/
+cd /root/ || exit 1
 jar xf /opt/rapid7/nexpose/plugins/java/1/CentOSRPMScanner/1/checks.jar centos_linux-cve-2014-6271-linuxrpm-cesa-2014-1293-bash-centos70-x86_64.vck
 
 # the above commands will extract that one VCK file (the vuln check) into the

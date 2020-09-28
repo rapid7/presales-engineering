@@ -1,6 +1,7 @@
 #!/bin/bash
-# bootsrap for CentOS 8
-# installs squid proxy
+# Tim H 2020
+# bootstrap for CentOS 8
+# installs Squid proxy
 #
 #	References:
 #		https://www.tecmint.com/install-squid-http-proxy-on-centos-7/
@@ -39,8 +40,6 @@ tail -f /var/log/squid/access.log
 # example:
 # access_log udp://10.0.1.33:6677 squid
 
-
-
 # SSL setup
 cp /etc/squid/squid.conf /etc/squid/squid.conf.working_http
 openssl req -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -extensions v3_ca -keyout squid-ca-key.pem -out squid-ca-cert.pem
@@ -57,12 +56,11 @@ vim /etc/squid/squid.conf
 # verify before restarting service
 squid -k parse
 
-
 /usr/lib64/squid/security_file_certgen -c -s /var/spool/squid/ssl_db -M 4MB
 chown squid:squid -R /var/spool/squid/ssl_db
 
 grep -n "ssl_db" /etc/squid/squid.conf
-# line 79 needs to be changed ot support proper directory
+# line 79 needs to be changed to support proper directory
 vim /etc/squid/squid.conf 
 
 # check for errors and warnings, have to redirect stderr too

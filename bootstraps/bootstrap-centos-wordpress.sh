@@ -1,5 +1,7 @@
 #!/bin/bash
+# Tim H 2019
 # Bootstrap script from ACloudGuru for installing wordpress
+# TODO: migrate to private repo
 yum update -y
 yum install httpd php php-mysql -y
 cd /var/www/html || exit 1

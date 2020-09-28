@@ -1,9 +1,13 @@
 #!/bin/bash
+#   Tim H 2020
 # Generates a crawl map based off Rapid7 InsightAppSec logs ZIP files
 
 # takes a single parameter: a path to a ZIP file of logs you downloaded from IAS
 # Yeah, the script is ghetto but it works.
 # Run two different scans on a site, then diff the crawl maps to see what parts of the site it missed/found
+# example usage:
+#   ./create_crawl_maps.sh downloaded_file.zip
+# outputs to a new text file adjacent to original ZIP file.
 
 LOG_ZIP_FILE_FULL_PATH=$1
 ORIG_DIR=$(pwd)

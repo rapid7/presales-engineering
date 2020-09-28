@@ -1,5 +1,5 @@
 #!/bin/bash
-# convert ZAP and IAS crawl maps and diff them, outputs a file named "diff.txt"
+# convert ZAP and InsightAppSec crawl maps and diff them, outputs a file named "diff.txt"
 # written by Tim H 2020
 
 ZAP_CRAWL_MAP_INPUT="./ZAP-webscantest-unauth-crawlmap.txt"

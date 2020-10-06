@@ -94,7 +94,7 @@ log "Starting installation."
 
 log "Finished installation, waiting for service to start..."
 
-# wait for service to start
+# wait for service to start, can't immediately check the status of the service after install
 sleep 15
 
 # check the status

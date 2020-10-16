@@ -88,14 +88,19 @@ do
     fi
 done < "$METADATA_LOG_FILE"
 
+echo "removing last comma"
+#TODO: remove the last comma here
+gsed -i '$ s/.$//' "$OUTPUT_JSON_FILE"
+
 # output some footer info at the very bottom of th JSON file
+echo "appending file..."
 echo "
    ]
 }" >> "$OUTPUT_JSON_FILE"
 
 # TODO: have to manually clean up the final comma at the end of the file
 
-#echo "validating JSON..."
-#jsonlint "$OUTPUT_JSON_FILE"
+echo "validating JSON..."
+jsonlint -q "$OUTPUT_JSON_FILE"
 
 echo "script finished successfully"

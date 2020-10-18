@@ -36,13 +36,13 @@ echo "${AWS_INSTANCE_COUNTER}" > "$COUNTER_FILE"
 
 # define fully qualified hostname
 INSTANCE_NAME="ivm-scanengine-$AWS_INSTANCE_COUNTER"
-NEW_FQDN="$INSTANCE_NAME.aws.company.com"
+NEW_FQDN="$INSTANCE_NAME.awslab.butters.me"
 
 #	Launch an instance that uses the bootstrap script:
 #   Sets the tags so that the Route53FQDN cloudformation template will automatically assign a DNS entry to this instance to
 #   Sets the EBS volume to automatically delete with the instance
 #   Sets the instance to terminate on shut-down, makes testing cleanup easier.
-#   TODO: 
+#   TODO: stop the blocking screen
 aws ec2 run-instances \
 --region "$AWS_REGION" \
 --count 1 \
@@ -63,7 +63,8 @@ echo "waiting for DNS..."
 sleep 50
 
 # doing the DNS lookup directly from the TLD's name server. In this case it's this AWS server.
-nslookup "$NEW_FQDN" ns-644.awsdns-16.net
+#TODO: consider specifying a DNS server
+nslookup "$NEW_FQDN"
  
 echo "waiting for InsightVM engine service to start up..."
 
@@ -73,10 +74,9 @@ sleep 240
 # console to engine pairing
 # available for homelab when console is behind firewall
 # Just create a normal InsightVM console user and give them permissions on at least the engine settings.
-IVM_API_USERNAME="redacted"
-IVM_API_PASSWORD="redacted"
-IVM_HOSTNAME_PORT="insightvm-console.int.butters.me"   # can also be like 1.2.3.4:3780
-NEW_ENGINE_ID="$RANDOM" # random number placeholder, could also just pull the highest ID and add one to it, but I'm too lazy.
+source ./.env
+# uses the following variables from the .env file: IVM_API_USERNAME, IVM_API_PASSWORD, IVM_HOSTNAME_PORT
+NEW_ENGINE_ID="$RANDOM" # random number placeholder, could also just pull the highest ID and add one to it
 
 # function to create the POST data body for the upcoming RESTful API request
 generate_post_data()

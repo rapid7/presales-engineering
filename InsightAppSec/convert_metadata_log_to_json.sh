@@ -1,6 +1,7 @@
 #!/bin/bash
 # Tim H 2020
 # Converts a trafficmetadata log file into JSON format
+#   Useful for processing with jq for doing analysis on a log file
 
 # TODO: strip the "ms" out of the response time 
 #       using JSON since quotes and other things will break CSV      
@@ -27,6 +28,7 @@
 METADATA_LOG_FILE="$1"
 
 echo "starting script"
+
 
 OUTPUT_JSON_FILE="$METADATA_LOG_FILE.json"
 

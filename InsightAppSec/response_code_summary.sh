@@ -13,8 +13,9 @@ if [ ! -d "$LOG_FILES_FULL_PATH" ] ; then
 fi
 
 for i in $(seq 1 6); do 
-	echo $i
-	grep "Response Code: $i" "$LOG_FILES_FULL_PATH/trafficmetadata_00000.log" | wc -l
+	# count the number of instances
+	INSTANCE_CODE_COUNT=$(grep -c "Response Code: $i" "$LOG_FILES_FULL_PATH/trafficmetadata_00000.log")
+	echo "Response code {$i}xx     $INSTANCE_CODE_COUNT instances found in log"
 done
 
-#echo "`basename "$0"` finished successfully"
+echo "script finished successfully."

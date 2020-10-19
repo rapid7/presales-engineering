@@ -13,7 +13,7 @@
 LOG_ZIP_FILE_FULL_PATH=$1
 
 # TODO: add if directory exists to avoid errors
-ORIG_DIR=$(pwd)
+#ORIG_DIR=$(pwd)
 PATH_TO_LOGS=$(dirname "$LOG_ZIP_FILE_FULL_PATH")
 ZIP_BASE_NAME=$(basename "$LOG_ZIP_FILE_FULL_PATH")
 EXTRACT_PATH="$PATH_TO_LOGS/$ZIP_BASE_NAME-extract"

@@ -7,4 +7,8 @@
 # example usage:
 #   ./convert_urls_to_fqdns.sh list_of_urls.txt
 
+# bomb out if any errors occur
+set -e
+
+
 awk -F/ '{print $3}' "$1" | sort --unique

@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+#	Tim H 2020
 #	This script will enable a remote scan engine on an IVM console based off its public IP
 #	Designed to be used on R7 hosted shared scan engines to simplify process of approving
 #	prospect's POC consoles

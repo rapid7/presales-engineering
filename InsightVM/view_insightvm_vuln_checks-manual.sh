@@ -1,6 +1,9 @@
 #!/bin/bash
 #   Tim H 2019
-# Viewing the vuln checks on InsightVM scan engines or consoles:
+# Viewing the vuln checks on InsightVM scan engines or consoles
+#   useful for finding exactly how vuln checks are run provided the name.
+#   for example "CVE-2014-6271"
+#   Designed for Ubuntu 16.04, to be run as the root user
 
 echo "this script is an example for copying and pasting, do not run this script directly"
 exit 1

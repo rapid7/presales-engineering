@@ -23,6 +23,7 @@ sha512sum --check Rapid7Setup-Linux64.bin.sha512sum
 chmod u+x Rapid7Setup-Linux64.bin
 
 # install InsightVM, but don't start the service yet
+# unfortunately these command line arguments aren't publicly documented
 ./Rapid7Setup-Linux64.bin -q -overwrite -Djava.net.useSystemProxies=false \
     -Vfirstname='NAME' \
     -Vlastname='NAME' \

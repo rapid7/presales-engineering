@@ -1,6 +1,8 @@
 #!/bin/bash
 # Tim H 2018
 # Can't remember exact details of use case, this was for a very old POC
+#	I think a prospect wanted a way to verify that InsightVM was indeed
+#	finding all the IPs/MACs that he had in a spreadsheet. 
 
 export find_string="Asserting MAC address"
 export missing_IP_list="missing_Ips.txt"

@@ -4,6 +4,7 @@
 # Description: creates a compressed file containing all InsightVM related logs
 #   It also sets the ownership and permissions so it is easier to SCP off to
 #   another system.
+#   This ZIP file may be too large to email, depending on log size.
 #
 # References:
 #   InsightVM log file explanations: https://docs.rapid7.com/insightvm/troubleshooting/#locating-each-log-file-and-understanding-its-purpose

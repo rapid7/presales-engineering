@@ -2,6 +2,8 @@
 ##############################################################################
 # Tim H 2020
 # Description:
+#   Deploys a CentOS v7 EC2 instance and installs the InsightVM scan engine on it
+#   It even pairs it to a console provided the username and password
 ##############################################################################
 AWS_REGION="us-east-1"
 INSTANCE_TYPE="t2.large"                    # the medium can take long time to start the scan engine service

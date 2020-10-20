@@ -2,6 +2,7 @@
 #	Tim H 2020
 #	unit test script for approve_scan_engines_ip.sh
 #	Loops through a provided consoles.xml file and enables all the IPs.
+#	Not designed for production usage, just code testing.
 #	
 # 	Example usage: does not take any parameters
 #		./test-approve_scan_engine_ip.sh

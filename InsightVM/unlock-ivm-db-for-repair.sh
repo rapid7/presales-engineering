@@ -1,6 +1,7 @@
 #!/bin/bash
 # Tim H 2020
 # For InsightVM consoles experiencing rare database issues
+#   will reboot the InsightVM console
 
 # bomb out if any errors occur
 set -e

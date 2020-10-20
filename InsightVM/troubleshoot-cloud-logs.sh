@@ -1,6 +1,6 @@
 #!/bin/bash
 #	Tim H 2020
-#   This script has a series of different bash commands to assist in troubleshooting
+#   This script has a series of different Bash commands to assist in troubleshooting
 #   dynamic discovery connections to cloud providers like Azure and AWS
 #   Log descriptions: https://docs.rapid7.com/insightvm/troubleshooting/#locating-each-log-file-and-understanding-its-purpose
 

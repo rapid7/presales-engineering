@@ -4,6 +4,9 @@
 # Replace 10.0.1.37 with the IP of your InsightVM/Nexpose console
 # Note that this is for REVERSE pairing - pairing the scan engine to the console
 # which takes place over TCP 40815, NOT 40814.
+#
+# The following comamnds should be run from the InsightVM scan engine that is
+#   having trouble connecting to the InsightVM console.
 
 # use nmap to see if the port is open
 nmap -Pn -p40815 10.0.1.37

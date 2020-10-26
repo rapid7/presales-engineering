@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+# Tim H 2020
 # TCP and UDP dummy traffic test for Collector
 #
 #	send_collector_test_data.sh IP PROTOCOL PORT [number of messages]

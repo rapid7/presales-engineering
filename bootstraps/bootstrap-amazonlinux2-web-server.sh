@@ -1,4 +1,5 @@
 #!/bin/bash
+#   Tim H 2019
 ##############################################################################
 #
 #		Installs Apache and serves a webpage that describes
@@ -26,6 +27,8 @@
 ##############################################################################
 # Set up logging to external file
 LOGFILE="/root/bootstrap.log"
+
+# if using AWS NFS host to dump files for longer term storage
 NFS_HOST="172.30.0.48"	#us-east-1a EFS in master account
 
 # redirect all output to a logfile
@@ -46,7 +49,7 @@ echo "Boot strap start: $(date)"
 #set -e 
 
 # Install web server, start it, have it autostart on future boots
-yum install httpd -q -y
+yum install httpd deltarpm -q -y
 service httpd start
 chkconfig httpd on
 

@@ -1,0 +1,2120 @@
+[
+  {
+    "node": "www.webscantest.com",
+    "url": "www.webscantest.com",
+    "children": [
+      {
+        "node": "?redirect=hrs",
+        "url": "https://www.webscantest.com/?redirect=hrs",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "angular",
+        "url": "https://www.webscantest.com/angular/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "angular1",
+            "url": "www.webscantest.com/angular/angular1",
+            "method": "GET",
+            "children": [
+              {
+                "node": "data",
+                "url": "www.webscantest.com/angular/angular1/data",
+                "method": "GET",
+                "children": [
+                  {
+                    "node": "?C=D;O=A",
+                    "url": "www.webscantest.com/angular/angular1/data?C=D;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=D;O=D",
+                    "url": "www.webscantest.com/angular/angular1/data?C=D;O=D",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=N;O=A",
+                    "url": "www.webscantest.com/angular/angular1/data?C=N;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=S;O=A",
+                    "url": "www.webscantest.com/angular/angular1/data?C=S;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=S;O=D",
+                    "url": "www.webscantest.com/angular/angular1/data?C=S;O=D",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "comments.json",
+                    "url": "www.webscantest.com/angular/angular1/data/comments.json",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "data-change.php",
+                    "url": "www.webscantest.com/angular/angular1/data/data-change.php",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "users.json",
+                    "url": "www.webscantest.com/angular/angular1/data/users.json",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "vuln.json",
+                    "url": "www.webscantest.com/angular/angular1/data/vuln.json",
+                    "method": "GET",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "node": "images",
+                "url": "www.webscantest.com/angular/angular1/images",
+                "method": "GET",
+                "children": [
+                  {
+                    "node": "?C=D;O=A",
+                    "url": "www.webscantest.com/angular/angular1/images?C=D;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=D;O=D",
+                    "url": "www.webscantest.com/angular/angular1/images?C=D;O=D",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=N;O=A",
+                    "url": "www.webscantest.com/angular/angular1/images?C=N;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=S;O=A",
+                    "url": "www.webscantest.com/angular/angular1/images?C=S;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=S;O=D",
+                    "url": "www.webscantest.com/angular/angular1/images?C=S;O=D",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "default_profile.png",
+                    "url": "www.webscantest.com/angular/angular1/images/default_profile.png",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "profile.png",
+                    "url": "www.webscantest.com/angular/angular1/images/profile.png",
+                    "method": "GET",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "node": "index.html",
+                "url": "www.webscantest.com/angular/angular1/index.html",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "js",
+                "url": "www.webscantest.com/angular/angular1/js",
+                "method": "GET",
+                "children": [
+                  {
+                    "node": "?C=D;O=A",
+                    "url": "www.webscantest.com/angular/angular1/js?C=D;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=D;O=D",
+                    "url": "www.webscantest.com/angular/angular1/js?C=D;O=D",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=N;O=A",
+                    "url": "www.webscantest.com/angular/angular1/js?C=N;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=S;O=A",
+                    "url": "www.webscantest.com/angular/angular1/js?C=S;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=S;O=D",
+                    "url": "www.webscantest.com/angular/angular1/js?C=S;O=D",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "angular-js-1.6.4.js",
+                    "url": "www.webscantest.com/angular/angular1/js/angular-js-1.6.4.js",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "script.js",
+                    "url": "www.webscantest.com/angular/angular1/js/script.js",
+                    "method": "GET",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "node": "styles",
+                "url": "www.webscantest.com/angular/angular1/styles",
+                "method": "GET",
+                "children": [
+                  {
+                    "node": "?C=D;O=A",
+                    "url": "www.webscantest.com/angular/angular1/styles?C=D;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=D;O=D",
+                    "url": "www.webscantest.com/angular/angular1/styles?C=D;O=D",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=N;O=A",
+                    "url": "www.webscantest.com/angular/angular1/styles?C=N;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=S;O=A",
+                    "url": "www.webscantest.com/angular/angular1/styles?C=S;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=S;O=D",
+                    "url": "www.webscantest.com/angular/angular1/styles?C=S;O=D",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "bootstrap.css",
+                    "url": "www.webscantest.com/angular/angular1/styles/bootstrap.css",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "style.css",
+                    "url": "www.webscantest.com/angular/angular1/styles/style.css",
+                    "method": "GET",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "node": "sub",
+                "url": "www.webscantest.com/angular/angular1/sub",
+                "method": "GET",
+                "children": [
+                  {
+                    "node": "?C=D;O=A",
+                    "url": "www.webscantest.com/angular/angular1/sub?C=D;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=D;O=D",
+                    "url": "www.webscantest.com/angular/angular1/sub?C=D;O=D",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=N;O=A",
+                    "url": "www.webscantest.com/angular/angular1/sub?C=N;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=S;O=A",
+                    "url": "www.webscantest.com/angular/angular1/sub?C=S;O=A",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "?C=S;O=D",
+                    "url": "www.webscantest.com/angular/angular1/sub?C=S;O=D",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "about-onchange.html",
+                    "url": "www.webscantest.com/angular/angular1/sub/about-onchange.html",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "addvuln-click.html",
+                    "url": "www.webscantest.com/angular/angular1/sub/addvuln-click.html",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "contact-onchange.html",
+                    "url": "www.webscantest.com/angular/angular1/sub/contact-onchange.html",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "docs-mousedown.html",
+                    "url": "www.webscantest.com/angular/angular1/sub/docs-mousedown.html",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "features-keydown.html",
+                    "url": "www.webscantest.com/angular/angular1/sub/features-keydown.html",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "partners-mouseenter.html",
+                    "url": "www.webscantest.com/angular/angular1/sub/partners-mouseenter.html",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "svg-click.html",
+                    "url": "www.webscantest.com/angular/angular1/sub/svg-click.html",
+                    "method": "GET",
+                    "children": []
+                  },
+                  {
+                    "node": "users-mousedown.html",
+                    "url": "www.webscantest.com/angular/angular1/sub/users-mousedown.html",
+                    "method": "GET",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node": "bjax",
+        "url": "https://www.webscantest.com/bjax/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "ajax.js",
+            "url": "www.webscantest.com/bjax/ajax.js",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "business",
+        "url": "https://www.webscantest.com/business",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "cof",
+        "url": "https://www.webscantest.com/cof",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "cors",
+        "url": "https://www.webscantest.com/cors/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "cors.php",
+            "url": "www.webscantest.com/cors/cors.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_CSRF.php",
+            "url": "www.webscantest.com/cors/cors_CSRF.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_allow_all.php",
+            "url": "www.webscantest.com/cors/cors_allow_all.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_font.php",
+            "url": "www.webscantest.com/cors/cors_font.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_invalid.php",
+            "url": "www.webscantest.com/cors/cors_invalid.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_ms.php",
+            "url": "www.webscantest.com/cors/cors_ms.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_noJS.php",
+            "url": "www.webscantest.com/cors/cors_noJS.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_notAuthorized.php",
+            "url": "www.webscantest.com/cors/cors_notAuthorized.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_null.php",
+            "url": "www.webscantest.com/cors/cors_null.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_private.php",
+            "url": "www.webscantest.com/cors/cors_private.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_public.php",
+            "url": "www.webscantest.com/cors/cors_public.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cors_volatile.php",
+            "url": "www.webscantest.com/cors/cors_volatile.php",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "crosstraining",
+        "url": "https://www.webscantest.com/crosstraining/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "aboutyou.php",
+            "url": "www.webscantest.com/crosstraining/aboutyou.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "aboutyou2.php",
+            "url": "www.webscantest.com/crosstraining/aboutyou2.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "blockedbyns.php",
+            "url": "www.webscantest.com/crosstraining/blockedbyns.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?Comment=comment&submit=submit",
+                "url": "www.webscantest.com/crosstraining/blockedbyns.php?Comment=comment&submit=submit",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "checkitem.php",
+            "url": "www.webscantest.com/crosstraining/checkitem.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?error=1",
+                "url": "www.webscantest.com/crosstraining/checkitem.php?error=1",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "checkitem_lookup.php",
+            "url": "www.webscantest.com/crosstraining/checkitem_lookup.php",
+            "method": "POST",
+            "children": []
+          },
+          {
+            "node": "checkitem_result.php",
+            "url": "www.webscantest.com/crosstraining/checkitem_result.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "dom.php",
+            "url": "www.webscantest.com/crosstraining/dom.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "index.php",
+            "url": "www.webscantest.com/crosstraining/index.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "linkout.php",
+            "url": "www.webscantest.com/crosstraining/linkout.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?name=Rake",
+                "url": "www.webscantest.com/crosstraining/linkout.php?name=Rake",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "product.php",
+            "url": "www.webscantest.com/crosstraining/product.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?id=1",
+                "url": "www.webscantest.com/crosstraining/product.php?id=1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=2",
+                "url": "www.webscantest.com/crosstraining/product.php?id=2",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3",
+                "url": "www.webscantest.com/crosstraining/product.php?id=3",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=4",
+                "url": "www.webscantest.com/crosstraining/product.php?id=4",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=5",
+                "url": "www.webscantest.com/crosstraining/product.php?id=5",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=6",
+                "url": "www.webscantest.com/crosstraining/product.php?id=6",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=7",
+                "url": "www.webscantest.com/crosstraining/product.php?id=7",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=8",
+                "url": "www.webscantest.com/crosstraining/product.php?id=8",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=9",
+                "url": "www.webscantest.com/crosstraining/product.php?id=9",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "products.php",
+            "url": "www.webscantest.com/crosstraining/products.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "request.php",
+            "url": "www.webscantest.com/crosstraining/request.php",
+            "method": "POST",
+            "children": []
+          },
+          {
+            "node": "reservation.php",
+            "url": "www.webscantest.com/crosstraining/reservation.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "reservation_history.php",
+            "url": "www.webscantest.com/crosstraining/reservation_history.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "reservation_receipt.php",
+            "url": "www.webscantest.com/crosstraining/reservation_receipt.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?cn=32841260",
+                "url": "www.webscantest.com/crosstraining/reservation_receipt.php?cn=32841260",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "reservation_submit.php",
+            "url": "www.webscantest.com/crosstraining/reservation_submit.php",
+            "method": "POST",
+            "children": []
+          },
+          {
+            "node": "review.php",
+            "url": "www.webscantest.com/crosstraining/review.php",
+            "method": "POST",
+            "children": [
+              {
+                "node": "?product_id=1",
+                "url": "www.webscantest.com/crosstraining/review.php?product_id=1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?product_id=2",
+                "url": "www.webscantest.com/crosstraining/review.php?product_id=2",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?product_id=3",
+                "url": "www.webscantest.com/crosstraining/review.php?product_id=3",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?product_id=4",
+                "url": "www.webscantest.com/crosstraining/review.php?product_id=4",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?product_id=5",
+                "url": "www.webscantest.com/crosstraining/review.php?product_id=5",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?product_id=6",
+                "url": "www.webscantest.com/crosstraining/review.php?product_id=6",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?product_id=7",
+                "url": "www.webscantest.com/crosstraining/review.php?product_id=7",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?product_id=8",
+                "url": "www.webscantest.com/crosstraining/review.php?product_id=8",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?product_id=9",
+                "url": "www.webscantest.com/crosstraining/review.php?product_id=9",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "sample.php",
+            "url": "www.webscantest.com/crosstraining/sample.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "search.php",
+            "url": "www.webscantest.com/crosstraining/search.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?q=mightyseek",
+                "url": "www.webscantest.com/crosstraining/search.php?q=mightyseek",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "sitereviews.php",
+            "url": "www.webscantest.com/crosstraining/sitereviews.php",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "csrf",
+        "url": "https://www.webscantest.com/csrf",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "css",
+        "url": "https://www.webscantest.com/css/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "style-buttons.css",
+            "url": "www.webscantest.com/css/style-buttons.css",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "style-forms.css",
+            "url": "www.webscantest.com/css/style-forms.css",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "style.css",
+            "url": "www.webscantest.com/css/style.css",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "datastore",
+        "url": "https://www.webscantest.com/datastore/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "getimage_by_id.php",
+            "url": "www.webscantest.com/datastore/getimage_by_id.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?id=1",
+                "url": "www.webscantest.com/datastore/getimage_by_id.php?id=1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=2",
+                "url": "www.webscantest.com/datastore/getimage_by_id.php?id=2",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3",
+                "url": "www.webscantest.com/datastore/getimage_by_id.php?id=3",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=4",
+                "url": "www.webscantest.com/datastore/getimage_by_id.php?id=4",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=5",
+                "url": "www.webscantest.com/datastore/getimage_by_id.php?id=5",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=6",
+                "url": "www.webscantest.com/datastore/getimage_by_id.php?id=6",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=7",
+                "url": "www.webscantest.com/datastore/getimage_by_id.php?id=7",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=8",
+                "url": "www.webscantest.com/datastore/getimage_by_id.php?id=8",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=9",
+                "url": "www.webscantest.com/datastore/getimage_by_id.php?id=9",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "getimage_by_name.php",
+            "url": "www.webscantest.com/datastore/getimage_by_name.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?name=Broom",
+                "url": "www.webscantest.com/datastore/getimage_by_name.php?name=Broom",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?name=Deluxe Broom",
+                "url": "www.webscantest.com/datastore/getimage_by_name.php?name=Deluxe Broom",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?name=Deluxe Rake",
+                "url": "www.webscantest.com/datastore/getimage_by_name.php?name=Deluxe Rake",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?name=Deluxe Shovel",
+                "url": "www.webscantest.com/datastore/getimage_by_name.php?name=Deluxe Shovel",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?name=Economy Broom",
+                "url": "www.webscantest.com/datastore/getimage_by_name.php?name=Economy Broom",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?name=Economy Rake",
+                "url": "www.webscantest.com/datastore/getimage_by_name.php?name=Economy Rake",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?name=Economy Shovel",
+                "url": "www.webscantest.com/datastore/getimage_by_name.php?name=Economy Shovel",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?name=Rake",
+                "url": "www.webscantest.com/datastore/getimage_by_name.php?name=Rake",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?name=Shovel",
+                "url": "www.webscantest.com/datastore/getimage_by_name.php?name=Shovel",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "search_by_id.php",
+            "url": "www.webscantest.com/datastore/search_by_id.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "search_by_name.php",
+            "url": "www.webscantest.com/datastore/search_by_name.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "search_by_statement.php",
+            "url": "www.webscantest.com/datastore/search_by_statement.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?id=SELECT * from GOODS where name = 'rakes'",
+                "url": "www.webscantest.com/datastore/search_by_statement.php?id=SELECT * from GOODS where name = 'rakes'",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "search_by_statement_index.php",
+            "url": "www.webscantest.com/datastore/search_by_statement_index.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "search_double_by_name.php",
+            "url": "www.webscantest.com/datastore/search_double_by_name.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "search_get_by_id.php",
+            "url": "www.webscantest.com/datastore/search_get_by_id.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?id=1000",
+                "url": "www.webscantest.com/datastore/search_get_by_id.php?id=1000",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3",
+                "url": "www.webscantest.com/datastore/search_get_by_id.php?id=3",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=4",
+                "url": "www.webscantest.com/datastore/search_get_by_id.php?id=4",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=4 AND 1=0",
+                "url": "www.webscantest.com/datastore/search_get_by_id.php?id=4 AND 1=0",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=4 AND 1=0 LIMIT 1",
+                "url": "www.webscantest.com/datastore/search_get_by_id.php?id=4 AND 1=0 LIMIT 1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=4 AND 1=2",
+                "url": "www.webscantest.com/datastore/search_get_by_id.php?id=4 AND 1=2",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=4 AND 1=2 LIMIT 1",
+                "url": "www.webscantest.com/datastore/search_get_by_id.php?id=4 AND 1=2 LIMIT 1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=4 AND 2=3",
+                "url": "www.webscantest.com/datastore/search_get_by_id.php?id=4 AND 2=3",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=4 AND 2=3 LIMIT 1",
+                "url": "www.webscantest.com/datastore/search_get_by_id.php?id=4 AND 2=3 LIMIT 1",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "search_get_by_name.php",
+            "url": "www.webscantest.com/datastore/search_get_by_name.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?name=Rake",
+                "url": "www.webscantest.com/datastore/search_get_by_name.php?name=Rake",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "search_single_by_name.php",
+            "url": "www.webscantest.com/datastore/search_single_by_name.php",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "gonowhere",
+        "url": "https://www.webscantest.com/gonowhere",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "hrs",
+        "url": "https://www.webscantest.com/hrs/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "redir.php",
+            "url": "www.webscantest.com/hrs/redir.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?q=mightyseek",
+                "url": "www.webscantest.com/hrs/redir.php?q=mightyseek",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "redir_nv.php",
+            "url": "www.webscantest.com/hrs/redir_nv.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?q=mightyseek",
+                "url": "www.webscantest.com/hrs/redir_nv.php?q=mightyseek",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node": "icons",
+        "url": "www.webscantest.com/icons",
+        "method": "GET",
+        "children": [
+          {
+            "node": "back.gif",
+            "url": "www.webscantest.com/icons/back.gif",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "blank.gif",
+            "url": "www.webscantest.com/icons/blank.gif",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "image2.gif",
+            "url": "www.webscantest.com/icons/image2.gif",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "text.gif",
+            "url": "www.webscantest.com/icons/text.gif",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "unknown.gif",
+            "url": "www.webscantest.com/icons/unknown.gif",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "images",
+        "url": "https://www.webscantest.com/images/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "bouncingmike.jpg",
+            "url": "www.webscantest.com/images/bouncingmike.jpg",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?a=b",
+                "url": "www.webscantest.com/images/bouncingmike.jpg?a=b",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node": "index.php",
+        "url": "https://www.webscantest.com/index.php",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "infodb",
+        "url": "www.webscantest.com/infodb",
+        "method": "GET",
+        "children": [
+          {
+            "node": "comment.php",
+            "url": "www.webscantest.com/infodb/comment.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "index.php",
+            "url": "www.webscantest.com/infodb/index.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "readme.php",
+            "url": "www.webscantest.com/infodb/readme.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "readmetop.php",
+            "url": "www.webscantest.com/infodb/readmetop.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "search_by_name.php",
+            "url": "www.webscantest.com/infodb/search_by_name.php",
+            "method": "POST",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "jsmenu",
+        "url": "www.webscantest.com/jsmenu",
+        "method": "GET",
+        "children": [
+          {
+            "node": "auto_crosstraining.php",
+            "url": "www.webscantest.com/jsmenu/auto_crosstraining.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "auto_datastore.php",
+            "url": "www.webscantest.com/jsmenu/auto_datastore.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "auto_osrun.php",
+            "url": "www.webscantest.com/jsmenu/auto_osrun.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "auto_osrun_inc.js",
+            "url": "www.webscantest.com/jsmenu/auto_osrun_inc.js",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "auto_shutterdb.php",
+            "url": "www.webscantest.com/jsmenu/auto_shutterdb.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cookie_set_coffeepits.php",
+            "url": "www.webscantest.com/jsmenu/cookie_set_coffeepits.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "cookie_test_coffeepits.php",
+            "url": "www.webscantest.com/jsmenu/cookie_test_coffeepits.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "dynalink_myfiles.php",
+            "url": "www.webscantest.com/jsmenu/dynalink_myfiles.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "dynalink_rfplaces.php",
+            "url": "www.webscantest.com/jsmenu/dynalink_rfplaces.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "gotoajax.php",
+            "url": "www.webscantest.com/jsmenu/gotoajax.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "gotoframeme.php",
+            "url": "www.webscantest.com/jsmenu/gotoframeme.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?foo%3D0+bar%3D+url%3Dhttps%3A%2F%2Fauth.ntobjectives.com+dr%3Dsomedir",
+                "url": "www.webscantest.com/jsmenu/gotoframeme.php?foo%3D0+bar%3D+url%3Dhttps%3A%2F%2Fauth.ntobjectives.com+dr%3Dsomedir",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node": "login.php",
+        "url": "https://www.webscantest.com/login.php",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "logout.php",
+        "url": "https://www.webscantest.com/logout.php",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "myfiles",
+        "url": "https://www.webscantest.com/myfiles/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "blah.txt",
+            "url": "www.webscantest.com/myfiles/blah.txt",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "file1.doc",
+            "url": "www.webscantest.com/myfiles/file1.doc",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "osrun",
+        "url": "https://www.webscantest.com/osrun/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "whois.php",
+            "url": "www.webscantest.com/osrun/whois.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "whois_nv.php",
+            "url": "www.webscantest.com/osrun/whois_nv.php",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "payment_analysis",
+        "url": "https://www.webscantest.com/payment_analysis/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "checkdata.php",
+            "url": "www.webscantest.com/payment_analysis/checkdata.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "checkdata_get.php",
+            "url": "www.webscantest.com/payment_analysis/checkdata_get.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?anything=data&number=0&strlen1=data&strlen2=data&strlen3=data&str_only=string&letters_only=string&alpha_only=string",
+                "url": "www.webscantest.com/payment_analysis/checkdata_get.php?anything=data&number=0&strlen1=data&strlen2=data&strlen3=data&str_only=string&letters_only=string&alpha_only=string",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?anything=data&number=3&strlen1=data&strlen2=data&strlen3=data&str_only=string&letters_only=string&alpha_only=string",
+                "url": "www.webscantest.com/payment_analysis/checkdata_get.php?anything=data&number=3&strlen1=data&strlen2=data&strlen3=data&str_only=string&letters_only=string&alpha_only=string",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node": "privacy.php",
+        "url": "https://www.webscantest.com/privacy.php",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "react",
+        "url": "www.webscantest.com/react",
+        "method": "GET",
+        "children": [
+          {
+            "node": "index",
+            "url": "www.webscantest.com/react/index",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "rest",
+        "url": "www.webscantest.com/rest",
+        "method": "GET",
+        "children": [
+          {
+            "node": "demo",
+            "url": "www.webscantest.com/rest/demo",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "rfp",
+        "url": "https://www.webscantest.com/rfp",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "rfplaces",
+        "url": "https://www.webscantest.com/rfplaces/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "consts.inc",
+            "url": "www.webscantest.com/rfplaces/consts.inc",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "database.inc",
+            "url": "www.webscantest.com/rfplaces/database.inc",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "debug.inc",
+            "url": "www.webscantest.com/rfplaces/debug.inc",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "functions.inc",
+            "url": "www.webscantest.com/rfplaces/functions.inc",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "include",
+            "url": "www.webscantest.com/rfplaces/include",
+            "method": "GET",
+            "children": [
+              {
+                "node": "adovbs.inc",
+                "url": "www.webscantest.com/rfplaces/include/adovbs.inc",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "conn.inc",
+                "url": "www.webscantest.com/rfplaces/include/conn.inc",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "consts.inc",
+                "url": "www.webscantest.com/rfplaces/include/consts.inc",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "core.php",
+                "url": "www.webscantest.com/rfplaces/include/core.php",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "core.php.bak",
+                "url": "www.webscantest.com/rfplaces/include/core.php.bak",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "database.inc",
+                "url": "www.webscantest.com/rfplaces/include/database.inc",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "db.inc",
+                "url": "www.webscantest.com/rfplaces/include/db.inc",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "debug.inc",
+                "url": "www.webscantest.com/rfplaces/include/debug.inc",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "functions.inc",
+                "url": "www.webscantest.com/rfplaces/include/functions.inc",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "global.inc",
+                "url": "www.webscantest.com/rfplaces/include/global.inc",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "globals.inc",
+                "url": "www.webscantest.com/rfplaces/include/globals.inc",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "index.php.bak",
+                "url": "www.webscantest.com/rfplaces/include/index.php.bak",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "lib.php",
+                "url": "www.webscantest.com/rfplaces/include/lib.php",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "lib.php.bak",
+                "url": "www.webscantest.com/rfplaces/include/lib.php.bak",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "vars.inc",
+                "url": "www.webscantest.com/rfplaces/include/vars.inc",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "script.php",
+            "url": "www.webscantest.com/rfplaces/script.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "somedir1",
+            "url": "www.webscantest.com/rfplaces/somedir1",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "somedir2",
+            "url": "www.webscantest.com/rfplaces/somedir2",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "somedir3",
+            "url": "www.webscantest.com/rfplaces/somedir3",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "vars.inc",
+            "url": "www.webscantest.com/rfplaces/vars.inc",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "robots.txt",
+        "url": "https://www.webscantest.com/robots.txt",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "shutterdb",
+        "url": "https://www.webscantest.com/shutterdb/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "filter_by_name.php",
+            "url": "www.webscantest.com/shutterdb/filter_by_name.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "item.php",
+            "url": "www.webscantest.com/shutterdb/item.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?id=1",
+                "url": "www.webscantest.com/shutterdb/item.php?id=1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=2",
+                "url": "www.webscantest.com/shutterdb/item.php?id=2",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3",
+                "url": "www.webscantest.com/shutterdb/item.php?id=3",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "search_by_id.php",
+            "url": "www.webscantest.com/shutterdb/search_by_id.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "search_by_name.php",
+            "url": "www.webscantest.com/shutterdb/search_by_name.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "search_get_by_id.php",
+            "url": "www.webscantest.com/shutterdb/search_get_by_id.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?id=1",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id.php?id=1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=1000",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id.php?id=1000",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=2",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id.php?id=2",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id.php?id=3",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3 AND 1=0",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id.php?id=3 AND 1=0",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3 AND 1=0 LIMIT 1",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id.php?id=3 AND 1=0 LIMIT 1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3 AND 1=2",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id.php?id=3 AND 1=2",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3 AND 1=2 LIMIT 1",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id.php?id=3 AND 1=2 LIMIT 1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3 AND 2=3",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id.php?id=3 AND 2=3",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3 AND 2=3 LIMIT 1",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id.php?id=3 AND 2=3 LIMIT 1",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "search_get_by_id2.php",
+            "url": "www.webscantest.com/shutterdb/search_get_by_id2.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?id=1001",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id2.php?id=1001",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=4",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id2.php?id=4",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=5",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id2.php?id=5",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=6",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id2.php?id=6",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "search_get_by_id3.php",
+            "url": "www.webscantest.com/shutterdb/search_get_by_id3.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?id=7",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id3.php?id=7",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=8",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id3.php?id=8",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=9",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id3.php?id=9",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "search_get_by_id4.php",
+            "url": "www.webscantest.com/shutterdb/search_get_by_id4.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?id=1",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id4.php?id=1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=2",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id4.php?id=2",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id4.php?id=3",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          },
+          {
+            "node": "search_get_by_id5.php",
+            "url": "www.webscantest.com/shutterdb/search_get_by_id5.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?id=1",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id5.php?id=1",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=2",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id5.php?id=2",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?id=3",
+                "url": "www.webscantest.com/shutterdb/search_get_by_id5.php?id=3",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node": "shutterform",
+        "url": "https://www.webscantest.com/shutterform/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "index.php",
+            "url": "www.webscantest.com/shutterform/index.php",
+            "method": "POST",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "soap",
+        "url": "www.webscantest.com/soap",
+        "method": "GET",
+        "children": [
+          {
+            "node": "demo",
+            "url": "www.webscantest.com/soap/demo",
+            "method": "GET",
+            "children": [
+              {
+                "node": "jquery.soap.js",
+                "url": "www.webscantest.com/soap/demo/jquery.soap.js",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "jquery.xml2json.js",
+                "url": "www.webscantest.com/soap/demo/jquery.xml2json.js",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "node": "static",
+        "url": "https://www.webscantest.com/static/",
+        "method": "GET",
+        "children": [
+          {
+            "node": "product1.html",
+            "url": "www.webscantest.com/static/product1.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product10.html",
+            "url": "www.webscantest.com/static/product10.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product11.html",
+            "url": "www.webscantest.com/static/product11.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product12.html",
+            "url": "www.webscantest.com/static/product12.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product13.html",
+            "url": "www.webscantest.com/static/product13.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product14.html",
+            "url": "www.webscantest.com/static/product14.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product15.html",
+            "url": "www.webscantest.com/static/product15.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product16.html",
+            "url": "www.webscantest.com/static/product16.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product17.html",
+            "url": "www.webscantest.com/static/product17.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product18.html",
+            "url": "www.webscantest.com/static/product18.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product19.html",
+            "url": "www.webscantest.com/static/product19.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product2.html",
+            "url": "www.webscantest.com/static/product2.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product20.html",
+            "url": "www.webscantest.com/static/product20.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product21.html",
+            "url": "www.webscantest.com/static/product21.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product22.html",
+            "url": "www.webscantest.com/static/product22.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product23.html",
+            "url": "www.webscantest.com/static/product23.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product24.html",
+            "url": "www.webscantest.com/static/product24.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product25.html",
+            "url": "www.webscantest.com/static/product25.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product26.html",
+            "url": "www.webscantest.com/static/product26.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product27.html",
+            "url": "www.webscantest.com/static/product27.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product28.html",
+            "url": "www.webscantest.com/static/product28.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product29.html",
+            "url": "www.webscantest.com/static/product29.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product3.html",
+            "url": "www.webscantest.com/static/product3.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product30.html",
+            "url": "www.webscantest.com/static/product30.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product31.html",
+            "url": "www.webscantest.com/static/product31.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product32.html",
+            "url": "www.webscantest.com/static/product32.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product33.html",
+            "url": "www.webscantest.com/static/product33.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product34.html",
+            "url": "www.webscantest.com/static/product34.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product35.html",
+            "url": "www.webscantest.com/static/product35.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product36.html",
+            "url": "www.webscantest.com/static/product36.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product37.html",
+            "url": "www.webscantest.com/static/product37.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product38.html",
+            "url": "www.webscantest.com/static/product38.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product39.html",
+            "url": "www.webscantest.com/static/product39.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product4.html",
+            "url": "www.webscantest.com/static/product4.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product40.html",
+            "url": "www.webscantest.com/static/product40.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product41.html",
+            "url": "www.webscantest.com/static/product41.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product42.html",
+            "url": "www.webscantest.com/static/product42.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product43.html",
+            "url": "www.webscantest.com/static/product43.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product44.html",
+            "url": "www.webscantest.com/static/product44.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product45.html",
+            "url": "www.webscantest.com/static/product45.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product46.html",
+            "url": "www.webscantest.com/static/product46.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product47.html",
+            "url": "www.webscantest.com/static/product47.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product48.html",
+            "url": "www.webscantest.com/static/product48.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product49.html",
+            "url": "www.webscantest.com/static/product49.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product5.html",
+            "url": "www.webscantest.com/static/product5.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product50.html",
+            "url": "www.webscantest.com/static/product50.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product6.html",
+            "url": "www.webscantest.com/static/product6.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product7.html",
+            "url": "www.webscantest.com/static/product7.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product8.html",
+            "url": "www.webscantest.com/static/product8.html",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "product9.html",
+            "url": "www.webscantest.com/static/product9.html",
+            "method": "GET",
+            "children": []
+          }
+        ]
+      },
+      {
+        "node": "tabs-start1.gif",
+        "url": "https://www.webscantest.com/tabs-start1.gif",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "userprofile.php",
+        "url": "https://www.webscantest.com/userprofile.php",
+        "method": "GET",
+        "children": []
+      },
+      {
+        "node": "xmldb",
+        "url": "www.webscantest.com/xmldb",
+        "method": "GET",
+        "children": [
+          {
+            "node": "index.php",
+            "url": "www.webscantest.com/xmldb/index.php",
+            "method": "GET",
+            "children": []
+          },
+          {
+            "node": "search_by_name.php",
+            "url": "www.webscantest.com/xmldb/search_by_name.php",
+            "method": "GET",
+            "children": [
+              {
+                "node": "?index=Lunch",
+                "url": "www.webscantest.com/xmldb/search_by_name.php?index=Lunch",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?index=Lunch&action=addtocart&id=1006",
+                "url": "www.webscantest.com/xmldb/search_by_name.php?index=Lunch&action=addtocart&id=1006",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?index=Waffles",
+                "url": "www.webscantest.com/xmldb/search_by_name.php?index=Waffles",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?index=Waffles&action=addtocart&id=1000",
+                "url": "www.webscantest.com/xmldb/search_by_name.php?index=Waffles&action=addtocart&id=1000",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?index=Waffles&action=addtocart&id=1001",
+                "url": "www.webscantest.com/xmldb/search_by_name.php?index=Waffles&action=addtocart&id=1001",
+                "method": "GET",
+                "children": []
+              },
+              {
+                "node": "?index=Waffles&action=addtocart&id=1002",
+                "url": "www.webscantest.com/xmldb/search_by_name.php?index=Waffles&action=addtocart&id=1002",
+                "method": "GET",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

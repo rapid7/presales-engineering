@@ -1,1 +1,4 @@
 banned_words.txt
+*.log
+*sample*
+*example*

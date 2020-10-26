@@ -1,11 +1,14 @@
 #!/bin/bash
-#
+#	Tim H 2020
 #	This script will enable a remote scan engine on an IVM console based off its public IP
 #	Designed to be used on R7 hosted shared scan engines to simplify process of approving
 #	prospect's POC consoles
 # 	
 #	Example usage:
 #	./approve_scan_engine_ip.sh 1.2.3.4
+#
+#	Optional second parameter: path to the consoles.xml file (if it was not installed to the default location)
+#	./approve_scan_engine_ip.sh 1.2.3.4 /mnt/insightvm/nexpose/nse/conf/consoles.xml
 #
 #	TODO: add feedback or verify that it is enabled after sending command
 #
@@ -24,7 +27,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # verify that user provided the public IP of the engine
-if [ -z ${SCAN_ENGINE_IP} ]; then 
+if [ -z "${SCAN_ENGINE_IP}" ]; then 
 	echo "IP not defined."
 	exit 6
 fi

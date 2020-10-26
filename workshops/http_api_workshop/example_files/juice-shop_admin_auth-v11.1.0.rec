@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<MacroEventList>
+<MacroEvent>
+   <DbId>A26E141AFF12458CB79E57AE6FAC5738</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Navigate</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[https://juice-shop.herokuapp.com/#/login]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>3000</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>44B0330EFF9B4E27A65015BAB074460C</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>3000</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>BC30D55D23A14F80AA599543442E2E90</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>OnClick</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[Dismiss]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[xpath=/BODY/DIV[2]/DIV[2]/DIV/MAT-DIALOG-CONTAINER/APP-WELCOME-BANNER/DIV/DIV[1]/BUTTON[1]/SPAN/SPAN]]></ElementPath>
+   <Duration>1000</Duration>
+   <Enable>1</Enable>
+   <Optional>1</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>5A5550F026B34419A63CAD7D6A53EF49</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>1000</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>74CA374B8AB14F138D7DB585DDF80E32</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>OnClick</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[Me want it!]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[xpath=/BODY/DIV/DIV/A]]></ElementPath>
+   <Duration>1000</Duration>
+   <Enable>1</Enable>
+   <Optional>1</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>AAD1A024AA204EF2947F7B5F09F44192</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>1000</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>9859FD92F3954AD698B27C2E71019B79</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>OnClick</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[xpath=//INPUT[@id="email"]]]></ElementPath>
+   <Duration>1000</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>92420D70C70A4D72AAA74378B651668F</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>1000</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+        <DbId>8583acfec03b4ae3a711687d64133754</DbId>
+        <ParentDbId>00000000000000000000000000000000</ParentDbId>
+        <WindowIndex>0</WindowIndex>
+        <EventType>Javascript</EventType>
+        <UseEncryptedData>0</UseEncryptedData>
+        <Data>
+            <![CDATA[
+    document.getElementById('email').value = 'admin@juice-sh.op';
+    document.getElementById('email').dispatchEvent(new Event('input', { bubbles: true }));
+  ]]></Data>
+        <ElementPath>
+            <![CDATA[]]>
+        </ElementPath>
+        <Duration>1846</Duration>
+        <Enable>1</Enable>
+        <Optional>0</Optional>
+    </MacroEvent>
+<MacroEvent>
+   <DbId>7421EACA5BE9426D8A0E72DB65394674</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>1000</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>B3354B304D5240778278BCED0E0326F1</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>OnClick</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[xpath=//INPUT[@id="password"]]]></ElementPath>
+   <Duration>1000</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+   <DbId>5D0A9D8BF4024F7DAA1DEF6EAE43903B</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>1000</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+    <MacroEvent>
+        <DbId>8583acfec03b4ae3a711687d64133734</DbId>
+        <ParentDbId>00000000000000000000000000000000</ParentDbId>
+        <WindowIndex>0</WindowIndex>
+        <EventType>Javascript</EventType>
+        <UseEncryptedData>0</UseEncryptedData>
+        <Data>
+            <![CDATA[
+    document.getElementById('password').value = 'admin123';
+    document.getElementById('password').dispatchEvent(new Event('input', { bubbles: true }));
+  ]]></Data>
+        <ElementPath>
+            <![CDATA[]]>
+        </ElementPath>
+        <Duration>1846</Duration>
+        <Enable>1</Enable>
+        <Optional>0</Optional>
+    </MacroEvent>
+<MacroEvent>
+   <DbId>BE856F75D181498F8FB8EBF6A38EB3E2</DbId>
+   <ParentDbId>00000000000000000000000000000000</ParentDbId>
+   <WindowIndex>0</WindowIndex>
+   <EventType>Delay</EventType>
+   <UseEncryptedData>0</UseEncryptedData>
+   <Data><![CDATA[]]></Data>
+   <EncryptedData></EncryptedData>
+   <ElementPath><![CDATA[]]></ElementPath>
+   <Duration>1000</Duration>
+   <Enable>1</Enable>
+   <Optional>0</Optional>
+</MacroEvent>
+<MacroEvent>
+        <DbId>8583acfec03b4ae3a711687d64133734</DbId>
+        <ParentDbId>00000000000000000000000000000000</ParentDbId>
+        <WindowIndex>0</WindowIndex>
+        <EventType>Javascript</EventType>
+        <UseEncryptedData>0</UseEncryptedData>
+        <Data>
+            <![CDATA[
+     document.getElementById('loginButton').disabled = false;
+     document.getElementById('loginButton').click();
+  ]]></Data>
+        <ElementPath>
+            <![CDATA[]]>
+        </ElementPath>
+        <Duration>1846</Duration>
+        <Enable>1</Enable>
+        <Optional>0</Optional>
+    </MacroEvent>
+    <MacroEvent>
+        <DbId>e8955d53d6a64156a5378b6866f284d1</DbId>
+        <ParentDbId>00000000000000000000000000000000</ParentDbId>
+        <WindowIndex>0</WindowIndex>
+        <EventType>Delay</EventType>
+        <UseEncryptedData>0</UseEncryptedData>
+        <Data>
+            <![CDATA[]]></Data>
+        <ElementPath>
+            <![CDATA[]]>
+        </ElementPath>
+        <Duration>8638</Duration>
+        <Enable>1</Enable>
+        <Optional>0</Optional>
+    </MacroEvent>
+</MacroEventList>

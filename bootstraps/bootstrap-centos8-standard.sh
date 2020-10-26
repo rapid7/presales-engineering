@@ -1,6 +1,8 @@
 #!/bin/bash
+#   Tim H 2020
 # bootsrap for CentOS 8
 # standard install
+# TODO: verify CentOS version at start
 
 sudo yum install -y mlocate openssh-server net-tools htop telnet nmap nc openssl unzip wget curl tcpdump traceroute sysstat bind-utils lsof vim open-vm-tools gcc automake autoconf libtool make pam-devel yum-utils openldap-devel openssl-devel glibc-common epel-release vim-enhanced python3-pip  tar  grep 
 sudo yum groupinstall -y 'Development Tools'

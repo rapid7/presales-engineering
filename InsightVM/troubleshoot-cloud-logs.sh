@@ -12,21 +12,21 @@ grep -v "[INFO]" eso.log
 grep -v "[INFO]" nsc.log
 
 # search for warnings and errors
-grep "\[WARN\]"  *.log
-grep "\[ERROR\]" *.log
+grep "\[WARN\]"  ./*.log
+grep "\[ERROR\]" ./*.log
 
 # general Azure search
-grep -i "azure" *.log | cut -d " " -f2- | sort --unique
+grep -i "azure" ./*.log | cut -d " " -f2- | sort --unique
 grep "Azure-Proxy-Discovery-Service" eso.log | cut -d " " -f2- | sort --unique
 
 # searching for AWS/Azure sync activity
 grep " activity log events found in subscription" eso.log | grep -v " 0 activity"
-grep "resource groups found" *.log
-grep "activity log events found in subscription" *.log
-grep "virtual machines found in" *.log
+grep "resource groups found" ./*.log
+grep "activity log events found in subscription" ./*.log
+grep "virtual machines found in" ./*.log
 
 # Insight Platform syncing issues, including +- 5 lines of context of each instance
-grep -C5 -i -E "platform|pairing|exposure analytics" *.log
+grep -C5 -i -E "platform|pairing|exposure analytics" ./*.log
 # can ignore "NdisImPlatform" "Local Engine Platform" "Console Platform" "OSGi platform" 
 # look for "Pairing console with key" -- this is the start
 #	"Starting registration with exposure analytics"
@@ -42,6 +42,6 @@ grep --after-context=5 "/data/ea/register" nsc.log
 #628cbaf3-83a3-48a6-a49d-6618eceface2
 #nsc.log:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "null/ea/ipims/platform/orgId?key=628cbaf3-83a3-48a6-a49d-6618eceface2": null; nested exception is org.apache.http.client.ClientProtocolException
 
-grep -C5 "O error on GET request for " *.log
+grep -C5 "O error on GET request for " ./*.log
 # InsightVM console command (screen session) to restart the service and disconnect/unpair the from Insight Platform (Exposure Analytics)
 #restart reset-cloud-config

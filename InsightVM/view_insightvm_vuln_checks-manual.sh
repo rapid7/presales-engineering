@@ -16,6 +16,7 @@ sudo apt-get install -y fastjar
 jar tf /opt/rapid7/nexpose/plugins/java/1/PaloAltoScanner/1/checks.jar
 
 # find all checks for Palo Alto Security Advisory 2016-0020: "PAN-SA-2016-0020"
+# TODO: fix syntax issue SC2156; change {} to parameters
 find /opt/rapid7/nexpose/plugins -type f -iname '*checks.jar' -exec  sh -c 'jar tf {} | grep pan-sa-2016-0020' \; -print
 
 # find all checks for Shellshock: CVE-2014-6271

@@ -44,4 +44,4 @@ grep --after-context=5 "/data/ea/register" nsc.log
 
 grep -C5 "O error on GET request for " *.log
 # InsightVM console command (screen session) to restart the service and disconnect/unpair the from Insight Platform (Exposure Analytics)
-#restart reset-cloud-config 
+#restart reset-cloud-config

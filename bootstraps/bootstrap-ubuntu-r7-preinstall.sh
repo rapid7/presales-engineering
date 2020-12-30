@@ -481,5 +481,6 @@ reboot now
 # resizing EC2 instance's EBS volumes after resizing
 #https://stackoverflow.com/questions/11014584/ec2-cant-resize-volume-after-increasing-size
 #apt-get install cloud-guest-utils
+#yum install cloud-utils-growpart
 #growpart /dev/xvda 1
 #resize2fs /dev/xvda1

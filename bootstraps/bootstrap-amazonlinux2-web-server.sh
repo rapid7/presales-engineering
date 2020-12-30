@@ -26,17 +26,14 @@
 #
 ##############################################################################
 # Set up logging to external file
-LOGFILE="/root/bootstrap.log"
-
-# if using AWS NFS host to dump files for longer term storage
-NFS_HOST="172.30.0.48"	#us-east-1a EFS in master account
+LOGFILE="/root/bootstrap.log" 
 
 # redirect all output to a logfile
 exec >> "$LOGFILE"
 exec 2>&1
 
 #TODO: ensure this is the proper OS and aws packages are installed!!
-#TODO: add logic for checks to ensure this instance has role permissions
+#TODO: add logic for checks to ensure this instance has role permissions, leave a note if it does not have permissions
 
 # set the time zone as US EAST
 echo "ZONE=America/New_York
@@ -86,17 +83,21 @@ $(ec2-metadata --instance-type)     </p>
 # in Amazon Linux 2 by default: screen openssl tcpdump iostat md5sum netstat vim get
 yum install telnet nmap-ncat nmap amazon-efs-utils -q -y
 
+echo "Installing security updates..." 
+yum --security update -y -q
+
+echo "Bootstrap script complete: $(date)"
+
+# if using AWS NFS host to dump files for longer term storage
+# most people can probably ignore this unless you're doing a more advanced setup
+NFS_HOST="172.30.0.48"	#us-east-1a EFS in master account
+
 # Save this Index.html file to a permanent location for record: EFS mount
 #TODO: make sure can ping/connect to NFS target first? Security groups might not allow inter-LAN traffic
 mkdir /efs
 mount -t nfs4  "$NFS_HOST:/" /efs
 mount | grep efs
 cp /var/www/html/index.html "/efs/$INSTANCE_ID.html"
-
-echo "Installing security updates..." 
-yum --security update -y -q
-
-echo "Bootstrap script complete: $(date)"
 
 # Copy this log file off to permanent storage for record keeping
 cp "$LOGFILE" "/efs/$INSTANCE_ID.log"

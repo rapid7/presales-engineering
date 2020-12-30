@@ -19,8 +19,13 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 cd "/divvycloud/" || exit 1
+# stop the docker service
 docker-compose down
+
+# download the latest version of the containers
 docker-compose pull
+
+# restart the docker service
 docker-compose up -d
 
 echo "finished updating Divvy containers and restated them."

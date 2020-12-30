@@ -15,7 +15,7 @@ grep -v "[INFO]" nsc.log
 grep "\[WARN\]"  ./*.log
 grep "\[ERROR\]" ./*.log
 
-# general Azure search
+# general Azure searches
 grep -i "azure" ./*.log | cut -d " " -f2- | sort --unique
 grep "Azure-Proxy-Discovery-Service" eso.log | cut -d " " -f2- | sort --unique
 
@@ -33,15 +33,17 @@ grep -C5 -i -E "platform|pairing|exposure analytics" ./*.log
 #	"Failed to pair console with pairing key"
 #	"/data/ea/register/pairingKey"
 
+# Looking for info about pairing the InsightVM console with the platform
 grep --after-context=15 "Pairing console with key" nsc.log
-
 grep --after-context=5 "/data/ea/register" nsc.log
 
-
+# example pairing logs:
 #nsc.log:2020-10-19T14:40:43 [INFO] [Thread: http-nio-3780-exec-4=/data/ea/register/pairingKey] Starting registration with exposure analytics.
 #628cbaf3-83a3-48a6-a49d-6618eceface2
 #nsc.log:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "null/ea/ipims/platform/orgId?key=628cbaf3-83a3-48a6-a49d-6618eceface2": null; nested exception is org.apache.http.client.ClientProtocolException
 
+# more error searches:
 grep -C5 "O error on GET request for " ./*.log
+
 # InsightVM console command (screen session) to restart the service and disconnect/unpair the from Insight Platform (Exposure Analytics)
 #restart reset-cloud-config

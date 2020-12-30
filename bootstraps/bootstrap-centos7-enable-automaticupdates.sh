@@ -1,6 +1,7 @@
 #!/bin/bash
 # Tim H 2020
 # enable automatic updates in CentOS 7
+#   still requires manual work in the yum-cron.conf file
 
 echo "this script is not yet ready to be automatically run."
 exit 1

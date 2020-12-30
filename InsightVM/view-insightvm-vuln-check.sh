@@ -44,7 +44,9 @@ rm -f "$OUTPUT_FILENAME"
 # compress the checks JAR files to a volume: 
 #find /opt/rapid7/nexpose/plugins -type f -iname '*checks.jar' -print0 | tar -czf ~/plugins.tar.gz  --null -T -
 
+# path to where all the plugins are. If you're using this on an InsightVM console/scane engine then use the /opt one
 #PLUGINS_DIR="/opt/rapid7/nexpose/plugins"
+# In order to make sure I don't break anything, and so I don't have to have remote access, I have these files copied to my local system:
 PLUGINS_DIR="$HOME/Downloads/scanner_plugins"
 
 # only have to do once

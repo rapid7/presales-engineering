@@ -7,7 +7,11 @@
 #   Rapid7 InsightVM AWS Asset Sync connector. This will provide a handul of vulns and get authenticated scanning working
 #   At the time of this writing, this script is designed for AMI: ami-03a941394ec9849de - CentOS 6 (x86_64) - with Updates HVM
 #   This script takes about 40 seconds to run on a t2.medium
-
+#
+#  This script will also:
+#     automatically power off the instance after 7 hours
+#     install the R7 agent with specified tags and token
+#     disable the firewall
 
 # bomb out in case anything runs an error. Shouldn't happen but can disable if needed
 set -e
@@ -16,7 +20,6 @@ set -e
 AGENT_ATTRIBUTES="intentionally_vulnerable,aws_test,ephemeral" 
 AGENT_TOKEN="us:559dea28-1eb2-48f3-91ff-80671564c960"   #Tim's homelab
 LOGFILE="/root/bootstrap.log"
-
 
 # redirect all output to a logfile
 rm -f "$LOGFILE"	# clear the log if it already exists
@@ -76,7 +79,6 @@ hostname "aws-tmp-vulnerable-centos6-$mdate"
 #TODO: make hostname change permanent
 
 # disable firewall
-# TODO: make change permanent
 log "Disabling the firewall"
 service iptables stop   && chkconfig iptables off
 
@@ -95,7 +97,9 @@ Assigning tags: $AGENT_ATTRIBUTES
 Assigning token: $AGENT_TOKEN
 
 "
+
 yum install -y wget
+# download the R7 agent, may not be the latest version:
 wget --quiet --output-document=agent_installer.sh  https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/1598479690/linux/x86/agent_control_1598479690.sh
 chmod u+x agent_installer.sh
 ./agent_installer.sh install_start --attributes "$AGENT_ATTRIBUTES" --token "$AGENT_TOKEN"

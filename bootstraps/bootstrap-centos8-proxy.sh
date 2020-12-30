@@ -10,6 +10,10 @@
 #		http://www.squid-cache.org/Doc/config/access_log/
 #		https://elatov.github.io/2019/01/using-squid-to-proxy-ssl-sites/
 #		https://wiki.squid-cache.org/Features/DynamicSslCert
+
+echo "this script is not yet ready to be automatically run."
+exit 1
+
 yum -y update
 yum -y install squid
 systemctl start squid
@@ -20,18 +24,21 @@ systemctl status squid
 #    Squid Access log: /var/log/squid/access.log
 #    Squid Cache log: /var/log/squid/cache.log
 
+# make a backup of the config file before editing
 cp /etc/squid/squid.conf /etc/squid/squid.conf.backup
 
-vim /etc/squid/squid.conf 
 # make changes in here to allow certain hosts on your network
+vim /etc/squid/squid.conf 
 
+# restart service to apply changes from config file
 systemctl restart squid
 
-# it's blocked on the firewall by default
+# it's blocked on the firewall by default, so turn off the firewall
 systemctl status firewalld
 service firewalld stop
 systemctl disable firewalld
 
+# watch the logs to test if it is working
 tail -f /var/log/squid/access.log
 #access_log udp://192.168.4.63:514
 #vim /etc/httpd/conf.d/squid.conf
@@ -42,20 +49,25 @@ tail -f /var/log/squid/access.log
 
 # SSL setup
 cp /etc/squid/squid.conf /etc/squid/squid.conf.working_http
+
+# create a new keypair, self signed
 openssl req -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -extensions v3_ca -keyout squid-ca-key.pem -out squid-ca-cert.pem
 
+# combine the private and public keys into a single file
 cat squid-ca-cert.pem squid-ca-key.pem > squid-ca-cert-key.pem
 
+# create directories and move SSL cert files into place, set permissions.
 mkdir /etc/squid/certs
 mv squid-ca-cert-key.pem /etc/squid/certs/.
 chown squid:squid -R /etc/squid/certs
 
-# make the SSL changes
-vim /etc/squid/squid.conf 
+# make the SSL changes in the config file
+vim /etc/squid/squid.conf
 
-# verify before restarting service
+# verify config file before restarting service
 squid -k parse
 
+# create cert database and set permissions
 /usr/lib64/squid/security_file_certgen -c -s /var/spool/squid/ssl_db -M 4MB
 chown squid:squid -R /var/spool/squid/ssl_db
 
@@ -72,5 +84,6 @@ systemctl status squid
 # this should give an error first time
 curl --proxy http://10.0.1.36:3128 https://google.com
 
-# you should see your SSL proxy cert, not Rapid7
+# you should see your SSL proxy cert, not Rapid7. Do this from another system that isn't the squid proxy
+# replace 10.0.1.36 with your proxy's IP
 openssl s_client -proxy 10.0.1.36:3128 -connect endpoint.ingress.rapid7.com:443

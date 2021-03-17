@@ -10,7 +10,7 @@ NEW_TIMEZONE="America/New_York"
 
 # disable SELinux
 setenforce 0
-cat "SELINUX=disabled
+echo "SELINUX=disabled
 SELINUXTYPE=targeted" > /etc/selinux/config
 
 # set the new hostname

@@ -14,7 +14,7 @@ service ir_agent stop
 service auditd stop
 
 # seeing if these files exist before outputting.
-ls -lah  /etc/audit/audit.rules
+ls -lah /etc/audit/audit.rules
 ls -lah /etc/audisp/audispd.conf
 ls -lah /etc/audisp/plugins.d/af_unix.conf
 
@@ -53,8 +53,10 @@ echo "
 # Feel free to add additional rules below this line. See auditctl man page
 " > /etc/audit/audit.rules
 
-# !!!!! this is the line that fixed it for CentOS 7
+##############################################################################
+# THIS IS THE LINE THAT FIXED IT FOR CentOS 7
 cp /etc/audit/audit.rules /etc/audit/rules.d/audit.rules
+##############################################################################
 
 # another output file
 echo "
@@ -90,16 +92,20 @@ chmod +r /etc/audisp/plugins.d/af_unix.conf /etc/audisp/audispd.conf /etc/audit/
 # modifying R7 agent's settings
 echo "{\"auditd-compatibility-mode\":true}" > /opt/rapid7/ir_agent/components/insight_agent/common/audit.conf
 
-# restarting services
+# restarting services, it's okay to see a "fail" since I'm issuing a restart, not a start.
 service auditd restart
-chkconfig auditd on
-service ir_agent start
+service ir_agent restart
 
-# checking status
+# setting auditd to start on boot
+chkconfig auditd on
+
+# checking status of services, make sure they're both running
 service auditd status
 service ir_agent status
+
+# the most important command to check if auditd is configured correctly
 auditctl -l
 
-# the last command must return  something that looks like this:
+#the last command must return  something that looks like this:
 # -a always,exit -F arch=b64 -S execve -F key=execve
 # if you see "No rules" then it has failed

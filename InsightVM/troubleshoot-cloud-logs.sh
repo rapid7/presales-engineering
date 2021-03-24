@@ -4,6 +4,7 @@
 #   dynamic discovery connections to cloud providers like Azure and AWS, and pairing to the Insight Platform
 #   Log descriptions: https://docs.rapid7.com/insightvm/troubleshooting/#locating-each-log-file-and-understanding-its-purpose
 
+#!NON-EXECUTABLE!
 echo "this script is a troubleshooting guide, not intended to be executed directly"
 exit 1
 

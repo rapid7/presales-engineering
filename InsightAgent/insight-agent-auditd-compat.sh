@@ -109,3 +109,18 @@ auditctl -l
 #the last command must return  something that looks like this:
 # -a always,exit -F arch=b64 -S execve -F key=execve
 # if you see "No rules" then it has failed
+
+# checking the auditd logs for clues:
+cat /var/log/audit/audit.log
+
+# checking the Rapid7 agent logs for errors:
+zgrep -i error /opt/rapid7/ir_agent/components/insight_agent/common/agent.log*
+
+# clearing the R7 agent logs and restarting the service
+service ir_agent stop
+cd /opt/rapid7/ir_agent/components/insight_agent/common/
+mv agent.log agent.log.old
+service ir_agent start
+# display the fresh log
+less agent.log
+

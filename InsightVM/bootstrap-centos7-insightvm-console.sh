@@ -1,7 +1,7 @@
 #!/bin/bash
 # Tim H 2021
 #   Bootstrap installer for InsightVM Console on CentOS 7
-#   sets default UI creds as nxadmin/pxpassword
+#   sets default UI creds as nxadmin/nxpassword
 #
 # Common mistakes:
 # 1) Forgetting to DISABLE SE LINUX
@@ -19,6 +19,7 @@ fi
 # move into root user's home directory
 cd "$HOME" || cd /root
 
+# TODO: make sure that selinux is in fact disabled before running installing
 setenforce 0
 echo "SELINUX=disabled
 SELINUXTYPE=targeted" > /etc/selinux/config
@@ -28,9 +29,9 @@ yum makecache
 
 # install common tools for troubleshooting later. Not mandatory.
 yum install -y atop bind-utils coreutils curl \
-    glances grep htop iftop  iotop lsof \
+    glances grep htop iftop iotop lsof \
     mlocate nc net-tools nload nmap ntpdate open-vm-tools \
-    openldap-devel openssh-server openssl openssl-devel pam-devel \
+    openldap-devel openssh-server openssl openssl-devel \
     screen sudo sysstat tar tcpdump tcpflow \
     telnet traceroute tree unzip vim vim-enhanced wget which
     

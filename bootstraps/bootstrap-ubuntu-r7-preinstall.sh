@@ -251,6 +251,8 @@ download_r7_installers () {
 	curl -o Metasploit_Pro_installer.run       https://downloads.metasploit.com/data/releases/metasploit-latest-linux-x64-installer.run
 	curl -o Metasploit_Framework_installer.run https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb
 	curl -o sensor_installer.sh                https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/latest/linux/x86_64/sensor_installer_latest_x64.sh
+	
+	# broken as of 4/11/2021
 	curl -o agent_installer.sh                 https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/latest/linux/x86/agent_control.sh
 
 	# mark the new downloads as executable

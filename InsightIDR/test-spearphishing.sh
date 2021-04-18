@@ -24,17 +24,17 @@
 # number of times to do a DNS lookup on each example domain
 NUMBER_OF_REPETITIONS="3"
 
-# verify if the Rapid7 insight agent is installed and running
-service ir_agent status
+# optional but recommened - verify if the Rapid7 insight agent is installed and running
+#service ir_agent status
 
-# verify if this system is joined to a domain. optional.
-realm list
-
-# see which DNS server this Linux system uses. Make sure this DNS server is sending logs to InsightIDR
-cat /etc/resolv.conf
+# optional - verify if this system is joined to a domain. optional.
+#realm list
 
 # verify that the clock on this system isn't too far off
 #date
+
+# see which DNS server this Linux system uses. Make sure this DNS server is sending logs to InsightIDR
+cat /etc/resolv.conf
 
 # Declare an array of strings that is the list of fake phishing domains to use
 declare -a LookAlikeDomainsList=("g00gle.com" "rapld7.com" "googie.com" "gooogle.com" )

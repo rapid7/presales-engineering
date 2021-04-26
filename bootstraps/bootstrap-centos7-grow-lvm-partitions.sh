@@ -1,6 +1,6 @@
 #!/bin/bash
 # Tim H 2020
-# Increasing the size of LVM partitions in CentOS 7 virtual machines
+# Increasing the size of LVM partitions in CentOS 7 virtual machines with XFS file system
 #   You should power off the virtual machine and increase the disk size BEFORE running this script
 #   May have to delete snapshots before resizing
 # References:
@@ -15,8 +15,13 @@ yum install -y coreutils lvm2 xfsprogs cloud-utils-growpart
 df -T /
 
 fdisk /dev/sda
+# n p 3 [enter] [enter] w
 
-# reboot after resizing
+# maybe I'll do it this way automated one day
+#	https://serverfault.com/questions/258152/fdisk-partition-in-single-line/721878
+#parted -a optimal /dev/sda mkpart primary 0% 4096MB
+
+# mandatory reboot after resizing
 reboot
 
 pvcreate /dev/sda3
@@ -27,12 +32,16 @@ vgextend centos_centos7std /dev/sda3
 #   In this example, the outer container is named /dev/mapper/centos_centos7std-root
 vgdisplay centos_centos7std | grep "Free"
 
-# extend the outer container by 2048 blocks
-lvextend -l +2048 /dev/mapper/centos_centos7std-root
+# extend the outer container by XXXX blocks
+
+lvextend -l +XXXX /dev/mapper/centos_centos7std-root
 
 # extend the inner partition for XFS systems
 # automatically extends it to the maximum size
 xfs_growfs /dev/mapper/centos_centos7std-root
+
+# see final results
+df -hT /
 
 # different command used for EXT4 file systems: resize2fs
 #resize2fs /dev/mapper/centos_centos7std-root

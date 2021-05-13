@@ -1,5 +1,5 @@
 #!/bin/bash
-# Tim H 2021
+# Tim H 2020-2021
 #   Bootstrap installer for InsightVM Console on CentOS 7 64-bit
 #   sets default UI creds as nxadmin/nxpassword
 #
@@ -20,9 +20,13 @@ fi
 # move into root user's home directory
 cd "$HOME" || cd /root
 
-# disable SELinux immediately and on all future reboots, required for InsightVM to work properly
+# disable SELinux immediately  required for InsightVM to work properly
 sudo setenforce 0
-sudo echo "SELINUX=disabled
+
+# disable SELinux on all future reboots. Depending on which user you are,
+#   you may have to do do the following to manually type this in, or sudo su - 
+# vim /etc/selinux/config
+echo "SELINUX=disabled
 SELINUXTYPE=targeted" > /etc/selinux/config
 # TODO: make sure that selinux is in fact disabled before running installing
 
@@ -45,7 +49,7 @@ sudo yum install -y atop bind-utils coreutils curl \
 curl -o Rapid7Setup-Linux64.bin             https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin
 curl -o Rapid7Setup-Linux64.bin.sha512sum   https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin.sha512sum
 
-# check the integrity of the IVM installer delete it if it doesn't match
+# check the integrity of the InsightVM installer; delete it if it doesn't match
 sha512sum --check Rapid7Setup-Linux64.bin.sha512sum || rm -f Rapid7Setup-Linux64.bin
 
 # Mark installer as executable
@@ -66,10 +70,13 @@ sudo ./Rapid7Setup-Linux64.bin -q -overwrite  \
     -Vpassword1='nxpassword' \
     -Vpassword2='nxpassword'
 
+# follow documentation, here is where you'd enable FIPS mode if needed.
+# https://docs.rapid7.com/insightvm/enabling-fips-mode/#enabling-fips-mode
+
 # start the InsightVM console service, not started by default
 sudo systemctl start nexposeconsole.service
 
-# END OF REQUIRED STEPS, the following are optional for automated deployments:
+########## END OF REQUIRED STEPS, the following are optional for automated deployments:
 
 # wait for a long time: 45 minutes, should be enough time for even a slow system to finish starting the service for the first time
 sleep 45m

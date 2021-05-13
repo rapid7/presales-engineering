@@ -1,4 +1,5 @@
 #!/bin/bash
+# Tim H 2020-2021
 # Bootstrap script for installing InsightVM/Nexpose on Ubuntu 64-bit
 #   sets default UI creds as nxadmin/nxpassword
 #
@@ -19,14 +20,13 @@ cd "$HOME" || cd /root
 # Download the installer for both InsightVM and Nexpose (same) and MD5 hashsum file
 # This makes sure you're getting the latest installer
 curl -o Rapid7Setup-Linux64.bin             https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin
-curl -o Rapid7Setup-Linux64.bin.sha512sum   http://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin.sha512sum
+curl -o Rapid7Setup-Linux64.bin.sha512sum   https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin.sha512sum
 
 # Check the integrity of the download, makes sure IPSes or SSL proxies didn't mess with the installer.
 sha512sum --check Rapid7Setup-Linux64.bin.sha512sum
 
 # Mark installer as executable
 chmod u+x Rapid7Setup-Linux64.bin
-
 
 # install InsightVM console, but don't start the service yet
 # unfortunately these command line arguments aren't publicly documented

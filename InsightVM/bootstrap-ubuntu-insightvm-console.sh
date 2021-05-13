@@ -9,7 +9,7 @@ set -e
 cd "$HOME" || cd /root
 
 #TODO: use Curl instead of wget, avoid the logging CPU slowdown that wget seems to be causing
-apt-get update -q
+sudo apt-get update -q
 
 # Download the installer for both InsightVM and Nexpose (same) and MD5 hashsum file
 # This makes sure you're getting the latest installer
@@ -23,7 +23,7 @@ sha512sum --check Rapid7Setup-Linux64.bin.sha512sum
 chmod u+x Rapid7Setup-Linux64.bin
 # install InsightVM console, but don't start the service yet
 # unfortunately these command line arguments aren't publicly documented
-./Rapid7Setup-Linux64.bin -q -overwrite  \
+sudo ./Rapid7Setup-Linux64.bin -q -overwrite  \
     -Djava.net.useSystemProxies=false \
     -Vfirstname='NAME' \
     -Vlastname='NAME' \
@@ -36,7 +36,7 @@ chmod u+x Rapid7Setup-Linux64.bin
 # https://docs.rapid7.com/insightvm/enabling-fips-mode/#enabling-fips-mode
 
 # start it up, not started by default
-systemctl start nexposeconsole.service
+sudo systemctl start nexposeconsole.service
 
 ###########################
 # Additional notes for firewalls and more

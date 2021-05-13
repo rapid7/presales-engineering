@@ -20,22 +20,22 @@ fi
 cd "$HOME" || cd /root
 
 # TODO: make sure that selinux is in fact disabled before running installing
-setenforce 0
-echo "SELINUX=disabled
+sudo setenforce 0
+sudo echo "SELINUX=disabled
 SELINUXTYPE=targeted" > /etc/selinux/config
 
 # update local package list
-yum makecache
+sudo yum makecache
 
 # install common tools for troubleshooting later. Not mandatory.
-yum install -y atop bind-utils coreutils curl \
+sudo yum install -y atop bind-utils coreutils curl \
     glances grep htop iftop iotop lsof \
     mlocate nc net-tools nload nmap ntpdate open-vm-tools \
     openldap-devel openssh-server openssl openssl-devel \
     screen sudo sysstat tar tcpdump tcpflow \
     telnet traceroute tree unzip vim vim-enhanced wget which
     
-yum update -q -y
+sudo yum update -q -y
 
 # Download the installer for both InsightVM and Nexpose (same) and MD5 hashsum file
 # This makes sure you're getting the latest installer
@@ -50,7 +50,7 @@ chmod u+x Rapid7Setup-Linux64.bin
 
 # install InsightVM console, but don't start the service yet
 # unfortunately these command line arguments aren't publicly documented
-./Rapid7Setup-Linux64.bin -q -overwrite  \
+sudo ./Rapid7Setup-Linux64.bin -q -overwrite  \
     -Djava.net.useSystemProxies=false \
     -Vfirstname='NAME' \
     -Vlastname='NAME' \
@@ -60,7 +60,7 @@ chmod u+x Rapid7Setup-Linux64.bin
     -Vpassword2='nxpassword' \
 
 # start it up, not started by default
-systemctl start nexposeconsole.service
+sudo systemctl start nexposeconsole.service
 
 # wait for a long time: 45 minutes, should be enough time for even a slow system to finish starting the service for the first time
 sleep 45m

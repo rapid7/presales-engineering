@@ -31,6 +31,7 @@
 #	InsightIDR uses ISO 8601 extended for timestamps: yyyy-MM-ddTHH:mm:SS.SSSZ
 #
 #	TODO: convert file to local variable
+#		change to use date instead of gdate for Linux systems
 #
 #	References:
 #		https://insightidr.help.rapid7.com/docs/rapid7-universal-event-sources#section-time-validation
@@ -47,6 +48,8 @@ date_iso8601 () {
 	# you should install homebrew before, designed for OS X
 	# OS X version of date doesn't offer a way to do milliseconds
 	# brew install coreutils
+	# TODO: add option depending on operating system (Linux vs OS X)
+	# consider using temporary alias on Linux or Mac
 	gdate -u +"%Y-%m-%dT%H:%M:%S.%3NZ"
 }
 

@@ -1,7 +1,8 @@
 #!/bin/bash
 #	Tim H 2020
 #   This script has a series of different Bash commands to assist in troubleshooting
-#   dynamic discovery connections to cloud providers like Azure and AWS, and pairing to the Insight Platform
+#    * dynamic discovery connections to cloud providers like Azure and AWS
+#	 * pairing & unpairing to the Insight Platform
 #   Log descriptions: https://docs.rapid7.com/insightvm/troubleshooting/#locating-each-log-file-and-understanding-its-purpose
 
 #!NON-EXECUTABLE!
@@ -42,6 +43,9 @@ grep --after-context=5 "/data/ea/register" nsc.log
 #nsc.log:2020-10-19T14:40:43 [INFO] [Thread: http-nio-3780-exec-4=/data/ea/register/pairingKey] Starting registration with exposure analytics.
 #628cbaf3-83a3-48a6-a49d-6618eceface2
 #nsc.log:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "null/ea/ipims/platform/orgId?key=628cbaf3-83a3-48a6-a49d-6618eceface2": null; nested exception is org.apache.http.client.ClientProtocolException
+
+# Looking for the console to unpair with the platform, look for any issues around unpairing
+grep -i "deregister" nsc.log 	# case insensitive is important for this case since it appears in both forms
 
 # more error searches:
 grep -C5 "O error on GET request for " ./*.log

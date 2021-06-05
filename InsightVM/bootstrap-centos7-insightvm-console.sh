@@ -2,12 +2,14 @@
 # Tim H 2020-2021
 #   Bootstrap installer for InsightVM Console on CentOS 7 64-bit
 #   sets default UI creds as nxadmin/nxpassword
+#   Estimated runtime on AWS t2.large: ~5 min for install, 10-20 min before webpage is displayed
 #
 # Common mistakes:
 # 1) Forgetting to DISABLE SE LINUX
 # 2) Forgetting to add additional engines to the license count - default licenses are often just 1 scan engine
 # 3) Forgetting to open firewall to allow incoming connections on TCP 3780 and 40815
-# 4) Not meeting the bare minimum system requirements (2 cores, 8 GB RAM, 80 GB HDD)
+# 4) Not meeting the bare minimum system requirements (2 cores, 8 GB RAM, 80 GB HDD), 16 GB RAM is highly recommended
+# 5) Forgetting to include the top line of this script #!/bin/bash when pasting into User Data in AWS
 
 # exit if anything fails, do not continue
 set -e
@@ -26,6 +28,7 @@ sudo setenforce 0
 # disable SELinux on all future reboots. Depending on which user you are,
 #   you may have to do do the following to manually type this in, or sudo su - 
 # vim /etc/selinux/config
+# TODO: make sure this is using sudo:
 echo "SELINUX=disabled
 SELINUXTYPE=targeted" > /etc/selinux/config
 # TODO: make sure that selinux is in fact disabled before running installing
@@ -70,10 +73,10 @@ sudo ./Rapid7Setup-Linux64.bin -q -overwrite  \
     -Vpassword1='nxpassword' \
     -Vpassword2='nxpassword'
 
-# follow documentation, here is where you'd enable FIPS mode if needed.
+# follow documentation, here is where you'd enable FIPS mode if needed. Enabling FIPS mode MUST be done BEFORE the first service start.
 # https://docs.rapid7.com/insightvm/enabling-fips-mode/#enabling-fips-mode
 
-# start the InsightVM console service, not started by default
+# start the InsightVM console service, not started by default with non-interactive install
 sudo systemctl start nexposeconsole.service
 
 ########## END OF REQUIRED STEPS, the following are optional for automated deployments:

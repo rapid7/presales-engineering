@@ -1,12 +1,21 @@
 #!/bin/bash
 # Tim H 2020
 # Increasing the size of LVM partitions in CentOS 7 virtual machines with XFS file system
-#   You should power off the virtual machine and increase the disk size BEFORE running this script
-#   May have to delete snapshots before resizing
+# Prep steps:
+#	1) Power off VM
+#	2) Delete all snapshots
+#	3) increase virtual HDD size
+#	4) take a new snapshot
+#	5) boot up the VM and run this script
+#
 # References:
 #   https://stackoverflow.com/questions/26305376/resize2fs-bad-magic-number-in-super-block-while-trying-to-open
 #   https://www.tecmint.com/extend-and-reduce-lvms-in-linux/
 #   https://kb.vmware.com/s/article/1006371
+
+# Clean up to save space, drive might be full:
+yum clean all
+yum autoremove
 
 # install dependencies for commands called in this script
 yum install -y coreutils lvm2 xfsprogs cloud-utils-growpart
@@ -15,7 +24,7 @@ yum install -y coreutils lvm2 xfsprogs cloud-utils-growpart
 df -T /
 
 fdisk /dev/sda
-# n p 3 [enter] [enter] w
+# n p 3 [enter] [enter] [enter] w
 
 # maybe I'll do it this way automated one day
 #	https://serverfault.com/questions/258152/fdisk-partition-in-single-line/721878

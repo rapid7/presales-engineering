@@ -10,5 +10,4 @@
 # bomb out if any errors occur
 set -e
 
-
 awk -F/ '{print $3}' "$1" | sort --unique

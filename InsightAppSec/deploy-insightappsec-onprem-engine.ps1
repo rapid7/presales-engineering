@@ -11,7 +11,7 @@ cd ~/Downloads
 # Download the latest version of the InsightAppSec scan engine
 curl.exe -L -o R7-insightAppSecEngine-Setup-x64-US-latest.exe https://us.appsec.insight.rapid7.com/downloads/engine-installer
  
-# TODO: create the answers/input file
+# create the answers/input file
 New-Item ./InsightAppSec-Install-Answers.txt
 Set-Content ./InsightAppSec-Install-Answers.txt 'format needs to be determined
 APIKEY=123456

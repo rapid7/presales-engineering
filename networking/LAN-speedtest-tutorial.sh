@@ -3,7 +3,7 @@
 # LAN Speed Test
 # iperf3 needs to be installed on TWO systems on the network
 # This guide assumes RHEL or CentOS, but is mostly the same for other distros.
-# Can also be done on OS X with "brew install iperf3"
+# Install on OS X with brew: "brew install iperf3"
 # References:
 #   https://www.tecmint.com/test-network-throughput-in-linux/
 
@@ -13,6 +13,7 @@ exit 1
 ##############################################################################
 # Server side:
 ##############################################################################
+# apt-get install iperf3 # Ubuntu/Debian
 yum install -y iperf3
 
 iperf3 -s -f m -p 5201      # listen on TCP 5201 (the default port) and report in megabits per second

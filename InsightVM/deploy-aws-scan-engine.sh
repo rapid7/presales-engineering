@@ -76,6 +76,7 @@ sleep 240
 # console to engine pairing
 # available for homelab when console is behind firewall
 # Just create a normal InsightVM console user and give them permissions on at least the engine settings.
+# shellcheck disable=SC1091
 source ./.env
 # uses the following variables from the .env file: IVM_API_USERNAME, IVM_API_PASSWORD, IVM_HOSTNAME_PORT
 NEW_ENGINE_ID="$RANDOM" # random number placeholder, could also just pull the highest ID and add one to it
@@ -101,7 +102,7 @@ echo "attempting connection to InsightVM console: $IVM_HOSTNAME_PORT"
 curl  --insecure --trace-ascii pairing_request_body-$NEW_FQDN.log --location "https://$IVM_HOSTNAME_PORT/api/3/scan_engines" \
     --header 'Accept: application/json;charset=UTF-8' \
     --header 'Content-Type: application/json' \
-    --user $IVM_API_USERNAME:$IVM_API_PASSWORD \
+    --user "$IVM_API_USERNAME":"$IVM_API_PASSWORD" \
     --data-raw "$(generate_post_data)"
 
 # output the request body for debugging purposes

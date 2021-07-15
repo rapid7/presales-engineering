@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Tim H 2019
 # General Linux system info and diagnostic info
 #	Useful for prospects who want to check a server's specs but aren't 
 #	comfortable with command line Linux

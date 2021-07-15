@@ -10,7 +10,7 @@
 set -e
 
 VULN_NAME_SUBSTRING=$1
-VULN_OS=$2
+#VULN_OS=$2     #TODO: This variable isn't being used yet
 
 echo "starting script..."
 
@@ -35,14 +35,22 @@ VULN_NAME_SUBSTRING="CVE-2014-6271"
 VULN_NAME_SUBSTRING="ms08-067"
 
 # define some output files for storage
-JAR_FILE_LIST="jar_file_list-$VULN_NAME_SUBSTRING.txt"
+JAR_FILE_LIST="jar_file_list.txt"                  # independent of CVE/check
 OUTPUT_FILENAME="output-$VULN_NAME_SUBSTRING.csv"
 # clear any existing file
 rm -f "$OUTPUT_FILENAME"
 
 # find the list of all the checks.jar files and store them in a text file for parsing
-find /opt/rapid7/nexpose/plugins -type f -iname '*checks.jar' > "$JAR_FILE_LIST"
+# compress the checks JAR files to a volume: 
+#find /opt/rapid7/nexpose/plugins -type f -iname '*checks.jar' -print0 | tar -czf ~/plugins.tar.gz  --null -T -
 
+# path to where all the plugins are. If you're using this on an InsightVM console/scane engine then use the /opt one
+#PLUGINS_DIR="/opt/rapid7/nexpose/plugins"
+# In order to make sure I don't break anything, and so I don't have to have remote access, I have these files copied to my local system:
+PLUGINS_DIR="$HOME/Downloads/scanner_plugins"
+
+# only have to do once
+find "$PLUGINS_DIR" -type f -iname '*checks.jar' > "$JAR_FILE_LIST"
 
 echo "Searching JAR files for $VULN_NAME_SUBSTRING..."
 
@@ -53,7 +61,11 @@ do
    VCK_FILELIST=$(jar tf "$JAR_FILENAME" | grep -i "$VULN_NAME_SUBSTRING")
 
    # if it actually found some checks that match:
-   if [ ! -z "${VCK_FILELIST}" ]; then
+   if [ -n "${VCK_FILELIST}" ]; then
+      # store the scanner name
+      # TODO: hardcoded 8 might not work on local file system
+      #SCANNER_NAME=$(dirname "$JAR_FILENAME" | cut -d "/" -f8)   #default
+      SCANNER_NAME=$(dirname "$JAR_FILENAME" | cut -d "/" -f6)    #Tim's laptop testing
 
       # iterate through the list of VCK files in the list that support the CVE
       for VCK_FILENAME_ITERATOR in $VCK_FILELIST; do
@@ -61,11 +73,13 @@ do
          #     OS_VULN=${VCK_FILENAME_ITERATOR%$VULN_NAME_SUBSTRING*}   # this doesn't work due to case insensitivity
          # TODO: Extract the OS name and version out of the VCK filename and store as other columns the CSV
 
+         OS_NAME="<TBD>"
+         OS_VERSION="<TBD>"
+
          # dump the relevant information into a CSV output for later processing
-         echo "$JAR_FILENAME,$VCK_FILENAME_ITERATOR" >> "$OUTPUT_FILENAME"
+         echo "$JAR_FILENAME,$VCK_FILENAME_ITERATOR,$SCANNER_NAME,$OS_NAME,$OS_VERSION" >> "$OUTPUT_FILENAME"
       done
    fi
-
 done < "$JAR_FILE_LIST"
 
 echo "finished searching JAR files."

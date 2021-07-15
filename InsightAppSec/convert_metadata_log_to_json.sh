@@ -3,6 +3,8 @@
 # Converts a trafficmetadata log file into JSON format
 #   Useful for processing with jq for doing analysis on a log file
 
+# TODO: have to manually clean up the final comma at the end of the file
+
 # TODO: strip the "ms" out of the response time 
 #       using JSON since quotes and other things will break CSV      
 #       should double check some of the injection attacks or strip them, they could break the JSON too
@@ -32,7 +34,7 @@ echo "starting script"
 
 OUTPUT_JSON_FILE="$METADATA_LOG_FILE.json"
 
-# delete the output file if it already exists, removed since using > intead of >> on first output to the file
+# delete the output file if it already exists, removed since using > instead of >> on first output to the file
 #rm -f "$OUTPUT_JSON_FILE"
 
 # bomb out if any errors occur
@@ -100,7 +102,6 @@ echo "
    ]
 }" >> "$OUTPUT_JSON_FILE"
 
-# TODO: have to manually clean up the final comma at the end of the file
 
 echo "validating JSON..."
 jsonlint -q "$OUTPUT_JSON_FILE"

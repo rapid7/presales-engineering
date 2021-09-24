@@ -21,3 +21,6 @@ cd 3.1.1.9
 
 #run diagnostics, test connection via Rapid7 collector (as a proxy). Collector hosts a proxy on TCP 8037
 .\ir_agent.exe  -diagnose -region us-east-1 -proxy https://COLLECTOR_HOSTNAME_OR_IP:8037
+
+# test to see if agent is listening on UDP 31400
+# InsightVM will attempt to add any agent it finds

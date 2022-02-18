@@ -1,5 +1,2 @@
 banned_words.txt
-*.log
-*sample*
-*example*
 .DS_Store

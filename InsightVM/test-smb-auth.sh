@@ -8,11 +8,11 @@
 #   https://www.linuxtopia.org/online_books/network_administration_guides/using_samba_book/ch09_02_18.html
 #   https://www.varonis.com/blog/cifs-vs-smb/
 
-TARGET_FQDN="dc02.int.company.local"   # fully qualified domain name of the target you're trying to authenticate to
-SMB_USERNAME="insightvm-service-account-name"          # service account username, not including any domain
-SMB_DOMAIN="INT"                    # Active Directory Domain - I think this must be all caps. Don't put the whole "int.company.local", just INT
+TARGET_FQDN="dc02.int.company.local"            # fully qualified domain name of the target you're trying to authenticate to
+SMB_USERNAME="insightvm-service-account-name"   # service account username, not including any domain
+SMB_DOMAIN="INT"                                # Active Directory Domain - I think this must be all caps. Don't put the whole "int.company.local", just INT
 
-SMB_SHARE="ADMIN\$"                 # SMB Share being accessed
+SMB_SHARE="ADMIN\$"                             # SMB Share being accessed
 
 # view network configuration, check if there are more than 1 NICs
 # displays all network adapters, even if they are down. You can ignore the loopback (lo) adapter

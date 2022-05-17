@@ -241,19 +241,23 @@ download_r7_installers () {
 	curl -o Rapid7Setup-Linux64.bin             https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin
 	curl -o Rapid7Setup-Linux64.bin.sha512sum   http://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin.sha512sum
 
-	# check the integrity of the IVM installer delete it if it doesn't match
+	# check the integrity of the IVM installer, delete it if it doesn't match
 	sha512sum --check Rapid7Setup-Linux64.bin.sha512sum || rm -f Rapid7Setup-Linux64.bin
+
+	# rename it so it's clear what it is
 	mv Rapid7Setup-Linux64.bin InsightVM_installer.bin
 
 	# No hashsum files for other installers
-	curl -o collector_installer.sh             https://s3.amazonaws.com/com.rapid7.razor.public/InsightSetup-Linux64.sh
-	curl -o r7-orchestrator-installer.sh   	   https://us.downloads.connect.insight.rapid7.com/orchestrator/installers/r7-orchestrator-installer.sh
-	curl -o Metasploit_Pro_installer.run       https://downloads.metasploit.com/data/releases/metasploit-latest-linux-x64-installer.run
-	curl -o Metasploit_Framework_installer.run https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb
-	curl -o sensor_installer.sh                https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/latest/linux/x86_64/sensor_installer_latest_x64.sh
+	curl -o r7-collector-installer.sh             "https://s3.amazonaws.com/com.rapid7.razor.public/InsightSetup-Linux64.sh"
+	###curl -o r7-orchestrator-installer.sh   	      https://us.downloads.connect.insight.rapid7.com/orchestrator/installers/r7-orchestrator-installer.sh
+	curl -o Metasploit-Pro-installer.run          https://downloads.metasploit.com/data/releases/metasploit-latest-linux-x64-installer.run
+	curl -o Metasploit-Framework-installer.run    https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb
+	curl -o r7-network-sensor-installer.sh        "https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/latest/linux/x86_64/sensor_installer_latest_x64.sh"
 	
-	# broken as of 4/11/2021
-	curl -o agent_installer.sh                 https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/latest/linux/x86/agent_control.sh
+	# Download agent, this URL changes over time, there doesn't seem to be a 
+	# permanent URL to get the latest agent version
+	# version as of 3/24/2022
+	curl -o agent_installer.sh                 "https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/1647021342/linux/x86/agent_control_1647021342.sh"
 
 	# mark the new downloads as executable
 	chmod 500 ./*.bin ./*.sh ./*.run

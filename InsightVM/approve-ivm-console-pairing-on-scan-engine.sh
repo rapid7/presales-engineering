@@ -1,20 +1,23 @@
 #!/bin/bash
-#	Tim H 2020
-#	This script will enable a remote scan engine on an IVM console based off its public IP
-#	Designed to be used on R7 hosted shared scan engines to simplify process of approving
-#	prospect's POC consoles
+#	Tim H 2020,2022
+#	This script will whitelist an InsightVM console when run from an InsightVM scan engine.
+#   This script runs on the scan engine, not on the console. It is designed for console to engine pairing: 
+#	as documented here: https://docs.rapid7.com/insightvm/configuring-distributed-scan-engines/#standard-pair-console-to-engine
 # 	
+#	Workflow:
+#		1) Sign into the InsightVM console web interface and add a new scan engine by IP
+#		2) ssh into the scan engine
+#		3) run this script and provide the public IP of the InsightVM console that was attempting to pair to it.
+#
 #	Example usage:
 #	./approve_scan_engine_ip.sh 1.2.3.4
 #
 #	Optional second parameter: path to the consoles.xml file (if it was not installed to the default location)
 #	./approve_scan_engine_ip.sh 1.2.3.4 /mnt/insightvm/nexpose/nse/conf/consoles.xml
 #
-#	TODO: add feedback or verify that it is enabled after sending command
 #
 #	References:
 #		https://raymii.org/s/snippets/Sending_commands_or_input_to_a_screen_session.html
-#		https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
 #
 set -e
 SCAN_ENGINE_IP=$1

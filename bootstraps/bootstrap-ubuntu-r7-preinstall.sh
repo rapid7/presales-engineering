@@ -217,10 +217,10 @@ install_docker () {
 	# Installs docker in a way to prep for DHowe's script
 	#W: GPG error: https://download.docker.com/linux/ubuntu xenial InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 7EA0A9C3F273FCD8
 	silent_apt_install docker docker-compose
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-	apt -qq -y update
-	apt -qq -y install docker-ce
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+	sudo apt -qq -y update
+	sudo apt -qq -y install docker-ce
 	curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 	
 	# in AWS ubuntu $USER does not exist when running in bootstrap mode
@@ -477,7 +477,7 @@ chown -R $NEW_USERNAME:$NEW_USERNAME /home/$NEW_USERNAME
 
 # populate the locate database
 log "Updating local file system search index..."
-updatedb
+sudo updatedb
 
 log "Successfully finished"
 log "Issuing reboot to force all changes" 

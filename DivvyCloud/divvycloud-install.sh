@@ -1,6 +1,10 @@
 #!/bin/bash
 # Tim H 2020
 # installing and testing DivvyCloud
+# Most relevant: https://docs.divvycloud.com/docs/linux-test-drive-deployment
+# https://docs.divvycloud.com/docs/self-hosted-getting-started-guide
+# https://docs.divvycloud.com/docs/production-deployments
+# https://docs.divvycloud.com/docs/test-drive-deployments
 
 # 8GB w/ 2 cores
 

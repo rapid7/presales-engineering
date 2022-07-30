@@ -31,7 +31,7 @@ python3 --version
 # that will take 90-120 minutes even thought it says 23 min
 python --version
 
-# upgrade PIP, both sudo and regular are needed for some dumb reason
+# upgrade PIP itself
 sudo pip3 install --upgrade pip
 pip3 install --upgrade pip
 

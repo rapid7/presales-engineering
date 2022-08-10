@@ -56,7 +56,7 @@ service iptables stop   && chkconfig iptables off
 # Download the installer for both InsightVM and Nexpose (same) and hashsum file
 # This makes sure you're getting the latest installer
 wget --quiet https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin \
-		http://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin.sha512sum
+ http://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin.sha512sum
 
 log "Downloaded IVM installer."
 
@@ -69,7 +69,7 @@ chmod u+x Rapid7Setup-Linux64.bin
 log "Starting installation."
 
 # Install and start engine, unpaired to anything
-./Rapid7Setup-Linux64.bin -q -overwrite \
+sudo ./Rapid7Setup-Linux64.bin -q -overwrite \
     -Vfirstname='FirstName' \
     -Vlastname='LastName' \
     -Vcompany='Rapid7' \
@@ -83,14 +83,21 @@ log "Starting installation."
 # Install the InsightVM scan engine and specify the InsightVM console and shared secret to pair with:
 # this will automatically start the service too
 # define variables for deployment
-#console="example.company.com"
-#secret="A1A1-B2B2-C3C3-D4D4-E5E5-F6F6-G7G7-H8H8"
-#./Rapid7Setup-Linux64.bin -q -overwrite -Vfirstname='FirstName' -Vlastname='LastName' \
-#    -Vcompany='Rapid7' -Vusername='nxadmin' -Vpassword1='nxadmin' -Vpassword2='nxadmin' \
-#    -Vsys.component.typical\$Boolean=false -Vsys.component.engine\$Boolean=true \
+# r7_console="example.company.com"
+# r7_secret="A1A1-B2B2-C3C3-D4D4-E5E5-F6F6-G7G7-H8H8"
+# sudo ./Rapid7Setup-Linux64.bin -q -overwrite -VRepair=true \
+#    -Vfirstname='FirstName' \
+#    -Vlastname='LastName' \
+#    -Vcompany='Rapid7' \
+#    -Vsys.component.typical\$Boolean=false \
+#    -Vsys.component.engine\$Boolean=true \
 #    -VinitService\$Boolean=true \
 #    -VcommunicationDirectionChoice\$Integer=0 \
-#    -VconsoleAddress="$console" -VconsoleDetailPort='40815' -VsharedSecret="$secret"
+#    -VconsoleAddress="$r7_console" \
+#    -VconsoleDetailPort='40815' \
+#    -VsharedSecret="$r7_secret"
+#
+# sudo cat /opt/rapid7/nexpose/nse/conf/consoles.xml
 
 log "Finished installation, waiting for service to start..."
 

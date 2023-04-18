@@ -1,3 +1,4 @@
+sendData-*.txt
 banned_words.txt
 .DS_Store
 *.env

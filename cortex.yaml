@@ -1,0 +1,14 @@
+---
+info:
+  title: Presales Engineering
+  x-cortex-git:
+    github:
+      alias: r7org
+      repository: rapid7/presales-engineering
+  x-cortex-tag: presales-engineering
+  x-cortex-type: service
+  x-cortex-domain-parents:
+  - tag: sales-engineering
+openapi: 3.0.1
+servers:
+- url: "/"

@@ -15,8 +15,13 @@
 # bail immediately on any errors
 set -e
 
-# Agent URL last updated Oct 8 2022, for Intel processors, not M1
-INSTALLER_URL="https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/1663181909/darwin/x86_64/agent_control_1663181909_x64.sh"
+
+# Agent URL last updated Nov 10, 2023
+# Intel 
+INSTALLER_URL="https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/1697643903/darwin/x86_64/agent_control_1697643903_x64.sh"
+
+# Apple M1/M2 chip (ARM)
+INSTALLER_URL="https://s3.amazonaws.com/com.rapid7.razor.public/endpoint/agent/1697643903/darwin/arm64/agent_control_1697643903_arm64.sh"
 
 # Agent token for personal homelab
 R7_AGENT_TOKEN="us:e11b79d9-1111-1111-1111-54526a1775f7"

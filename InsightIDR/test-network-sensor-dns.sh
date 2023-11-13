@@ -24,7 +24,8 @@ echo "${COUNTER_ITERATOR}" > "$COUNTER_FILE"
 
 # get the domain-less hostname of the localhost
 SHORT_HOSTNAME=$(hostname -s)
-DNS_FRIENDLY_TARGET=$(echo "$TARGET_DNS_SERVER" | sed  's/\./\-/g')
+# DNS_FRIENDLY_TARGET=$(echo "$TARGET_DNS_SERVER" | sed  's/\./\-/g')
+DNS_FRIENDLY_TARGET=${TARGET_DNS_SERVER//\./\-}
 
 # build the 
 FQDN_SUFFIX="dnstest-$COUNTER_ITERATOR-from-$SHORT_HOSTNAME-to-$DNS_FRIENDLY_TARGET.easysearch.whatever.com"

@@ -1,7 +1,12 @@
 #!/bin/bash
 # Tim H 2022
-# SENSITIVE
-# R7 agent installer for OS X/Mac OS
+
+# R7 agent installer/migrator for Mac OS
+# If this system already has the R7 agent installed, it will uninstall it
+# and install a new version. It will not keep the previous agent GUID/history.
+# It is ideally used for migrating an agent between two different Insight
+# Orgs.
+#
 # Designed to be run as a Shell Script in Microsoft InTune/MDM
 # Intentionally does not use the $HOME env variable since it isn't defined
 # when run as MDM script.

@@ -53,7 +53,7 @@ LogLevel INFO
 EOF
 
 sudo mkdir /var/run/nxlog
-sudo chown root:$(whoami) /etc/nxlog
+sudo chown root:"$(whoami)" /etc/nxlog
 
 # check config file syntax
 sudo /usr/bin/nxlog -v

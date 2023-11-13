@@ -25,3 +25,6 @@ chmod u+x "$INSTALLER_FILENAME"
 
 # run the installer, pair it to the proper org using the token
 sudo "./$INSTALLER_FILENAME" install_start --token "$R7_AGENT_TOKEN"
+
+# verify the agent is running:
+ps aux | grep ir_agent

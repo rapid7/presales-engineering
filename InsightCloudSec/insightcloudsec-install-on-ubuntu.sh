@@ -1,29 +1,30 @@
 #!/bin/bash
-# Tim H 2022
+# Tim H 2022, 2023
 # Installing InsightCloudSec on Ubuntu 20.04
-# Most relevant: https://docs.divvycloud.com/docs/linux-test-drive-deployment
+# References:
+# https://docs.rapid7.com/insightcloudsec/linux-test-drive-deployment/
 
 # 16 GB RAM, 4 cores, 40 GB storage
 
 sudo apt-get update
-sudo apt-get install docker-compose
+sudo apt-get -y install docker-compose
 
-# Installer looks in the wrong path for docker-compose, have to create
-# symlink. Oddly  enough, the preflight uses $PATH and finds it, but the
-# installer doesn't find it.
-sudo ln -s /usr/bin/docker-compose /usr/local/bin/docker-compose
+ICS_INSTALL_PATH="/opt/rapid7/InsightCloudSec"
+sudo mkdir -p "$ICS_INSTALL_PATH"
+sudo chown "$(whoami)":root "$ICS_INSTALL_PATH"
+sudo chmod 770 "$ICS_INSTALL_PATH"
+cd "$ICS_INSTALL_PATH" || exit 1
 
 # pre-install check
-wget https://s3.amazonaws.com/divvypreflight/preflight.sh
-chmod u+x preflight.sh
-sudo ./preflight.sh
+# Nov 20, 2023 - seems like this script is old and several of the checks
+# fail when they should not
+# wget https://s3.amazonaws.com/divvypreflight/preflight.sh
+# chmod u+x preflight.sh
+# sudo ./preflight.sh
 
 # download installer
 wget https://s3.amazonaws.com/get.divvycloud.com/testdrive/testdrive.sh
 chmod u+x testdrive.sh
-
-# install InsightCloudSec "test drive" - takes a few minutes to download
-# all the container images:
 sudo ./testdrive.sh
 
 # view the new crontab:
@@ -36,8 +37,8 @@ sudo docker ps
 sudo netstat -tunlp | grep docker
 
 # now visit this page from your web browser to create creds
-
-# https://hostname/setup
+# curl https://$(hostname):8001/setup
+#
 # after signing in, view your license information here. You'll have a 30 day
 # trial by default
 # https://hostname/settings/license

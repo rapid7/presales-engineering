@@ -1,3 +1,12 @@
+REM Tim H 2023
+REM Tested and working inside CMD on Windows 2019 Server, pasting line by line
+REM This next command alone should trigger an alert in CMD, not powershell
+
+curl -X POST https://content.dropboxapi.com/2/files/upload
+
+
+REM These lines actually upload and list files in Dropbox, but you need an API
+REM key
 set DROPBOX_ACCESS_TOKEN="REDACTED"
 
 curl -X POST "https://api.dropboxapi.com/2/users/get_current_account" --header "Authorization: Bearer %DROPBOX_ACCESS_TOKEN%"

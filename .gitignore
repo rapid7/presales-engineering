@@ -1,4 +1,4 @@
+sendData-*.txt
 banned_words.txt
-*.log
-*sample*
-*example*
+.DS_Store
+*.env

@@ -1,0 +1,87 @@
+version: '2.2'
+services:
+  # Web Server
+  interfaceserver:
+    image: public.ecr.aws/rapid7-insightcloudsec/ics/core:v22.12.7
+    links:
+      - redis:redis
+      - mysql:mysql
+    command:
+      - divvycloud
+      - webserver
+    env_file:
+      - /volume1/docker/InsightCloudSec/prod.env
+    environment:
+      VIRTUAL_ENV: /
+    ports:
+      - 0.0.0.0:8001:8001/tcp
+    restart: always
+    volumes:
+      - /volume1/docker/InsightCloudSec/plugins:/plugins
+      # Inject proxy certificate/chain into container for enrollment in trusted CA bundle
+      #- ./proxy_cert.crt:/usr/local/share/ca-certificates/proxy_cert.crt
+
+  # Scheduler
+  scheduler:
+    image: public.ecr.aws/rapid7-insightcloudsec/ics/core:v22.12.7
+    links:
+      - redis:redis
+      - mysql:mysql
+    command:
+      - divvycloud
+      - scheduler
+      - --db-upgrade
+    env_file:
+      - /volume1/docker/InsightCloudSec/prod.env
+    environment:
+      VIRTUAL_ENV: /
+    restart: always
+    scale: 1
+    volumes:
+      - /volume1/docker/InsightCloudSec/plugins:/plugins
+
+  # Workers
+  worker:
+    image: public.ecr.aws/rapid7-insightcloudsec/ics/core:v22.12.7
+    links:
+      - redis:redis
+      - mysql:mysql
+    command:
+      - divvycloud
+      - worker
+    env_file:
+      - /volume1/docker/InsightCloudSec/prod.env
+    environment:
+      VIRTUAL_ENV: /
+    restart: always
+    scale: 1
+    volumes:
+      - /volume1/docker/InsightCloudSec/plugins:/plugins
+      # Inject proxy certificate/chain into container for enrollment in trusted CA bundle
+      #- ./proxy_cert.crt:/usr/local/share/ca-certificates/proxy_cert.crt
+
+  # Databases
+  mysql:
+    image: divvycloud/quickstart-db
+    ports:
+      - 0.0.0.0:3306:3306/tcp
+    volumes:
+      - /volume1/docker/InsightCloudSec/data/db:/var/lib/mysql
+    command:
+      - --lower-case-table-names=1
+    environment:
+      MYSQL_ROOT_PASSWORD: divvy
+      MYSQL_DATABASE: divvy
+      MYSQL_USER: divvy
+      MYSQL_PASSWORD: divvy
+    restart: always
+
+  redis:
+    image: redis
+    ports:
+      - 0.0.0.0:6379:6379/tcp
+    command:
+      - redis-server
+      - --save ""
+      - --appendonly no
+    restart: always

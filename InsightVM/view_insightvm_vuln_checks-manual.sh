@@ -5,9 +5,6 @@
 #   for example "CVE-2014-6271"
 #   Designed for Ubuntu 16.04, to be run as the root user
 
-echo "this script is an example for copying and pasting, do not run this script directly"
-exit 1
-
 # install a tool that will give you the jar command to interact with JAR files
 sudo apt-get update
 sudo apt-get install -y fastjar
@@ -16,11 +13,14 @@ sudo apt-get install -y fastjar
 jar tf /opt/rapid7/nexpose/plugins/java/1/PaloAltoScanner/1/checks.jar
 
 # find all checks for Palo Alto Security Advisory 2016-0020: "PAN-SA-2016-0020"
-find /opt/rapid7/nexpose/plugins -type f -iname '*checks.jar' -exec  sh -c 'jar tf {} | grep pan-sa-2016-0020' \; -print
+# TODO: fix syntax issue SC2156; change {} to parameters
+find /opt/rapid7/nexpose/plugins -type f -iname '*checks.jar' \
+    -exec  sh -c 'i="$1"; jar tf "$i" | grep pan-sa-2016-0020' \; -print
 
 # find all checks for Shellshock: CVE-2014-6271
 # note that the grep is case insensitive
-find /opt/rapid7/nexpose/plugins -type f -iname '*checks.jar' -exec  sh -c 'jar tf {} | grep -i CVE-2014-6271' \; -print
+find /opt/rapid7/nexpose/plugins -type f -iname '*checks.jar' \
+    -exec  sh -c 'i="$1"; jar tf "$i" | grep CVE-2014-6271' \; -print
 
 # Let's say you'd like to see exactly how InsightVM performs the vuln checks
 # for ShellShock on CentOS 7.0
@@ -30,7 +30,8 @@ find /opt/rapid7/nexpose/plugins -type f -iname '*checks.jar' -exec  sh -c 'jar 
 # centos_linux-cve-2014-6271-linuxrpm-cesa-2014-1293-bash-centos70-x86_64.vck
 
 cd /root/ || exit 1
-jar xf /opt/rapid7/nexpose/plugins/java/1/CentOSRPMScanner/1/checks.jar centos_linux-cve-2014-6271-linuxrpm-cesa-2014-1293-bash-centos70-x86_64.vck
+jar xf /opt/rapid7/nexpose/plugins/java/1/CentOSRPMScanner/1/checks.jar \
+    centos_linux-cve-2014-6271-linuxrpm-cesa-2014-1293-bash-centos70-x86_64.vck
 
 # the above commands will extract that one VCK file (the vuln check) into the
 # root user's home directory:

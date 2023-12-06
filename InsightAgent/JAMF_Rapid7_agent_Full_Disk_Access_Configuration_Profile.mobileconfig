@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDescription</key>
+			<string>Rapid7 Agent FDA</string>
+			<key>PayloadDisplayName</key>
+			<string>Rapid7 Agent FDA</string>
+			<key>PayloadIdentifier</key>
+			<string>REDACTED</string>
+			<key>PayloadOrganization</key>
+			<string>Rapid7</string>
+			<key>PayloadType</key>
+			<string>com.apple.TCC.configuration-profile-policy</string>
+			<key>PayloadUUID</key>
+			<string>REDACTED</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>Services</key>
+			<dict>
+				<key>SystemPolicyAllFiles</key>
+				<array>
+					<dict>
+						<key>Allowed</key>
+						<true/>
+						<key>CodeRequirement</key>
+						<string>identifier bootstrap and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = UL6CGN7MAL</string>
+						<key>Comment</key>
+						<string></string>
+						<key>Identifier</key>
+						<string>/opt/rapid7/ir_agent/ir_agent</string>
+						<key>IdentifierType</key>
+						<string>path</string>
+					</dict>
+				</array>
+				<key>SystemPolicyDesktopFolder</key>
+				<array>
+					<dict>
+						<key>Allowed</key>
+						<true/>
+						<key>CodeRequirement</key>
+						<string>identifier bootstrap and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = UL6CGN7MAL</string>
+						<key>Comment</key>
+						<string></string>
+						<key>Identifier</key>
+						<string>/opt/rapid7/ir_agent/ir_agent</string>
+						<key>IdentifierType</key>
+						<string>path</string>
+					</dict>
+				</array>
+				<key>SystemPolicyDocumentsFolder</key>
+				<array>
+					<dict>
+						<key>Allowed</key>
+						<true/>
+						<key>CodeRequirement</key>
+						<string>identifier bootstrap and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = UL6CGN7MAL</string>
+						<key>Comment</key>
+						<string></string>
+						<key>Identifier</key>
+						<string>/opt/rapid7/ir_agent/ir_agent</string>
+						<key>IdentifierType</key>
+						<string>path</string>
+					</dict>
+				</array>
+				<key>SystemPolicyDownloadsFolder</key>
+				<array>
+					<dict>
+						<key>Allowed</key>
+						<true/>
+						<key>CodeRequirement</key>
+						<string>identifier bootstrap and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = UL6CGN7MAL</string>
+						<key>Comment</key>
+						<string></string>
+						<key>Identifier</key>
+						<string>/opt/rapid7/ir_agent/ir_agent</string>
+						<key>IdentifierType</key>
+						<string>path</string>
+					</dict>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Rapid7 Agent FDA</string>
+	<key>PayloadDisplayName</key>
+	<string>Rapid7 Agent FDA</string>
+	<key>PayloadIdentifier</key>
+	<string>REDACTED</string>
+	<key>PayloadOrganization</key>
+	<string>Rapid7</string>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>REDACTED</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

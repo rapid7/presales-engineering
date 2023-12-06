@@ -1,0 +1,42 @@
+{
+  "config": {
+    "name": "Mac host",
+    "endpoint": "us.data.logs.insight.rapid7.com",
+    "region": "us",
+    "api-key": "REPLACEAPIKEYHERE",
+    "state-file": "/opt/rapid7/ir_agent/components/insight_agent/common/config/logs.state",
+    "formatter": "plain",
+    "metrics": {
+      "destination": "MacOS Logs/metrics",
+      "metrics-cpu": "system",
+      "metrics-disk": "sum sda4 sda5",
+      "metrics-interval": "60s",
+      "metrics-mem": "system",
+      "metrics-net": "sum eth0",
+      "metrics-space": "/",
+      "metrics-swap": "system",
+      "metrics-vcpu": "core",
+      "system-stat-enabled": true
+    },
+    "logs": [
+      {
+        "destination": "MacOS Logs/syslog",
+        "enabled": true,
+        "name": "System log",
+        "path": "/var/log/system.log"
+      },
+      {
+        "destination": "MacOS Logs/install",
+        "enabled": true,
+        "name": "Install log",
+        "path": "/var/log/install.log"
+      },
+      {
+        "destination": "MacOS Logs/agent",
+        "enabled": false,
+        "name": "Insight Agent log",
+        "path": "/opt/rapid7/ir_agent/components/insight_agent/common/agent.log"
+      }
+    ]
+  }
+}
